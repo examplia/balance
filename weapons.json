@@ -438,7 +438,7 @@
         "positive": ["This weapon is always accurate", "10% less falloff"],
         "negative": ["-90% pellets per shot", "-20% slower firing speed"]
       },
-      "changes": [],
+      "changes": ["Slug shotgun concept", "Single bullet per shot", "Baseball-themed naming"],
       "reasoning": "An idea conceptualized by a friend, making a new Flanker primary weapon a slug shotgun. The name of the weapon is also a reference to Baseball, since Slugger's a term for the sport. It fits Flanker's personality name-wise.",
       "isConcept": true
     },
@@ -451,7 +451,7 @@
         "positive": ["Drink to regain up to +75 health", "+25% faster consumption time", "+50% increase in charge recharge rate"],
         "negative": ["-50% healing from healing sources on wearer"]
       },
-      "changes": [],
+      "changes": ["Health drink concept", "Substantial healing boost", "Trade-off with other healing sources"],
       "reasoning": "A health drink concept for Flanker that provides substantial healing but reduces healing from other sources. Could be useful for solo play or when medics are unavailable.",
       "isConcept": true
     },
@@ -464,7 +464,7 @@
         "positive": ["+42% clip size", "20% more accurate"],
         "negative": ["-20% damage penalty", "-20% slower firing speed"]
       },
-      "changes": [],
+      "changes": ["Pistol concept for Trooper", "Increased clip size", "Accuracy improvements"],
       "reasoning": "This has been one of the weapons that I'm really intrigued and interested in seeing. A Trooper pistol that's a sidegrade to your usual hitscan shotgun. It might be an underused/inoffensive concept and probably would have the same popularity as 50-AE where people do use it, it's just that some prefer MAC-10 more. Who knows.",
       "isConcept": true
     },
@@ -474,11 +474,11 @@
       "type": "Secondary",
       "image": "images/ScorchShot.png",
       "stats": {
-        "positive": [],
-        "negative": []
+        "positive": ["flaregun alternative", "Area denial capabilities", "Different playstyle from flare guns"],
+        "negative": ["Limited range", "Requires fuel management", "Vulnerable while firing"]
       },
-      "changes": [],
-      "reasoning": "A conceptual flamethrower alternative for Arsonist that could provide different playstyles compared to the current flare gun options.",
+      "changes": ["Conceptual flamethrower design", "Alternative to current flare gun options", "Focus on area control"],
+      "reasoning": "A conceptual alternative for Arsonist that could provide different playstyles compared to the current flare gun options.",
       "isConcept": true
     },
     {
@@ -487,10 +487,10 @@
       "type": "Secondary",
       "image": "images/GasPasser.png",
       "stats": {
-        "positive": [],
-        "negative": []
+        "positive": ["Gas cloud area denial", "Crowd control effects", "Alternative to fire-based weapons"],
+        "negative": ["Limited visibility in gas", "Affects allies and enemies", "Requires gas canister management"]
       },
-      "changes": [],
+      "changes": ["Gas-based area denial weapon", "Crowd control focus", "Alternative Arsonist playstyle"],
       "reasoning": "A gas-based weapon concept for Arsonist that could create area denial effects or provide alternative crowd control options.",
       "isConcept": true
     },
@@ -500,10 +500,10 @@
       "type": "Primary",
       "image": "images/Huo Long Heater.png",
       "stats": {
-        "positive": [],
-        "negative": []
+        "positive": ["Flamethrower capabilities", "Area denial for tanky Brute", "Synergizes with Brute's playstyle"],
+        "negative": ["High fuel consumption", "Limited range", "Vulnerable while firing"]
       },
-      "changes": [],
+      "changes": ["Flamethrower concept for Brute", "Area denial focus", "Tanky playstyle synergy"],
       "reasoning": "A flamethrower concept for Brute that could provide area denial capabilities and synergize with Brute's tanky playstyle.",
       "isConcept": true
     }

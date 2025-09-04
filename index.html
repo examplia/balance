@@ -576,6 +576,26 @@
         </div>
     </div>
 
+    <!--
+    CUSTOMIZABLE BANNER - Easy to modify!
+    To change the banner content:
+    1. Edit the banner-icon emoji/text
+    2. Change the h3 title text
+    3. Modify the p description text
+    4. Update colors in styles.css under .custom-banner
+    5. To hide permanently, change style.display='none' to style.display='block'
+    -->
+    <div class="custom-banner">
+        <div class="banner-content">
+            <div class="banner-icon">🚧</div>
+            <div class="banner-text">
+                <h3>Site Under Heavy Construction</h3>
+                <p>This weapon rebalance site is currently undergoing major updates and improvements. Some features may be incomplete or subject to change. Thank you for your patience!</p>
+            </div>
+            <div class="banner-close" onclick="this.parentElement.parentElement.style.display='none'">✕</div>
+        </div>
+    </div>
+
     <!-- Discord Join Section -->
     <div class="discord-section">
         <div class="discord-content">
@@ -893,8 +913,8 @@
             // Add stats grid to card
             card.appendChild(statsGrid);
             
-            // Create changes section if there are changes and it's not a concept weapon
-            if (weapon.changes && weapon.changes.length > 0 && !weapon.isConcept) {
+            // Create changes section if there are changes
+            if (weapon.changes && weapon.changes.length > 0) {
                 const changesSection = document.createElement('div');
                 changesSection.className = 'changes-section';
 
