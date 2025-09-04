@@ -27,7 +27,7 @@ The `weapons.json` file is a JSON object containing a single array called `weapo
         "negative": ["Negative stat 1", "Negative stat 2"]
       },
       "changes": ["Change description 1", "Change description 2"],
-      "reasoning": "Explanation for the concept and changes",
+      "reasoning": ["Explanation for the concept and changes"],
       "isConcept": true
     }
   ]
@@ -64,7 +64,7 @@ The `weapons.json` file is a JSON object containing a single array called `weapo
     "negative": ["-20% damage penalty", "-15% clip size"]
   },
   "changes": [],
-  "reasoning": "This weapon concept aims to provide Flanker with a new aggressive playstyle option.",
+  "reasoning": ["This weapon concept aims to provide Flanker with a new aggressive playstyle option."],
   "isConcept": true
 }
 ```
@@ -81,7 +81,7 @@ The `weapons.json` file is a JSON object containing a single array called `weapo
     "negative": ["-5% slower firing speed"]
   },
   "changes": ["Increased damage bonus from 5% to 10%", "Added firing speed penalty"],
-  "reasoning": "Balancing the weapon to reduce its power while maintaining viability.",
+  "reasoning": ["Balancing the weapon to reduce its power while maintaining viability."],
   "isConcept": false
 }
 ```
