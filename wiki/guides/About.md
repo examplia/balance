@@ -6,7 +6,7 @@ Typical Colors 2 (TC2) is a custom Team Fortress 2 mod that introduces unique cl
 
 ## About This Wiki
 
-This wiki serves as a comprehensive resource for weapon rebalancing proposals and new weapon concepts for Typical Colors 2. Our goal is to improve game balance, enhance weapon viability, and introduce innovative mechanics that could potentially enrich the gameplay experience.
+This wiki serves as a comprehensive resource for weapon rebalancing proposals and new weapon concepts for Typical Colors 2.
 
 ### Our Mission
 - **Balance Improvement**: Identify and address weapon imbalances across all classes

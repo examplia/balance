@@ -5,7 +5,7 @@ We welcome contributions from the community! Whether you're suggesting weapon re
 ## How to Contribute
 
 ### 1. Fork the Repository
-- Visit the [GitHub repository](https://github.com/your-repo-here)
+- Visit the [GitHub repository](https://github.com/examplia/balance)
 - Click the "Fork" button to create your own copy
 
 ### 2. Create a Branch

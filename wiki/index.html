@@ -59,63 +59,423 @@
             border: 1px solid #4a2d5a;
         }
 
+        /* Enhanced Markdown Content Styling */
         .markdown-content {
-            line-height: 1.6;
+            line-height: 1.7;
+            font-size: 1.1rem;
+            color: #e8e0d8;
+            font-family: 'Russo One', sans-serif;
+            max-width: none;
         }
 
+        /* Typography Hierarchy */
         .markdown-content h1,
         .markdown-content h2,
-        .markdown-content h3 {
+        .markdown-content h3,
+        .markdown-content h4,
+        .markdown-content h5,
+        .markdown-content h6 {
             color: #f8d100;
-            margin-top: 2rem;
+            font-family: 'Anton', sans-serif;
+            font-weight: bold;
+            margin-top: 2.5rem;
+            margin-bottom: 1.2rem;
+            line-height: 1.3;
+            text-shadow: 0 0 10px rgba(248, 209, 0, 0.3);
+            position: relative;
+        }
+
+        .markdown-content h1 {
+            font-size: 2.5rem;
+            border-bottom: 3px solid #4a2d5a;
+            padding-bottom: 0.8rem;
+            margin-bottom: 2rem;
+        }
+
+        .markdown-content h2 {
+            font-size: 2rem;
+            border-bottom: 2px solid #4a2d5a;
+            padding-bottom: 0.6rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .markdown-content h3 {
+            font-size: 1.6rem;
+            border-bottom: 1px solid #4a2d5a;
+            padding-bottom: 0.4rem;
+            margin-bottom: 1.2rem;
+        }
+
+        .markdown-content h4 {
+            font-size: 1.4rem;
             margin-bottom: 1rem;
         }
 
-        .markdown-content h1 { border-bottom: 2px solid #4a2d5a; padding-bottom: 0.5rem; }
-        .markdown-content h2 { border-bottom: 1px solid #4a2d5a; padding-bottom: 0.3rem; }
-
-        .markdown-content p { margin-bottom: 1rem; }
-        .markdown-content ul, .markdown-content ol { margin-bottom: 1rem; padding-left: 2rem; }
-        .markdown-content li { margin-bottom: 0.5rem; }
-
-        .markdown-content code {
-            background: rgba(74, 45, 90, 0.3);
-            padding: 0.2rem 0.4rem;
-            border-radius: 3px;
-            font-family: 'Courier New', monospace;
+        .markdown-content h5,
+        .markdown-content h6 {
+            font-size: 1.2rem;
+            margin-bottom: 0.8rem;
         }
 
-        .markdown-content pre {
-            background: rgba(74, 45, 90, 0.2);
-            padding: 1rem;
-            border-radius: 8px;
-            overflow-x: auto;
-            border: 1px solid #4a2d5a;
+        /* Paragraph and Text Styling */
+        .markdown-content p {
+            margin-bottom: 1.5rem;
+            text-align: justify;
+            hyphens: auto;
+            word-wrap: break-word;
         }
 
-        .markdown-content blockquote {
-            border-left: 4px solid #4a2d5a;
-            padding-left: 1rem;
-            margin: 1rem 0;
+        .markdown-content p:last-child {
+            margin-bottom: 0;
+        }
+
+        /* Enhanced Lists */
+        .markdown-content ul,
+        .markdown-content ol {
+            margin-bottom: 1.5rem;
+            padding-left: 2rem;
+            position: relative;
+        }
+
+        .markdown-content li {
+            margin-bottom: 0.8rem;
+            line-height: 1.6;
+            position: relative;
+        }
+
+        .markdown-content ul li::before {
+            content: '•';
             color: #9acdff;
+            font-weight: bold;
+            position: absolute;
+            left: -1.2rem;
+            font-size: 1.2em;
         }
 
+        .markdown-content ol {
+            counter-reset: list-counter;
+        }
+
+        .markdown-content ol li::before {
+            content: counter(list-counter) '.';
+            counter-increment: list-counter;
+            color: #9acdff;
+            font-weight: bold;
+            position: absolute;
+            left: -1.8rem;
+            width: 1.5rem;
+            text-align: right;
+            font-size: 0.9em;
+        }
+
+        /* Enhanced Code Styling */
+        .markdown-content code {
+            background: linear-gradient(135deg, rgba(74, 45, 90, 0.4) 0%, rgba(58, 29, 74, 0.3) 100%);
+            color: #e8e0d8;
+            padding: 0.3rem 0.6rem;
+            border-radius: 6px;
+            font-family: 'Courier New', 'Monaco', 'Menlo', monospace;
+            font-size: 0.9em;
+            border: 1px solid rgba(74, 45, 90, 0.5);
+            box-shadow: 0 2px 4px rgba(74, 45, 90, 0.2);
+            transition: all 0.3s ease;
+        }
+
+        .markdown-content code:hover {
+            background: linear-gradient(135deg, rgba(74, 45, 90, 0.6) 0%, rgba(58, 29, 74, 0.5) 100%);
+            transform: translateY(-1px);
+            box-shadow: 0 4px 8px rgba(74, 45, 90, 0.3);
+        }
+
+        /* Enhanced Code Blocks */
+        .markdown-content pre {
+            background: linear-gradient(135deg, rgba(10, 6, 21, 0.95) 0%, rgba(20, 10, 35, 0.98) 100%);
+            border: 2px solid #4a2d5a;
+            border-radius: 12px;
+            padding: 1.5rem;
+            margin: 1.5rem 0;
+            overflow-x: auto;
+            position: relative;
+            box-shadow:
+                0 8px 32px rgba(74, 45, 90, 0.3),
+                inset 0 1px 0 rgba(255, 255, 255, 0.05);
+        }
+
+        .markdown-content pre::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, #4a2d5a, #9acdff, #4a2d5a);
+            border-radius: 12px 12px 0 0;
+        }
+
+        .markdown-content pre code {
+            background: transparent;
+            border: none;
+            padding: 0;
+            box-shadow: none;
+            font-size: 0.95em;
+            line-height: 1.5;
+        }
+
+        /* Enhanced Blockquotes */
+        .markdown-content blockquote {
+            background: linear-gradient(135deg, rgba(74, 45, 90, 0.2) 0%, rgba(58, 29, 74, 0.15) 100%);
+            border-left: 4px solid #9acdff;
+            border-radius: 0 8px 8px 0;
+            padding: 1.5rem 2rem;
+            margin: 2rem 0;
+            position: relative;
+            color: #e8e0d8;
+            box-shadow: 0 4px 16px rgba(74, 45, 90, 0.2);
+        }
+
+        .markdown-content blockquote::before {
+            content: '"';
+            font-size: 4rem;
+            color: rgba(154, 205, 255, 0.1);
+            position: absolute;
+            top: -10px;
+            left: 10px;
+            font-family: 'Georgia', serif;
+        }
+
+        .markdown-content blockquote p {
+            margin-bottom: 0;
+            font-style: italic;
+            font-size: 1.1em;
+        }
+
+        /* Enhanced Tables */
         .markdown-content table {
             width: 100%;
-            border-collapse: collapse;
-            margin: 1rem 0;
+            border-collapse: separate;
+            border-spacing: 0;
+            margin: 2rem 0;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 8px 32px rgba(74, 45, 90, 0.3);
+            background: linear-gradient(135deg, rgba(10, 6, 21, 0.95) 0%, rgba(20, 10, 35, 0.98) 100%);
         }
 
         .markdown-content th,
         .markdown-content td {
-            border: 1px solid #4a2d5a;
-            padding: 0.5rem;
+            border: 1px solid rgba(74, 45, 90, 0.5);
+            padding: 1rem;
             text-align: left;
+            position: relative;
         }
 
         .markdown-content th {
-            background: rgba(74, 45, 90, 0.3);
+            background: linear-gradient(135deg, rgba(74, 45, 90, 0.6) 0%, rgba(58, 29, 74, 0.5) 100%);
             color: #f8d100;
+            font-weight: bold;
+            font-size: 1rem;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            border-bottom: 2px solid #4a2d5a;
+        }
+
+        .markdown-content td {
+            background: rgba(74, 45, 90, 0.1);
+            color: #e8e0d8;
+            transition: background-color 0.3s ease;
+        }
+
+        .markdown-content tr:nth-child(even) td {
+            background: rgba(74, 45, 90, 0.15);
+        }
+
+        .markdown-content tr:hover td {
+            background: rgba(74, 45, 90, 0.25);
+        }
+
+        /* Enhanced Links */
+        .markdown-content a {
+            color: #9acdff;
+            text-decoration: none;
+            border-bottom: 1px solid transparent;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        .markdown-content a:hover {
+            color: #b8e0ff;
+            border-bottom-color: #9acdff;
+            text-shadow: 0 0 8px rgba(154, 205, 255, 0.5);
+        }
+
+        .markdown-content a::after {
+            content: '';
+            position: absolute;
+            bottom: -2px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: linear-gradient(90deg, #9acdff, #4a2d5a);
+            transition: width 0.3s ease;
+        }
+
+        .markdown-content a:hover::after {
+            width: 100%;
+        }
+
+        /* Image Styling */
+        .markdown-content img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 8px;
+            box-shadow: 0 4px 16px rgba(74, 45, 90, 0.3);
+            transition: transform 0.3s ease;
+        }
+
+        .markdown-content img:hover {
+            transform: scale(1.02);
+        }
+
+        /* Horizontal Rules */
+        .markdown-content hr {
+            border: none;
+            height: 2px;
+            background: linear-gradient(90deg, transparent, #4a2d5a, transparent);
+            margin: 3rem 0;
+            position: relative;
+        }
+
+        .markdown-content hr::before {
+            content: '';
+            position: absolute;
+            top: -4px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 60px;
+            height: 10px;
+            background: radial-gradient(ellipse, rgba(74, 45, 90, 0.3) 0%, transparent 70%);
+        }
+
+        /* Strong and Emphasis */
+        .markdown-content strong {
+            color: #f8d100;
+            font-weight: bold;
+            text-shadow: 0 0 5px rgba(248, 209, 0, 0.3);
+        }
+
+        .markdown-content em {
+            color: #9acdff;
+            font-style: italic;
+        }
+
+        /* Syntax Highlighting */
+        .markdown-content .comment {
+            color: #6a9955;
+            font-style: italic;
+        }
+
+        .markdown-content .keyword {
+            color: #569cd6;
+            font-weight: bold;
+        }
+
+        .markdown-content .string {
+            color: #ce9178;
+        }
+
+        .markdown-content .number {
+            color: #b5cea8;
+        }
+
+        /* Task Lists */
+        .markdown-content .task-list {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        .markdown-content .task-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 0.5rem;
+            padding: 0.5rem;
+            background: rgba(74, 45, 90, 0.1);
+            border-radius: 6px;
+            border: 1px solid rgba(74, 45, 90, 0.3);
+        }
+
+        .markdown-content .task-item input[type="checkbox"] {
+            margin-right: 0.75rem;
+            transform: scale(1.2);
+        }
+
+        .markdown-content .task-item input[type="checkbox"]:checked + span {
+            text-decoration: line-through;
+            opacity: 0.6;
+        }
+
+        /* Strikethrough text */
+        .markdown-content del {
+            text-decoration: line-through;
+            opacity: 0.7;
+            color: #ff6b6b;
+        }
+
+        /* External link indicator */
+        .markdown-content a[target="_blank"]::after {
+            content: ' ↗';
+            font-size: 0.8em;
+            opacity: 0.7;
+        }
+
+        /* Code block language labels */
+        .markdown-content pre::after {
+            content: attr(data-language);
+            position: absolute;
+            top: 0;
+            right: 1rem;
+            background: rgba(74, 45, 90, 0.8);
+            color: #9acdff;
+            padding: 0.25rem 0.5rem;
+            border-radius: 0 0 4px 4px;
+            font-size: 0.75rem;
+            font-family: 'Courier New', monospace;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        /* Copy button for code blocks */
+        .markdown-content pre {
+            position: relative;
+        }
+
+        .markdown-content .copy-button {
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+            background: rgba(74, 45, 90, 0.8);
+            color: #e8e0d8;
+            border: none;
+            padding: 0.5rem;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 0.8rem;
+            opacity: 0;
+            transition: all 0.3s ease;
+            backdrop-filter: blur(10px);
+        }
+
+        .markdown-content pre:hover .copy-button {
+            opacity: 1;
+        }
+
+        .markdown-content .copy-button:hover {
+            background: rgba(74, 45, 90, 1);
+            transform: scale(1.05);
+        }
+
+        .markdown-content .copy-button.copied {
+            background: rgba(154, 205, 255, 0.8);
+            color: #0a0615;
         }
 
         .back-link {
@@ -127,6 +487,197 @@
 
         .back-link:hover {
             text-decoration: underline;
+        }
+
+        /* Responsive Design Enhancements */
+        @media (max-width: 768px) {
+            .wiki-container {
+                padding: 1rem;
+            }
+
+            .markdown-content {
+                font-size: 1rem;
+            }
+
+            .markdown-content h1 {
+                font-size: 2rem;
+                margin-top: 2rem;
+            }
+
+            .markdown-content h2 {
+                font-size: 1.6rem;
+                margin-top: 1.8rem;
+            }
+
+            .markdown-content h3 {
+                font-size: 1.4rem;
+                margin-top: 1.5rem;
+            }
+
+            .markdown-content pre {
+                padding: 1rem;
+                margin: 1rem -1rem;
+                border-radius: 8px;
+            }
+
+            .markdown-content blockquote {
+                padding: 1rem 1.5rem;
+                margin: 1.5rem -1rem;
+            }
+
+            .markdown-content table {
+                font-size: 0.9rem;
+                margin: 1rem -1rem;
+            }
+
+            .markdown-content th,
+            .markdown-content td {
+                padding: 0.75rem 0.5rem;
+            }
+
+            .markdown-content ul,
+            .markdown-content ol {
+                padding-left: 1.5rem;
+            }
+
+            .markdown-content li {
+                margin-bottom: 0.6rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .markdown-content h1 {
+                font-size: 1.8rem;
+            }
+
+            .markdown-content h2 {
+                font-size: 1.4rem;
+            }
+
+            .markdown-content h3 {
+                font-size: 1.2rem;
+            }
+
+            .markdown-content pre {
+                padding: 0.75rem;
+                margin: 1rem -0.5rem;
+            }
+
+            .markdown-content blockquote {
+                padding: 1rem;
+                margin: 1rem -0.5rem;
+            }
+
+            .markdown-content table {
+                font-size: 0.8rem;
+                margin: 1rem -0.5rem;
+            }
+
+            .markdown-content th,
+            .markdown-content td {
+                padding: 0.5rem 0.25rem;
+            }
+        }
+
+        /* Accessibility Enhancements */
+        .markdown-content :focus {
+            outline: 2px solid #9acdff;
+            outline-offset: 2px;
+        }
+
+        .markdown-content a:focus {
+            outline: 2px solid #9acdff;
+            outline-offset: 2px;
+        }
+
+        /* High contrast mode support */
+        @media (prefers-contrast: high) {
+            .markdown-content {
+                color: #ffffff;
+            }
+
+            .markdown-content code {
+                background: #000000;
+                border: 2px solid #ffffff;
+                color: #ffffff;
+            }
+
+            .markdown-content pre {
+                background: #000000;
+                border: 2px solid #ffffff;
+            }
+
+            .markdown-content blockquote {
+                background: #000000;
+                border-left: 4px solid #ffffff;
+            }
+
+            .markdown-content table {
+                background: #000000;
+                border: 2px solid #ffffff;
+            }
+
+            .markdown-content th,
+            .markdown-content td {
+                border: 2px solid #ffffff;
+            }
+        }
+
+        /* Reduced motion support */
+        @media (prefers-reduced-motion: reduce) {
+            .markdown-content *,
+            .markdown-content *::before,
+            .markdown-content *::after {
+                animation-duration: 0.01ms !important;
+                animation-iteration-count: 1 !important;
+                transition-duration: 0.01ms !important;
+                scroll-behavior: auto !important;
+            }
+        }
+
+        /* Print styles */
+        @media print {
+            .markdown-content {
+                color: #000000;
+                font-size: 12pt;
+            }
+
+            .markdown-content h1,
+            .markdown-content h2,
+            .markdown-content h3 {
+                color: #000000;
+                text-shadow: none;
+                border-bottom: 1px solid #000000;
+            }
+
+            .markdown-content code {
+                background: #f0f0f0;
+                color: #000000;
+                border: 1px solid #cccccc;
+            }
+
+            .markdown-content pre {
+                background: #f0f0f0;
+                border: 1px solid #cccccc;
+                color: #000000;
+            }
+
+            .markdown-content blockquote {
+                background: #f0f0f0;
+                border-left: 4px solid #000000;
+                color: #000000;
+            }
+
+            .markdown-content table {
+                background: #ffffff;
+                border: 1px solid #000000;
+            }
+
+            .markdown-content th,
+            .markdown-content td {
+                border: 1px solid #000000;
+                background: #ffffff;
+            }
         }
     </style>
 </head>
@@ -186,6 +737,49 @@
     </div>
 
     <script>
+        // Function to add copy buttons to code blocks
+        function addCopyButtonsToCodeBlocks() {
+            const codeBlocks = document.querySelectorAll('.markdown-content pre');
+
+            codeBlocks.forEach((pre, index) => {
+                // Skip if copy button already exists
+                if (pre.querySelector('.copy-button')) return;
+
+                // Create copy button
+                const copyButton = document.createElement('button');
+                copyButton.className = 'copy-button';
+                copyButton.textContent = '📋 Copy';
+                copyButton.title = 'Copy code to clipboard';
+
+                // Add click handler
+                copyButton.addEventListener('click', async function() {
+                    const code = pre.querySelector('code');
+                    if (!code) return;
+
+                    try {
+                        await navigator.clipboard.writeText(code.textContent);
+                        const originalText = this.textContent;
+                        this.textContent = '✅ Copied!';
+                        this.classList.add('copied');
+
+                        setTimeout(() => {
+                            this.textContent = originalText;
+                            this.classList.remove('copied');
+                        }, 2000);
+                    } catch (err) {
+                        console.error('Failed to copy code:', err);
+                        this.textContent = '❌ Failed';
+                        setTimeout(() => {
+                            this.textContent = '📋 Copy';
+                        }, 2000);
+                    }
+                });
+
+                // Add button to pre element
+                pre.appendChild(copyButton);
+            });
+        }
+
         // Simple markdown renderer and page loader
         const contentDiv = document.getElementById('content');
 
@@ -230,6 +824,9 @@
                 const html = simpleMarkdownToHtml(markdown);
                 contentDiv.innerHTML = html;
 
+                // Add copy buttons to code blocks
+                addCopyButtonsToCodeBlocks();
+
                 // Update page title
                 document.title = `TC2 Wiki - ${pageName.charAt(0).toUpperCase() + pageName.slice(1)}`;
 
@@ -243,14 +840,27 @@
             }
         }
 
-        // Simple markdown to HTML converter
+        // Enhanced markdown to HTML converter
         function simpleMarkdownToHtml(markdown) {
             let html = markdown;
 
-            // Headers
-            html = html.replace(/^### (.*$)/gim, '<h3>$1</h3>');
-            html = html.replace(/^## (.*$)/gim, '<h2>$1</h2>');
-            html = html.replace(/^# (.*$)/gim, '<h1>$1</h1>');
+            // Headers with anchor links for navigation
+            html = html.replace(/^#### (.*$)/gim, (match, content) => {
+                const id = content.toLowerCase().replace(/[^\w]+/g, '-').replace(/^-+|-+$/g, '');
+                return `<h4 id="${id}">${content}</h4>`;
+            });
+            html = html.replace(/^### (.*$)/gim, (match, content) => {
+                const id = content.toLowerCase().replace(/[^\w]+/g, '-').replace(/^-+|-+$/g, '');
+                return `<h3 id="${id}">${content}</h3>`;
+            });
+            html = html.replace(/^## (.*$)/gim, (match, content) => {
+                const id = content.toLowerCase().replace(/[^\w]+/g, '-').replace(/^-+|-+$/g, '');
+                return `<h2 id="${id}">${content}</h2>`;
+            });
+            html = html.replace(/^# (.*$)/gim, (match, content) => {
+                const id = content.toLowerCase().replace(/[^\w]+/g, '-').replace(/^-+|-+$/g, '');
+                return `<h1 id="${id}">${content}</h1>`;
+            });
 
             // Bold
             html = html.replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>');
@@ -258,35 +868,118 @@
             // Italic
             html = html.replace(/\*(.*?)\*/g, '<em>$1</em>');
 
-            // Links
-            html = html.replace(/\[([^\]]+)\]\(([^)]+)\)/g, '<a href="$2">$1</a>');
+            // Strikethrough
+            html = html.replace(/~~(.*?)~~/g, '<del>$1</del>');
 
-            // Images
-            html = html.replace(/!\[([^\]]*)\]\(([^)]+)\)/g, '<img src="$2" alt="$1">');
+            // Links with external link indicators
+            html = html.replace(/\[([^\]]+)\]\(([^)]+)\)/g, (match, text, url) => {
+                const isExternal = url.startsWith('http') && !url.includes('typicalcolors.com');
+                const externalAttrs = isExternal ? ' target="_blank" rel="noopener noreferrer"' : '';
+                return `<a href="${url}"${externalAttrs}>${text}${isExternal ? ' ↗' : ''}</a>`;
+            });
 
-            // Code blocks
-            html = html.replace(/```([\s\S]*?)```/g, '<pre><code>$1</code></pre>');
+            // Images with responsive classes
+            html = html.replace(/!\[([^\]]*)\]\(([^)]+)\)/g, '<img src="$2" alt="$1" loading="lazy">');
+
+            // Enhanced code blocks with language detection
+            html = html.replace(/```(\w+)?\n?([\s\S]*?)```/g, (match, lang, code) => {
+                const language = lang || 'text';
+                const highlightedCode = syntaxHighlight(code.trim(), language);
+                return `<pre class="language-${language}" data-language="${language.toUpperCase()}"><code class="language-${language}">${highlightedCode}</code></pre>`;
+            });
 
             // Inline code
-            html = html.replace(/`([^`]+)`/g, '<code>$1</code>');
+            html = html.replace(/`([^`\n]+)`/g, '<code>$1</code>');
 
-            // Lists
+            // Task lists
+            html = html.replace(/^\* \[ \] (.*$)/gim, '<li class="task-item"><input type="checkbox" disabled> <span>$1</span></li>');
+            html = html.replace(/^\* \[x\] (.*$)/gim, '<li class="task-item"><input type="checkbox" checked disabled> <span>$1</span></li>');
+
+            // Enhanced lists
             html = html.replace(/^\* (.*$)/gim, '<li>$1</li>');
             html = html.replace(/^\d+\. (.*$)/gim, '<li>$1</li>');
 
             // Wrap consecutive list items
+            html = html.replace(/(<li class="task-item">.*<\/li>\n?)+/g, '<ul class="task-list">$&</ul>');
             html = html.replace(/(<li>.*<\/li>\n?)+/g, '<ul>$&</ul>');
 
-            // Line breaks
+            // Tables with enhanced formatting
+            html = html.replace(/^\|(.+)\|\s*$/gm, (match, content) => {
+                const cells = content.split('|').map(cell => cell.trim());
+                return '<tr>' + cells.map(cell => `<td>${cell}</td>`).join('') + '</tr>';
+            });
+
+            // Table headers
+            html = html.replace(/(<tr><td>.*?<\/td><\/tr>\n?)<tr><td>.*?<\/td><\/tr>/g, (match, headerRow) => {
+                const headerCells = headerRow.replace(/<td>/g, '<th>').replace(/<\/td>/g, '</th>');
+                return headerCells + match.replace(headerRow, '');
+            });
+
+            // Wrap table rows
+            html = html.replace(/(<tr>.*?<\/tr>\n?)+/g, '<table>$&</table>');
+
+            // Horizontal rules
+            html = html.replace(/^[-*_]{3,}$/gm, '<hr>');
+
+            // Blockquotes
+            html = html.replace(/^> (.*$)/gim, '<blockquote>$1</blockquote>');
+            html = html.replace(/(<blockquote>.*<\/blockquote>\n?)+/g, (match) => {
+                return '<blockquote>' + match.replace(/<blockquote>/g, '').replace(/<\/blockquote>/g, '') + '</blockquote>';
+            });
+
+            // Line breaks and paragraphs
             html = html.replace(/\n\n/g, '</p><p>');
             html = html.replace(/\n/g, '<br>');
 
-            // Wrap in paragraphs
-            if (!html.includes('<p>')) {
+            // Clean up empty paragraphs
+            html = html.replace(/<p><\/p>/g, '');
+            html = html.replace(/<p><br><\/p>/g, '');
+
+            // Wrap in paragraphs if needed
+            if (!html.includes('<p>') && !html.includes('<h') && !html.includes('<ul') && !html.includes('<ol') && !html.includes('<table') && !html.includes('<blockquote') && !html.includes('<pre')) {
                 html = '<p>' + html + '</p>';
             }
 
             return html;
+        }
+
+        // Simple syntax highlighting function
+        function syntaxHighlight(code, language) {
+            if (!code) return '';
+
+            // Basic syntax highlighting for common languages
+            let highlighted = code;
+
+            // Comments
+            if (language === 'javascript' || language === 'js' || language === 'typescript' || language === 'ts' || language === 'java' || language === 'cpp' || language === 'c' || language === 'csharp' || language === 'cs' || language === 'php' || language === 'python' || language === 'py') {
+                highlighted = highlighted.replace(/(\/\/.*$)/gm, '<span class="comment">$1</span>');
+                highlighted = highlighted.replace(/(\/\*[\s\S]*?\*\/)/g, '<span class="comment">$1</span>');
+                highlighted = highlighted.replace(/(#.*$)/gm, '<span class="comment">$1</span>');
+            }
+
+            // Strings
+            highlighted = highlighted.replace(/(["'`])(.*?)\1/g, '<span class="string">$1$2$1</span>');
+
+            // Keywords
+            const keywords = {
+                'javascript': ['const', 'let', 'var', 'function', 'return', 'if', 'else', 'for', 'while', 'class', 'extends', 'import', 'export', 'default'],
+                'python': ['def', 'class', 'if', 'elif', 'else', 'for', 'while', 'import', 'from', 'return', 'try', 'except', 'finally'],
+                'java': ['public', 'private', 'protected', 'class', 'interface', 'extends', 'implements', 'return', 'if', 'else', 'for', 'while'],
+                'cpp': ['#include', 'int', 'void', 'class', 'public', 'private', 'return', 'if', 'else', 'for', 'while'],
+                'csharp': ['using', 'namespace', 'class', 'public', 'private', 'void', 'int', 'string', 'return', 'if', 'else', 'for', 'foreach', 'while']
+            };
+
+            if (keywords[language]) {
+                keywords[language].forEach(keyword => {
+                    const regex = new RegExp(`\\b${keyword}\\b`, 'g');
+                    highlighted = highlighted.replace(regex, `<span class="keyword">${keyword}</span>`);
+                });
+            }
+
+            // Numbers
+            highlighted = highlighted.replace(/\b\d+(\.\d+)?\b/g, '<span class="number">$&</span>');
+
+            return highlighted;
         }
 
         // Load the requested page

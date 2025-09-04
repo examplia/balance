@@ -9,10 +9,10 @@ No, these are community proposals for discussion and entertainment only. We are 
 Absolutely! Join our Discord to share your ideas and feedback. We welcome contributions from the community.
 
 ### How are weapons balanced?
-We focus on improving viability, counterplay, and overall game health. Each weapon should have meaningful strengths and weaknesses that create interesting strategic choices.
+Each weapon should have meaningful strengths and weaknesses that create interesting strategic choices.
 
 ### What is Typical Colors 2?
-Typical Colors 2 (TC2) is a custom Team Fortress 2 mod featuring unique classes with distinct playstyles, weapons, and mechanics. Each class offers fresh gameplay experiences while maintaining the core TF2 feel.
+Typical Colors 2 (TC2) is a TF2 inspired roblox game, featuring unique classes with distinct playstyles, weapons, and mechanics. Each class offers fresh gameplay experiences while maintaining the core TF2 feel.
 
 ## Weapon Concepts & Rebalances
 
@@ -100,9 +100,6 @@ We identify power creep and suggest nerfs that:
 - Maintain competitive balance
 
 ## Future Plans
-
-### Will there be more classes?
-We're focused on improving existing classes first, but new class concepts are always welcome for discussion.
 
 ### Any plans for maps or other features?
 Map suggestions and other features are being considered. Check the [Home](Home) page for updates.
