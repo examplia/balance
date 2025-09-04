@@ -108,6 +108,14 @@ Before submitting:
 3. Verify that all required fields are present and correctly formatted.
 4. Test that the weapon displays properly in the application.
 
-## Need Help?
+## 📞 Need Help?
 
-If you have questions about contributing or need clarification on the format, feel free to open an issue or contact @**snazzygold** (idea guy) or @**oxxywozz** (the "website guy").
+Got questions about the site updates or wanna contribute? Hit up:
+- **@snazzygold** (the idea guy)
+- **@oxxywozz** (the website wizard)
+- Join our Discord: https://discord.gg/9TDY9P2cmG
+
+---
+
+*Last updated: 2025-09-04 by the website wizard himself*
+*Keep it casual, keep it fun, keep it balanced!* 🎮

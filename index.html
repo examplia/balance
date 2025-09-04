@@ -562,171 +562,33 @@
     </style>
 </head>
 <body>
-    <div class="hero-section">
-        <div style="text-align: center; margin-bottom: 2rem;">
-            <img src="images/TypicalColors2Rebalances-Icon-Header.png" alt="Typical Colors 2 Header" style="max-width: 80%; height: auto; filter: drop-shadow(0 0 20px rgba(90, 61, 122, 0.5));">
-        </div>
-        
-        <div class="update-info">
-            <p style="font-size: 1.2rem; margin-bottom: 1rem;">Community weapon rebalancing proposals to improve game balance and weapon viability across all classes.</p>
-            <p style="color: #4a2d5a;">Featuring reworked stats, new mechanics, and quality of life improvements</p>
-            <p style="color: #f8d100; font-size: 0.9rem; margin-top: 1rem; font-style: italic; border-top: 1px solid rgba(248, 209, 0, 0.3); padding-top: 0.5rem;">
-                ⚠️ <strong>Disclaimer:</strong> This is an unofficial fan-made rebalance site created for entertainment and discussion purposes only. We are not affiliated with Dorcus or Typical Colors in any way. We do not expect or want these changes to be officially implemented, and we do not seek acknowledgment from the developers. This is purely for fun and community discussion.
-            </p>
-        </div>
-    </div>
-
-    <!--
-    CUSTOMIZABLE BANNER - Easy to modify!
-    To change the banner content:
-    1. Edit the banner-icon emoji/text
-    2. Change the h3 title text
-    3. Modify the p description text
-    4. Update colors in styles.css under .custom-banner
-    5. To hide permanently, change style.display='none' to style.display='block'
-    -->
-    <div class="custom-banner">
-        <div class="banner-content">
-            <div class="banner-icon">🚧</div>
-            <div class="banner-text">
-                <h3>Site Under Heavy Construction</h3>
-                <p>This weapon rebalance site is currently undergoing major updates and improvements. Some features may be incomplete or subject to change. Thank you for your patience!</p>
+    <!-- Navigation Menu -->
+    <nav class="main-navigation">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <img src="images/TypicalColors2Rebalances-Icon-Header.png" alt="TC2 Logo" style="height: 40px;">
             </div>
-            <div class="banner-close" onclick="document.querySelector('.custom-banner').style.display='none'; document.body.style.paddingTop='0'; if(window.innerWidth <= 768) { document.body.style.paddingTop='0'; }">✕</div>
-        </div>
-    </div>
-
-    <!-- Discord Join Section -->
-    <div class="discord-section">
-        <div class="discord-content">
-            <h2>Join Our Community</h2>
-            <p>Discuss weapon rebalances, share your ideas, and connect with fellow TF2 enthusiasts!</p>
-            <a href="https://discord.gg/9TDY9P2cmG" target="_blank" class="discord-button">
-                <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
-                    <path d="M20.317 4.37a19.791 19.791 0 0 0-4.885-1.515a.074.074 0 0 0-.079.037c-.21.375-.444.864-.608 1.25a18.27 18.27 0 0 0-5.487 0a12.64 12.64 0 0 0-.617-1.25a.077.077 0 0 0-.079-.037A19.736 19.736 0 0 0 3.677 4.37a.07.07 0 0 0-.032.027C.533 9.046-.32 13.58.099 18.057a.082.082 0 0 0 .031.057a19.9 19.9 0 0 0 5.993 3.03a.078.078 0 0 0 .084-.028a14.09 14.09 0 0 0 1.226-1.994a.076.076 0 0 0-.041-.106a13.107 13.107 0 0 1-1.872-.892a.077.077 0 0 1-.008-.128a10.2 10.2 0 0 0 .372-.292a.074.074 0 0 1 .077-.01c3.928 1.793 8.18 1.793 12.062 0a.074.074 0 0 1 .078.01c.12.098.246.198.373.292a.077.077 0 0 1-.006.127a12.299 12.299 0 0 1-1.873.892a.077.077 0 0 0-.041.107c.36.698.772 1.362 1.225 1.993a.076.076 0 0 0 .084.028a19.839 19.839 0 0 0 6.002-3.03a.077.077 0 0 0 .032-.054c.5-5.177-.838-9.674-3.549-13.66a.061.061 0 0 0-.031-.03zM8.02 15.33c-1.183 0-2.157-1.085-2.157-2.419c0-1.333.956-2.419 2.157-2.419c1.21 0 2.176 1.096 2.157 2.42c0 1.333-.956 2.418-2.157 2.418zm7.975 0c-1.183 0-2.157-1.085-2.157-2.419c0-1.333.955-2.419 2.157-2.419c1.21 0 2.176 1.096 2.157 2.42c0 1.333-.946 2.418-2.157 2.418z"/>
-                </svg>
-                Join Discord Server
-            </a>
-        </div>
-    </div>
-
-    <div class="content-section">
-        <div style="text-align: center; margin-bottom: 3rem;">
-            <div style="display: inline-flex; gap: 1rem; align-items: center; flex-wrap: wrap; justify-content: center;">
-                <input type="text" id="weaponSearch" placeholder="Search weapons..." style="padding: 0.5rem; border: 2px solid #5a3d7a; border-radius: 25px; background: rgba(10, 6, 21, 0.95); color: white; min-width: 200px; box-shadow: 0 0 10px rgba(90, 61, 122, 0.4);">
-                <select id="classFilter" style="padding: 0.5rem; border: 2px solid #5a3d7a; border-radius: 10px; background: rgba(10, 6, 21, 0.95); color: white; box-shadow: 0 0 10px rgba(90, 61, 122, 0.4);">
-                    <option value="">All Classes</option>
-                    <option value="flanker">Flanker</option>
-                    <option value="trooper">Trooper</option>
-                    <option value="arsonist">Arsonist</option>
-                    <option value="annihilator">Annihilator</option>
-                    <option value="mechanic">Mechanic</option>
-                    <option value="doctor">Doctor</option>
-                    <option value="marksman">Marksman</option>
-                    <option value="brute">Brute</option>
-                    <option value="agent">Agent</option>
-                </select>
-                <select id="typeFilter" style="padding: 0.5rem; border: 2px solid #5a3d7a; border-radius: 10px; background: rgba(10, 6, 21, 0.95); color: white; box-shadow: 0 0 10px rgba(90, 61, 122, 0.4);">
-                    <option value="">All Types</option>
-                    <option value="primary">Primary</option>
-                    <option value="secondary">Secondary</option>
-                    <option value="melee">Melee</option>
-                    <option value="building">Building</option>
-                </select>
+            <div class="nav-links">
+                <a href="#home" class="nav-link">Home</a>
+                <a href="#workshop" class="nav-link">Workshop Items</a>
+                <a href="#rebalances" class="nav-link">Weapon Rebalances</a>
+                <a href="#concepts" class="nav-link">Weapon Ideas</a>
+            </div>
+            <div class="nav-discord">
+                <a href="https://discord.gg/9TDY9P2cmG" target="_blank" class="nav-discord-btn">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M20.317 4.37a19.791 19.791 0 0 0-4.885-1.515a.074.074 0 0 0-.079.037c-.21.375-.444.864-.608 1.25a18.27 18.27 0 0 0-5.487 0a12.64 12.64 0 0 0-.617-1.25a.077.077 0 0 0-.079-.037A19.736 19.736 0 0 0 3.677 4.37a.07.07 0 0 0-.032.027C.533 9.046-.32 13.58.099 18.057a.082.082 0 0 0 .031.057a19.9 19.9 0 0 0 5.993 3.03a.078.078 0 0 0 .084-.028a14.09 14.09 0 0 0 1.226-1.994a.076.076 0 0 0-.041-.106a13.107 13.107 0 0 1-1.872-.892a.077.077 0 0 1-.008-.128a10.2 10.2 0 0 0 .372-.292a.074.074 0 0 1 .077-.01c3.928 1.793 8.18 1.793 12.062 0a.074.074 0 0 1 .078.01c.12.098.246.198.373.292a.077.077 0 0 1-.006.127a12.299 12.299 0 0 1-1.873.892a.077.077 0 0 0-.041.107c.36.698.772 1.362 1.225 1.993a.076.076 0 0 0 .084.028a19.839 19.839 0 0 0 6.002-3.03a.077.077 0 0 0 .032-.054c.5-5.177-.838-9.674-3.549-13.66a.061.061 0 0 0-.031-.03zM8.02 15.33c-1.183 0-2.157-1.085-2.157-2.419c0-1.333.956-2.419 2.157-2.419c1.21 0 2.176 1.096 2.157 2.42c0 1.333-.956 2.418-2.157 2.418zm7.975 0c-1.183 0-2.157-1.085-2.157-2.419c0-1.333.955-2.419 2.157-2.419c1.21 0 2.176 1.096 2.157 2.42c0 1.333-.946 2.418-2.157 2.418z"/>
+                    </svg>
+                    Join Discord
+                </a>
             </div>
         </div>
+    </nav>
 
-        <!-- Flanker Section -->
-        <div class="class-divider">
-            <div class="class-name">
-                FLANKER <img src="images/Flanker-Icon.png" alt="Flanker Icon">
-            </div>
-        </div>
-
-        <div class="weapon-grid" id="flanker-weapons">
-            <!-- Flanker weapons will be loaded here -->
-        </div>
-
-        <!-- Trooper Section -->
-        <div class="class-divider">
-            <div class="class-name">
-                TROOPER <img src="images/Trooper-Icon.png" alt="Trooper Icon">
-            </div>
-        </div>
-
-        <div class="weapon-grid" id="trooper-weapons">
-            <!-- Trooper weapons will be loaded here -->
-        </div>
-
-        <!-- Arsonist Section -->
-        <div class="class-divider">
-            <div class="class-name">
-                ARSONIST <img src="images/Arsonist-Icon.png" alt="Arsonist Icon">
-            </div>
-        </div>
-
-        <div class="weapon-grid" id="arsonist-weapons">
-            <!-- Arsonist weapons will be loaded here -->
-        </div>
-
-        <!-- Brute Section -->
-        <div class="class-divider">
-            <div class="class-name">
-                BRUTE <img src="images/Brute-Icon.png" alt="Brute Icon">
-            </div>
-        </div>
-
-        <div class="weapon-grid" id="brute-weapons">
-            <!-- Brute weapons will be loaded here -->
-        </div>
-
-        <!-- Mechanic Section -->
-        <div class="class-divider">
-            <div class="class-name">
-                MECHANIC <img src="images/MechanicIcon.png" alt="Mechanic Icon">
-            </div>
-        </div>
-
-        <div class="weapon-grid" id="mechanic-weapons">
-            <!-- Mechanic weapons will be loaded here -->
-        </div>
-
-        <!-- Doctor Section -->
-        <div class="class-divider">
-            <div class="class-name">
-                DOCTOR <img src="images/Doctor-Icon.png" alt="Doctor Icon">
-            </div>
-        </div>
-
-        <div class="weapon-grid" id="doctor-weapons">
-            <!-- Doctor weapons will be loaded here -->
-        </div>
-
-        <!-- Marksman Section -->
-        <div class="class-divider">
-            <div class="class-name">
-                MARKSMAN <img src="images/MarksmanIcon.png" alt="Marksman Icon">
-            </div>
-        </div>
-
-        <div class="weapon-grid" id="marksman-weapons">
-            <!-- Marksman weapons will be loaded here -->
-        </div>
-
-        <!-- Annihilator Section -->
-        <div class="class-divider">
-            <div class="class-name">
-                ANNIHILATOR
-            </div>
-        </div>
-
-        <div class="weapon-grid" id="annihilator-weapons">
-            <!-- Annihilator weapons will be loaded here -->
-        </div>
-
-        <!-- Changelog Section -->
-        <div class="changelog-section">
-            <h2>Update Highlights</h2>
+    <!-- Changelog Section (moved to top) -->
+    <section id="changelog" class="changelog-section">
+        <div class="content-section">
+            <h2 class="section-title">📋 Update Highlights</h2>
             <div class="changelog-grid">
                 <div class="changelog-item">
                     <h3>🔄 Major Rebalances</h3>
@@ -775,22 +637,222 @@
                 </div>
             </div>
         </div>
+    </section>
 
-        <!-- New Weapon Concepts Section -->
-        <div class="concept-header-section">
-            <div class="concept-header-content">
-                <img src="images/NewWeaponConcepts-Icon-Header.png" alt="New Weapon Concepts Header" class="concept-header-image">
-                <div class="concept-header-text">
-                    <h2>EXPERIMENTAL CONCEPTS</h2>
-                    <p>Innovative weapon ideas pushing the boundaries of gameplay</p>
-                </div>
+    <!-- Home Section -->
+    <section id="home" class="home-section">
+        <div class="hero-section">
+            <div style="text-align: center; margin-bottom: 2rem;">
+                <img src="images/TypicalColors2Rebalances-Icon-Header.png" alt="Typical Colors 2 Header" style="max-width: 80%; height: auto; filter: drop-shadow(0 0 20px rgba(90, 61, 122, 0.5));">
+            </div>
+
+            <div class="update-info">
+                <p style="font-size: 1.2rem; margin-bottom: 1rem;">Community weapon rebalancing proposals to improve game balance and weapon viability across all classes.</p>
+                <p style="color: #4a2d5a;">Featuring reworked stats, new mechanics, and quality of life improvements</p>
+                <p style="color: #f8d100; font-size: 0.9rem; margin-top: 1rem; font-style: italic; border-top: 1px solid rgba(248, 209, 0, 0.3); padding-top: 0.5rem;">
+                    ⚠️ <strong>Disclaimer:</strong> This is an unofficial fan-made rebalance site created for entertainment and discussion purposes only. We are not affiliated with Dorcus or Typical Colors in any way. We do not expect or want these changes to be officially implemented, and we do not seek acknowledgment from the developers. This is purely for fun and community discussion.
+                </p>
             </div>
         </div>
 
-        <div class="weapon-grid" id="concept-weapons">
-            <!-- Concept weapons will be loaded here -->
+        <!-- Featured Content -->
+        <div class="content-section">
+            <div class="featured-grid">
+                <div class="featured-item">
+                    <h3>🎨 Featured Cosmetics</h3>
+                    <p>Check out the latest cosmetic reskins and weapon appearances</p>
+                    <a href="#workshop" class="featured-link">View Workshop Items →</a>
+                </div>
+                <div class="featured-item">
+                    <h3>🗺️ Map Updates</h3>
+                    <p>Suggested map reworks and new gameplay areas</p>
+                    <span class="coming-soon">Coming Soon</span>
+                </div>
+                <div class="featured-item">
+                    <h3>⚖️ Balance Changes</h3>
+                    <p>Latest weapon rebalances and gameplay improvements</p>
+                    <a href="#rebalances" class="featured-link">View Rebalances →</a>
+                </div>
+                <div class="featured-item">
+                    <h3>💡 New Ideas</h3>
+                    <p>Innovative weapon concepts and experimental features</p>
+                    <a href="#concepts" class="featured-link">Explore Ideas →</a>
+                </div>
+            </div>
+
+            <!-- Q&A Section -->
+            <div class="qa-section">
+                <h3>❓ Frequently Asked Questions</h3>
+                <div class="qa-grid">
+                    <div class="qa-item">
+                        <h4>Are these changes official?</h4>
+                        <p>No, these are community proposals for discussion and entertainment only.</p>
+                    </div>
+                    <div class="qa-item">
+                        <h4>Can I suggest changes?</h4>
+                        <p>Absolutely! Join our Discord to share your ideas and feedback.</p>
+                    </div>
+                    <div class="qa-item">
+                        <h4>How are weapons balanced?</h4>
+                        <p>We focus on improving viability, counterplay, and overall game health.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!--
+    CUSTOMIZABLE BANNER - Easy to modify!
+    To change the banner content:
+    1. Edit the banner-icon emoji/text
+    2. Change the h3 title text
+    3. Modify the p description text
+    4. Update colors in styles.css under .custom-banner
+    5. To hide permanently, change style.display='none' to style.display='block'
+    -->
+    <div class="custom-banner">
+        <div class="banner-content">
+            <div class="banner-icon">🚧</div>
+            <div class="banner-text">
+                <h3>Site Under Heavy Construction</h3>
+                <p>This weapon rebalance site is currently undergoing major updates and improvements. Some features may be incomplete or subject to change. Thank you for your patience!</p>
+            </div>
+            <div class="banner-close" onclick="document.querySelector('.custom-banner').style.display='none'; document.body.style.paddingTop='0'; if(window.innerWidth <= 768) { document.body.style.paddingTop='0'; }">✕</div>
         </div>
     </div>
+
+    <!-- Workshop Items Section -->
+    <section id="workshop" class="workshop-section">
+        <div class="content-section">
+            <h2 class="section-title">🎨 Workshop Items</h2>
+            <p class="section-description">Discover the latest cosmetics, reskins, and taunts from our community workshop</p>
+
+            <div class="workshop-grid">
+                <!-- Workshop items will be loaded here -->
+                <div class="workshop-placeholder">
+                    <h3>Coming Soon</h3>
+                    <p>Workshop items and cosmetics are being prepared for display</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Weapon Rebalances Section -->
+    <section id="rebalances" class="rebalances-section">
+        <div class="content-section">
+            <h2 class="section-title">⚖️ Weapon Rebalances</h2>
+            <p class="section-description">Comprehensive weapon rebalancing proposals to improve game balance and viability</p>
+
+            <!-- Search and Filter Controls -->
+            <div class="search-filter-section">
+                <div style="display: inline-flex; gap: 1rem; align-items: center; flex-wrap: wrap; justify-content: center;">
+                    <input type="text" id="weaponSearch" placeholder="Search weapons..." style="padding: 0.5rem; border: 2px solid #5a3d7a; border-radius: 25px; background: rgba(10, 6, 21, 0.95); color: white; min-width: 200px; box-shadow: 0 0 10px rgba(90, 61, 122, 0.4);">
+                    <select id="classFilter" style="padding: 0.5rem; border: 2px solid #5a3d7a; border-radius: 10px; background: rgba(10, 6, 21, 0.95); color: white; box-shadow: 0 0 10px rgba(90, 61, 122, 0.4);">
+                        <option value="">All Classes</option>
+                        <option value="flanker">Flanker</option>
+                        <option value="trooper">Trooper</option>
+                        <option value="arsonist">Arsonist</option>
+                        <option value="annihilator">Annihilator</option>
+                        <option value="mechanic">Mechanic</option>
+                        <option value="doctor">Doctor</option>
+                        <option value="marksman">Marksman</option>
+                        <option value="brute">Brute</option>
+                        <option value="agent">Agent</option>
+                    </select>
+                    <select id="typeFilter" style="padding: 0.5rem; border: 2px solid #5a3d7a; border-radius: 10px; background: rgba(10, 6, 21, 0.95); color: white; box-shadow: 0 0 10px rgba(90, 61, 122, 0.4);">
+                        <option value="">All Types</option>
+                        <option value="primary">Primary</option>
+                        <option value="secondary">Secondary</option>
+                        <option value="melee">Melee</option>
+                        <option value="building">Building</option>
+                    </select>
+                </div>
+            </div>
+
+            <!-- Flanker Section -->
+            <div class="class-divider">
+                <div class="class-name">
+                    FLANKER <img src="images/Flanker-Icon.png" alt="Flanker Icon">
+                </div>
+            </div>
+            <div class="weapon-grid" id="flanker-weapons"><!-- Flanker weapons --></div>
+
+            <!-- Trooper Section -->
+            <div class="class-divider">
+                <div class="class-name">
+                    TROOPER <img src="images/Trooper-Icon.png" alt="Trooper Icon">
+                </div>
+            </div>
+            <div class="weapon-grid" id="trooper-weapons"><!-- Trooper weapons --></div>
+
+            <!-- Arsonist Section -->
+            <div class="class-divider">
+                <div class="class-name">
+                    ARSONIST <img src="images/Arsonist-Icon.png" alt="Arsonist Icon">
+                </div>
+            </div>
+            <div class="weapon-grid" id="arsonist-weapons"><!-- Arsonist weapons --></div>
+
+            <!-- Brute Section -->
+            <div class="class-divider">
+                <div class="class-name">
+                    BRUTE <img src="images/Brute-Icon.png" alt="Brute Icon">
+                </div>
+            </div>
+            <div class="weapon-grid" id="brute-weapons"><!-- Brute weapons --></div>
+
+            <!-- Mechanic Section -->
+            <div class="class-divider">
+                <div class="class-name">
+                    MECHANIC <img src="images/MechanicIcon.png" alt="Mechanic Icon">
+                </div>
+            </div>
+            <div class="weapon-grid" id="mechanic-weapons"><!-- Mechanic weapons --></div>
+
+            <!-- Doctor Section -->
+            <div class="class-divider">
+                <div class="class-name">
+                    DOCTOR <img src="images/Doctor-Icon.png" alt="Doctor Icon">
+                </div>
+            </div>
+            <div class="weapon-grid" id="doctor-weapons"><!-- Doctor weapons --></div>
+
+            <!-- Marksman Section -->
+            <div class="class-divider">
+                <div class="class-name">
+                    MARKSMAN <img src="images/MarksmanIcon.png" alt="Marksman Icon">
+                </div>
+            </div>
+            <div class="weapon-grid" id="marksman-weapons"><!-- Marksman weapons --></div>
+
+            <!-- Annihilator Section -->
+            <div class="class-divider">
+                <div class="class-name">
+                    ANNIHILATOR
+                </div>
+            </div>
+            <div class="weapon-grid" id="annihilator-weapons"><!-- Annihilator weapons --></div>
+        </div>
+    </section>
+
+    <!-- Weapon Ideas Section -->
+    <section id="concepts" class="concepts-section">
+        <div class="content-section">
+            <div class="concept-header-section">
+                <div class="concept-header-content">
+                    <img src="images/NewWeaponConcepts-Icon-Header.png" alt="Weapon Ideas Header" class="concept-header-image">
+                    <div class="concept-header-text">
+                        <h2>💡 Weapon Ideas</h2>
+                        <p>Innovative weapon concepts pushing the boundaries of gameplay</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="weapon-grid" id="concept-weapons">
+                <!-- Concept weapons will be loaded here -->
+            </div>
+        </div>
+    </section>
 
     <div class="scroll-indicator" onclick="window.scrollTo({top: 0, behavior: 'smooth'})">
         ↑
@@ -1093,10 +1155,59 @@
             });
         }
 
+        // Navigation functionality
+        function initializeNavigation() {
+            const navLinks = document.querySelectorAll('.nav-link');
+
+            // Smooth scrolling for navigation links
+            navLinks.forEach(link => {
+                link.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    const targetId = this.getAttribute('href');
+                    const targetSection = document.querySelector(targetId);
+
+                    if (targetSection) {
+                        const offsetTop = targetSection.offsetTop - 60; // Account for fixed nav
+                        window.scrollTo({
+                            top: offsetTop,
+                            behavior: 'smooth'
+                        });
+                    }
+                });
+            });
+
+            // Update active navigation link on scroll
+            function updateActiveNavLink() {
+                const sections = document.querySelectorAll('section[id]');
+                const scrollPosition = window.scrollY + 100;
+
+                sections.forEach(section => {
+                    const sectionTop = section.offsetTop;
+                    const sectionHeight = section.offsetHeight;
+                    const sectionId = section.getAttribute('id');
+
+                    if (scrollPosition >= sectionTop && scrollPosition < sectionTop + sectionHeight) {
+                        navLinks.forEach(link => {
+                            link.classList.remove('active');
+                            if (link.getAttribute('href') === `#${sectionId}`) {
+                                link.classList.add('active');
+                            }
+                        });
+                    }
+                });
+            }
+
+            window.addEventListener('scroll', updateActiveNavLink);
+            updateActiveNavLink(); // Initial call
+        }
+
         // Add some interactive effects
         document.addEventListener('DOMContentLoaded', function() {
             // Load weapons from JSON
             loadWeapons();
+
+            // Initialize navigation
+            initializeNavigation();
 
             // Add particle effect to hero section
             createParticles();

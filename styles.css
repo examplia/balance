@@ -13,7 +13,245 @@ body {
     color: #e8e0d8;
     font-family: 'Russo One', sans-serif;
     overflow-x: hidden;
-    padding-top: 80px; /* Account for fixed banner */
+    padding-top: 140px; /* Account for fixed navigation (60px) + banner (80px) */
+}
+
+/* Navigation Styles */
+.main-navigation {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    background: rgba(10, 6, 21, 0.95);
+    backdrop-filter: blur(10px);
+    border-bottom: 2px solid #5a3d7a;
+    z-index: 1000;
+    box-shadow: 0 0 20px rgba(90, 61, 122, 0.3);
+}
+
+.nav-container {
+    max-width: 1400px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 2rem;
+    height: 60px;
+}
+
+.nav-logo img {
+    height: 40px;
+    filter: drop-shadow(0 0 10px rgba(90, 61, 122, 0.5));
+}
+
+.nav-links {
+    display: flex;
+    gap: 2rem;
+}
+
+.nav-link {
+    color: #e8e0d8;
+    text-decoration: none;
+    font-size: 1rem;
+    font-weight: bold;
+    padding: 0.5rem 1rem;
+    border-radius: 8px;
+    transition: all 0.3s ease;
+    position: relative;
+}
+
+.nav-link:hover,
+.nav-link.active {
+    background: rgba(90, 61, 122, 0.3);
+    color: #9acdff;
+    text-shadow: 0 0 10px rgba(154, 205, 255, 0.5);
+}
+
+.nav-discord-btn {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    background: linear-gradient(135deg, #5865f2, #7289da);
+    color: white;
+    padding: 0.5rem 1rem;
+    border-radius: 20px;
+    text-decoration: none;
+    font-size: 0.9rem;
+    font-weight: bold;
+    transition: all 0.3s ease;
+    box-shadow: 0 0 15px rgba(88, 101, 242, 0.3);
+}
+
+.nav-discord-btn:hover {
+    background: linear-gradient(135deg, #4752c4, #5b6eae);
+    transform: translateY(-2px);
+    box-shadow: 0 0 25px rgba(88, 101, 242, 0.5);
+}
+
+/* Section Styles */
+section {
+    padding: 4rem 0;
+    min-height: 100vh;
+}
+
+.home-section {
+    background: linear-gradient(135deg, rgba(10, 6, 21, 0.9) 0%, rgba(20, 10, 35, 0.95) 100%);
+}
+
+.workshop-section,
+.rebalances-section,
+.concepts-section {
+    background: linear-gradient(135deg, #0a0615 0%, #120a20 50%, #0a0615 100%);
+}
+
+.changelog-section {
+    background: rgba(74, 45, 90, 0.1);
+    border-top: 2px solid #5a3d7a;
+    border-bottom: 2px solid #5a3d7a;
+}
+
+/* Featured Content */
+.featured-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    margin: 3rem 0;
+}
+
+.featured-item {
+    background: rgba(74, 45, 90, 0.2);
+    border: 2px solid #4a2d5a;
+    border-radius: 15px;
+    padding: 2rem;
+    text-align: center;
+    transition: all 0.3s ease;
+}
+
+.featured-item:hover {
+    transform: translateY(-5px);
+    border-color: #7a5a9b;
+    box-shadow: 0 10px 30px rgba(74, 45, 90, 0.4);
+}
+
+.featured-item h3 {
+    color: #f8d100;
+    margin-bottom: 1rem;
+    font-size: 1.5rem;
+}
+
+.featured-item p {
+    color: #e8e0d8;
+    margin-bottom: 1.5rem;
+    opacity: 0.9;
+}
+
+.featured-link {
+    display: inline-block;
+    background: rgba(90, 61, 122, 0.8);
+    color: #9acdff;
+    padding: 0.75rem 1.5rem;
+    border-radius: 25px;
+    text-decoration: none;
+    font-weight: bold;
+    transition: all 0.3s ease;
+}
+
+.featured-link:hover {
+    background: rgba(90, 61, 122, 1);
+    color: white;
+    transform: translateY(-2px);
+}
+
+.coming-soon {
+    display: inline-block;
+    background: rgba(255, 102, 0, 0.2);
+    color: #ff6600;
+    padding: 0.5rem 1rem;
+    border-radius: 15px;
+    font-size: 0.9rem;
+    font-weight: bold;
+}
+
+/* Q&A Section */
+.qa-section {
+    margin-top: 4rem;
+    padding: 2rem;
+    background: rgba(10, 6, 21, 0.6);
+    border-radius: 15px;
+    border: 2px solid #4a2d5a;
+}
+
+.qa-section h3 {
+    color: #9acdff;
+    text-align: center;
+    margin-bottom: 2rem;
+    font-size: 2rem;
+}
+
+.qa-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+}
+
+.qa-item {
+    background: rgba(74, 45, 90, 0.2);
+    padding: 1.5rem;
+    border-radius: 10px;
+    border-left: 4px solid #9acdff;
+}
+
+.qa-item h4 {
+    color: #f8d100;
+    margin-bottom: 0.5rem;
+    font-size: 1.2rem;
+}
+
+.qa-item p {
+    color: #e8e0d8;
+    opacity: 0.9;
+    line-height: 1.6;
+}
+
+/* Workshop Section */
+.workshop-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap: 2rem;
+    margin: 3rem 0;
+}
+
+.workshop-placeholder {
+    background: rgba(74, 45, 90, 0.2);
+    border: 2px solid #4a2d5a;
+    border-radius: 15px;
+    padding: 3rem;
+    text-align: center;
+    color: #e8e0d8;
+}
+
+.workshop-placeholder h3 {
+    color: #f8d100;
+    margin-bottom: 1rem;
+    font-size: 1.8rem;
+}
+
+.workshop-placeholder p {
+    opacity: 0.8;
+    font-size: 1.1rem;
+}
+
+/* Section Descriptions */
+.section-description {
+    text-align: center;
+    color: #e8e0d8;
+    opacity: 0.8;
+    font-size: 1.2rem;
+    margin-bottom: 3rem;
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+    line-height: 1.6;
 }
 
 .hero-section {
@@ -255,6 +493,64 @@ To customize the banner appearance:
     transform: scale(1.1);
 }
 
+/* Mobile Navigation */
+@media (max-width: 768px) {
+    .nav-container {
+        padding: 0 1rem;
+        height: 50px;
+    }
+
+    .nav-links {
+        display: none; /* Hide on mobile, could add hamburger menu later */
+    }
+
+    .nav-discord-btn {
+        padding: 0.4rem 0.8rem;
+        font-size: 0.8rem;
+    }
+
+    .nav-discord-btn svg {
+        width: 16px;
+        height: 16px;
+    }
+}
+
+/* Mobile Featured Grid */
+@media (max-width: 768px) {
+    .featured-grid {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+        margin: 2rem 0;
+    }
+
+    .featured-item {
+        padding: 1.5rem;
+    }
+
+    .featured-item h3 {
+        font-size: 1.3rem;
+    }
+
+    .qa-grid {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+    }
+
+    .qa-section {
+        margin-top: 3rem;
+        padding: 1.5rem;
+    }
+
+    .qa-section h3 {
+        font-size: 1.5rem;
+    }
+
+    .section-description {
+        font-size: 1rem;
+        margin-bottom: 2rem;
+    }
+}
+
 /* Responsive banner styles */
 @media (max-width: 768px) {
     .custom-banner {
@@ -298,7 +594,7 @@ To customize the banner appearance:
     }
 
     body {
-        padding-top: 70px; /* Adjust for smaller mobile banner */
+        padding-top: 120px; /* Adjust for mobile nav (50px) + banner (70px) */
     }
 }
 
