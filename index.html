@@ -1109,19 +1109,7 @@
                     const weaponType = weaponClass.split(' ')[1]; // Extract type from "Class Type"
 
                     const matchesSearch = weaponName.includes(searchTerm);
-                    // Map filter values to TC2 class names for matching
-                    let filterClass = selectedClass;
-                    if (filterClass === 'trooper') filterClass = 'soldier';
-                    if (filterClass === 'arsonist') filterClass = 'pyro';
-                    if (filterClass === 'mechanic') filterClass = 'engineer';
-                    if (filterClass === 'annihilator') filterClass = 'demoman';
-                    if (filterClass === 'doctor') filterClass = 'medic';
-                    if (filterClass === 'marksman') filterClass = 'sniper';
-                    if (filterClass === 'brute') filterClass = 'heavy';
-                    if (filterClass === 'flanker') filterClass = 'scout';
-                    if (filterClass === 'agent') filterClass = 'spy';
-    
-                    const matchesClass = !selectedClass || weaponClass.includes(filterClass);
+                    const matchesClass = !selectedClass || weaponClass.includes(selectedClass);
                     const matchesType = !selectedType || weaponType === selectedType;
 
                     if (matchesSearch && matchesClass && matchesType) {
