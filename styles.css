@@ -1,0 +1,592 @@
+/* Team Fortress 2 Weapon Rebalance Site Styles */
+
+@import url('https://fonts.googleapis.com/css2?family=Creepster&family=Russo+One:wght@400&family=Anton:wght@400&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background: linear-gradient(135deg, #0a0615 0%, #120a20 50%, #0a0615 100%);
+    color: #e8e0d8;
+    font-family: 'Russo One', sans-serif;
+    overflow-x: hidden;
+}
+
+.hero-section {
+    position: relative;
+    height: 100vh;
+    background:
+        radial-gradient(circle at 50% 30%, rgba(74, 45, 90, 0.5) 0%, transparent 50%),
+        linear-gradient(180deg, rgba(10, 6, 21, 0.9) 0%, rgba(20, 10, 35, 0.95) 100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    text-align: center;
+    overflow: hidden;
+}
+
+.hero-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background:
+        radial-gradient(circle at 20% 80%, rgba(74, 45, 90, 0.5) 0%, transparent 50%),
+        radial-gradient(circle at 80% 20%, rgba(58, 29, 74, 0.4) 0%, transparent 50%),
+        radial-gradient(circle at 40% 40%, rgba(90, 61, 122, 0.3) 0%, transparent 50%);
+    opacity: 0.7;
+    animation: float 20s infinite linear, pulse 4s ease-in-out infinite alternate;
+}
+
+.hero-section::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background:
+        linear-gradient(45deg, transparent 30%, rgba(130, 97, 165, 0.15) 50%, transparent 70%),
+        linear-gradient(-45deg, transparent 30%, rgba(107, 70, 163, 0.08) 50%, transparent 70%);
+    animation: shimmer 3s ease-in-out infinite;
+}
+
+@keyframes float {
+    0% { transform: translateY(0px); }
+    100% { transform: translateY(-100px); }
+}
+
+@keyframes pulse {
+    0% { opacity: 0.6; }
+    100% { opacity: 0.8; }
+}
+
+@keyframes shimmer {
+    0% { transform: translateX(-100%); }
+    100% { transform: translateX(100%); }
+}
+
+@keyframes particleFloat {
+    0% {
+        transform: translateY(0px) rotate(0deg);
+        opacity: 0;
+    }
+    10% { opacity: 1; }
+    90% { opacity: 1; }
+    100% {
+        transform: translateY(-100vh) rotate(360deg);
+        opacity: 0;
+    }
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.content-section {
+    padding: 4rem 2rem;
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+.section-title {
+    font-family: 'Anton', sans-serif;
+    font-size: 3rem;
+    color: #ff6600;
+    text-align: center;
+    margin-bottom: 3rem;
+    text-shadow: 2px 2px 4px #000000;
+}
+
+.weapon-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+    gap: 2rem;
+    margin-bottom: 4rem;
+}
+
+.weapon-card {
+    background:
+        linear-gradient(145deg, rgba(74, 45, 90, 0.6), rgba(10, 6, 21, 0.98)),
+        radial-gradient(circle at 30% 20%, rgba(58, 29, 74, 0.25) 0%, transparent 50%),
+        radial-gradient(circle at 70% 80%, rgba(74, 45, 90, 0.15) 0%, transparent 50%);
+    border: 2px solid #4a2d5a;
+    border-radius: 15px;
+    padding: 2rem;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    position: relative;
+    overflow: hidden;
+    box-shadow:
+        0 8px 32px rgba(74, 45, 90, 0.5),
+        inset 0 1px 0 rgba(255, 255, 255, 0.03);
+}
+
+.weapon-card.selected {
+    border-color: #7a5a9b;
+    box-shadow:
+        0 8px 32px rgba(122, 90, 155, 0.6),
+        inset 0 1px 0 rgba(255, 255, 255, 0.1);
+}
+
+.weapon-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.1), transparent);
+    transition: left 0.5s;
+}
+
+.weapon-card:hover::before {
+    left: 100%;
+}
+
+.weapon-card:hover {
+    transform: translateY(-8px) scale(1.02);
+    box-shadow:
+        0 20px 60px rgba(74, 45, 90, 0.7),
+        0 0 30px rgba(58, 29, 74, 0.6),
+        inset 0 1px 0 rgba(255, 255, 255, 0.05);
+    border-color: #4a2d5a;
+    background:
+        linear-gradient(145deg, rgba(74, 45, 90, 0.7), rgba(10, 6, 21, 0.99)),
+        radial-gradient(circle at 30% 20%, rgba(74, 45, 90, 0.4) 0%, transparent 50%),
+        radial-gradient(circle at 70% 80%, rgba(58, 29, 74, 0.3) 0%, transparent 50%);
+}
+
+.weapon-header {
+    display: flex;
+    align-items: center;
+    margin-bottom: 1.5rem;
+}
+
+.weapon-icon {
+    width: 80px;
+    height: 80px;
+    background: radial-gradient(circle, #4a2d5a, #3a1d4a);
+    border-radius: 50%;
+    margin-right: 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 2rem;
+    color: white;
+    text-shadow: 1px 1px 2px #000;
+    will-change: transform;
+    overflow: hidden;
+    position: relative;
+    box-shadow: 0 0 20px rgba(74, 45, 90, 0.7);
+}
+
+.weapon-icon img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 50%;
+    transition: transform 0.3s ease;
+}
+
+.weapon-icon img:hover {
+    transform: scale(1.1);
+}
+
+.weapon-icon .fallback-icon {
+    font-size: 2rem;
+    color: white;
+    text-shadow: 1px 1px 2px #000;
+}
+
+.weapon-info h3 {
+    color: #f8d100;
+    font-size: 1.5rem;
+    margin-bottom: 0.5rem;
+    text-shadow: 1px 1px 2px #000;
+}
+
+.weapon-class {
+    color: #4a2d5a;
+    font-size: 1rem;
+    opacity: 0.9;
+}
+
+.stats-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+    margin-top: 1rem;
+}
+
+.stat-positive {
+    color: #9acdff;
+    text-shadow: 0 0 5px #9acdff;
+    transition: all 0.3s ease;
+    cursor: pointer;
+    position: relative;
+}
+
+.stat-positive:hover {
+    color: #b8e0ff;
+    text-shadow: 0 0 10px #9acdff, 0 0 20px #9acdff;
+    transform: scale(1.05);
+}
+
+.stat-negative {
+    color: #fe3e3e;
+    text-shadow: 0 0 5px #fe3e3e;
+    transition: all 0.3s ease;
+    cursor: pointer;
+    position: relative;
+}
+
+.stat-negative:hover {
+    color: #ff6b6b;
+    text-shadow: 0 0 10px #fe3e3e, 0 0 20px #fe3e3e;
+    transform: scale(1.05);
+}
+
+.stat-change {
+    color: #9acdff;
+    font-weight: bold;
+    text-shadow: 0 0 5px #9acdff;
+    transition: all 0.3s ease;
+    cursor: pointer;
+    position: relative;
+}
+
+.stat-change:hover {
+    color: #b8e0ff;
+    text-shadow: 0 0 10px #9acdff, 0 0 20px #9acdff;
+    transform: scale(1.05);
+}
+
+.stat-tooltip {
+    position: absolute;
+    background: rgba(0, 0, 0, 0.9);
+    color: white;
+    padding: 0.5rem;
+    border-radius: 5px;
+    font-size: 0.8rem;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s ease;
+    z-index: 1000;
+    pointer-events: none;
+    white-space: nowrap;
+}
+
+.stat-positive:hover .stat-tooltip,
+.stat-negative:hover .stat-tooltip,
+.stat-change:hover .stat-tooltip {
+    opacity: 1;
+    visibility: visible;
+}
+
+.changes-section {
+    background: rgba(130, 97, 165, 0.1);
+    border-left: 4px solid #8261a5;
+    padding: 1rem;
+    margin-top: 1rem;
+    border-radius: 0 10px 10px 0;
+}
+
+.changes-title {
+    color: #f8d100;
+    font-size: 1.2rem;
+    margin-bottom: 0.5rem;
+    text-decoration: underline;
+}
+
+.reason-section {
+    background: rgba(0, 0, 0, 0.3);
+    border-radius: 8px;
+    padding: 1rem;
+    margin-top: 1rem;
+    border-left: 3px solid #9acdff;
+}
+
+.class-divider {
+    text-align: center;
+    margin: 4rem 0;
+    position: relative;
+}
+
+.class-divider::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 0;
+    right: 0;
+    height: 2px;
+    background: linear-gradient(90deg, transparent, #4a2d5a, transparent);
+    box-shadow: 0 0 10px rgba(74, 45, 90, 0.7);
+}
+
+.class-name {
+    background:
+        linear-gradient(135deg, #0a0615, #0f0a1a),
+        radial-gradient(circle at 30% 30%, rgba(74, 45, 90, 0.6) 0%, transparent 70%);
+    color: #4a2d5a;
+    padding: 1rem 2rem;
+    border-radius: 25px;
+    border: 2px solid #4a2d5a;
+    font-size: 2rem;
+    font-family: 'Anton', sans-serif;
+    display: inline-block;
+    text-shadow:
+        2px 2px 4px #000,
+        0 0 20px rgba(74, 45, 90, 0.8);
+    position: relative;
+    z-index: 1;
+    box-shadow: 0 0 30px rgba(74, 45, 90, 0.6);
+}
+
+.class-name img {
+    width: 40px;
+    height: 40px;
+    margin-left: 10px;
+    vertical-align: middle;
+}
+
+.scroll-indicator {
+    position: fixed;
+    bottom: 2rem;
+    right: 2rem;
+    background: rgba(90, 61, 122, 0.8);
+    color: white;
+    padding: 1rem;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    z-index: 1000;
+    box-shadow: 0 0 20px rgba(90, 61, 122, 0.6);
+}
+
+.scroll-indicator:hover {
+    background: rgba(90, 61, 122, 1);
+    transform: scale(1.1);
+    box-shadow: 0 0 30px rgba(90, 61, 122, 0.8);
+}
+
+.compare-button {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    background: rgba(90, 61, 122, 0.8);
+    color: white;
+    border: none;
+    border-radius: 50%;
+    width: 2rem;
+    height: 2rem;
+    cursor: pointer;
+    font-size: 0.8rem;
+    transition: all 0.3s ease;
+    opacity: 0.7;
+    box-shadow: 0 0 10px rgba(90, 61, 122, 0.6);
+}
+
+.compare-button:hover {
+    background: rgba(90, 61, 122, 1);
+    transform: scale(1.1);
+    opacity: 1;
+    box-shadow: 0 0 15px rgba(90, 61, 122, 0.8);
+}
+
+.compare-panel {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: rgba(10, 6, 21, 0.98);
+    padding: 1rem;
+    transform: translateY(100%);
+    transition: transform 0.3s ease;
+    z-index: 1000;
+    border-top: 2px solid #5a3d7a;
+    box-shadow: 0 0 30px rgba(90, 61, 122, 0.4);
+}
+
+.compare-panel.active {
+    transform: translateY(0);
+}
+
+.compare-weapons {
+    display: flex;
+    gap: 1rem;
+    overflow-x: auto;
+    padding: 0.5rem;
+}
+
+.search-filter-section {
+    text-align: center;
+    margin-bottom: 3rem;
+}
+
+.search-filter-section > div {
+    display: inline-flex;
+    gap: 1rem;
+    align-items: center;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.search-filter-section input,
+.search-filter-section select {
+    padding: 0.5rem;
+    border: 2px solid #5a3d7a;
+    border-radius: 25px;
+    background: rgba(10, 6, 21, 0.95);
+    color: white;
+    min-width: 200px;
+    box-shadow: 0 0 10px rgba(90, 61, 122, 0.4);
+}
+
+.search-filter-section select {
+    border-radius: 10px;
+    min-width: auto;
+}
+
+.changelog-section {
+    background: rgba(74, 45, 90, 0.25);
+    padding: 2rem;
+    border-radius: 15px;
+    margin: 2rem 0;
+    border: 2px solid #4a2d5a;
+}
+
+.changelog-section h2 {
+    color: #4a2d5a;
+    margin-bottom: 1rem;
+    text-align: center;
+}
+
+.changelog-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+}
+
+.changelog-item {
+    background: rgba(74, 45, 90, 0.25);
+    padding: 1.5rem;
+    border-radius: 10px;
+    border-left: 4px solid #4a2d5a;
+}
+
+.changelog-item h3 {
+    color: #9acdff;
+    margin-bottom: 1rem;
+}
+
+.changelog-item ul {
+    color: #f0eadc;
+    list-style: none;
+    padding: 0;
+}
+
+.changelog-item li {
+    margin-bottom: 0.5rem;
+}
+
+.changelog-summary {
+    margin-top: 2rem;
+    padding: 1.5rem;
+    background: rgba(10, 6, 21, 0.6);
+    border-radius: 10px;
+}
+
+.changelog-summary h3 {
+    color: #9acdff;
+    margin-bottom: 1rem;
+}
+
+.changelog-summary .summary-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1rem;
+}
+
+.changelog-summary .summary-item h4 {
+    color: #9acdff;
+    margin-bottom: 0.5rem;
+}
+
+.changelog-summary .summary-item p {
+    color: #f0eadc;
+    font-size: 0.9rem;
+}
+
+@media (max-width: 768px) {
+    .weapon-grid {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+    }
+
+    .stats-grid {
+        grid-template-columns: 1fr;
+        gap: 0.5rem;
+    }
+
+    .hero-section {
+        padding: 2rem 1rem;
+        height: auto;
+        min-height: 80vh;
+    }
+
+    .main-title {
+        font-size: clamp(2rem, 10vw, 6rem);
+    }
+
+    .subtitle {
+        font-size: clamp(1rem, 6vw, 2rem);
+    }
+
+    .weapon-card {
+        padding: 1.5rem;
+        margin: 0 0.5rem;
+    }
+
+    .class-name {
+        font-size: 1.5rem;
+        padding: 0.8rem 1.5rem;
+    }
+
+    .section-title {
+        font-size: 2rem;
+    }
+
+    .scroll-indicator {
+        bottom: 1rem;
+        right: 1rem;
+        padding: 0.8rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .hero-section {
+        padding: 1rem 0.5rem;
+    }
+
+    .weapon-card {
+        padding: 1rem;
+        margin: 0 0.25rem;
+    }
+
+    .weapon-header {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .weapon-icon {
+        margin-bottom: 0.5rem;
+        margin-right: 0;
+    }
+}

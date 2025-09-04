@@ -464,8 +464,8 @@
         "positive": ["+42% clip size", "20% more accurate"],
         "negative": ["-20% damage penalty", "-20% slower firing speed"]
       },
-      "changes": [""],
-      "reasoning": "This has been one of the weapons that I'm really intrigued and interested in seeing. A Trooper pistol that's a sidegrade to your usual hitscan shotgun. It might be an underused/inoffensive concept and probably would have the same popularity as 50-AE where people do use it, it's just that some prefer MAC-10 more. Who knows.",
+      "changes": ["This has been one of the weapons that I'm really intrigued and interested in seeing. A Trooper pistol that's a sidegrade to your usual hitscan shotgun. It might be an underused/inoffensive concept and probably would have the same popularity as 50-AE where people do use it, it's just that some prefer MAC-10 more. Who knows."],
+      "reasoning": "",
       "isConcept": true
     },
     {
