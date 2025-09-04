@@ -110,4 +110,4 @@ Before submitting:
 
 ## Need Help?
 
-If you have questions about contributing or need clarification on the format, feel free to open an issue or contact the maintainers.
+If you have questions about contributing or need clarification on the format, feel free to open an issue or contact @snazzygold (idea guy) or @oxxywozz (the "website guy").
