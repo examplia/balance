@@ -1059,11 +1059,19 @@
             return card;
         }
 
+        // Global variable to store weapon data
+        let allWeaponsData = null;
+
         // Function to load weapons from JSON
         async function loadWeapons() {
             try {
+                console.log('[SEARCH-DEBUG] Loading weapons from JSON...');
                 const response = await fetch('weapons.json');
                 const data = await response.json();
+
+                // Store the original data globally for search functionality
+                allWeaponsData = data;
+                console.log(`[SEARCH-DEBUG] Loaded ${data.weapons.length} weapons from JSON`);
 
                 // Group weapons by class
                 const weaponsByClass = {};
@@ -1087,6 +1095,7 @@
                 });
 
                 // Create weapon cards for each class
+                let totalCardsCreated = 0;
                 for (const [className, weapons] of Object.entries(weaponsByClass)) {
                     const containerId = className.toLowerCase() + '-weapons';
                     const container = document.getElementById(containerId);
@@ -1096,6 +1105,7 @@
                         weapons.forEach(weapon => {
                             const card = createWeaponCard(weapon);
                             container.appendChild(card);
+                            totalCardsCreated++;
                         });
                     }
                 }
@@ -1106,12 +1116,16 @@
                 conceptWeapons.forEach(weapon => {
                     const card = createWeaponCard(weapon);
                     conceptContainer.appendChild(card);
+                    totalCardsCreated++;
                 });
+
+                console.log(`[SEARCH-DEBUG] Created ${totalCardsCreated} weapon cards total`);
 
                 // Re-initialize animations and effects for new content
                 setTimeout(initializeAnimations, 0);
             } catch (error) {
-                console.error('Error loading weapons:', error);
+                console.error('[SEARCH-DEBUG] Error loading weapons:', error);
+                console.error('[SEARCH-DEBUG] Stack trace:', error.stack);
             }
         }
 
@@ -1352,28 +1366,113 @@
                         searchTerm = searchTerm.substring(0, 100);
                     }
 
-                    // Get weapon cards with validation
-                    const weaponCards = document.querySelectorAll('.weapon-card');
-                    if (!weaponCards || weaponCards.length === 0) {
-                        console.warn('[SEARCH-DEBUG] No weapon cards found in DOM');
+                    // Check if we have weapon data loaded
+                    if (!allWeaponsData || !allWeaponsData.weapons) {
+                        console.warn('[SEARCH-DEBUG] Weapon data not loaded yet, cannot filter');
                         if (retryCount < maxRetries) {
-                            console.log(`[SEARCH-DEBUG] Retrying filter in 100ms...`);
-                            setTimeout(() => filterWeapons(retryCount + 1), 100);
+                            console.log(`[SEARCH-DEBUG] Retrying filter in 200ms...`);
+                            setTimeout(() => filterWeapons(retryCount + 1), 200);
                             return;
                         } else {
-                            console.error('[SEARCH-DEBUG] No weapon cards available after max retries');
+                            console.error('[SEARCH-DEBUG] Weapon data not available after max retries');
                             return;
                         }
                     }
 
-                    console.log(`[SEARCH-DEBUG] Found ${weaponCards.length} weapon cards to process`);
+                    console.log(`[SEARCH-DEBUG] Processing ${allWeaponsData.weapons.length} weapons from stored data`);
 
-                    const visibleCards = [];
-                    const hiddenCards = [];
+                    // Get all weapon grid containers with validation
+                    const allContainers = document.querySelectorAll('.weapon-grid');
+                    if (!allContainers || allContainers.length === 0) {
+                        throw new Error('No weapon grid containers found');
+                    }
+
+                    console.log(`[SEARCH-DEBUG] Found ${allContainers.length} weapon grid containers`);
+
+                    // Clear all containers with error handling
+                    let containersCleared = 0;
+                    allContainers.forEach((container, index) => {
+                        try {
+                            if (!container) {
+                                console.warn(`[SEARCH-DEBUG] Null container at index ${index}`);
+                                return;
+                            }
+                            container.innerHTML = '';
+                            containersCleared++;
+                        } catch (clearError) {
+                            console.error(`[SEARCH-DEBUG] Error clearing container ${index}:`, clearError);
+                        }
+                    });
+
+                    console.log(`[SEARCH-DEBUG] Cleared ${containersCleared} containers`);
+
+                    // Re-populate containers with ALL weapons from stored data
+                    let totalCardsCreated = 0;
+                    const weaponsByClass = {};
+
+                    // Group weapons by class (same logic as loadWeapons)
+                    allWeaponsData.weapons.forEach(weapon => {
+                        let className = weapon.class;
+                        if (className === 'Soldier') className = 'Trooper';
+                        if (className === 'Pyro') className = 'Arsonist';
+                        if (className === 'Engineer') className = 'Mechanic';
+                        if (className === 'Demoman') className = 'Annihilator';
+                        if (className === 'Medic') className = 'Doctor';
+                        if (className === 'Sniper') className = 'Marksman';
+                        if (className === 'Heavy') className = 'Brute';
+                        if (className === 'Scout') className = 'Flanker';
+                        if (className === 'Spy') className = 'Agent';
+
+                        if (!weaponsByClass[className]) {
+                            weaponsByClass[className] = [];
+                        }
+                        weaponsByClass[className].push(weapon);
+                    });
+
+                    // Create and place weapon cards for each class
+                    for (const [className, weapons] of Object.entries(weaponsByClass)) {
+                        const containerId = className.toLowerCase() + '-weapons';
+                        const container = document.getElementById(containerId);
+
+                        if (container) {
+                            weapons.forEach(weapon => {
+                                try {
+                                    const card = createWeaponCard(weapon);
+                                    container.appendChild(card);
+                                    totalCardsCreated++;
+                                } catch (cardError) {
+                                    console.error(`[SEARCH-DEBUG] Error creating card for weapon ${weapon.name}:`, cardError);
+                                }
+                            });
+                        }
+                    }
+
+                    // Add concept weapons
+                    const conceptWeapons = allWeaponsData.weapons.filter(weapon => weapon.isConcept);
+                    const conceptContainer = document.getElementById('concept-weapons');
+                    if (conceptContainer) {
+                        conceptWeapons.forEach(weapon => {
+                            try {
+                                const card = createWeaponCard(weapon);
+                                conceptContainer.appendChild(card);
+                                totalCardsCreated++;
+                            } catch (cardError) {
+                                console.error(`[SEARCH-DEBUG] Error creating concept card for weapon ${weapon.name}:`, cardError);
+                            }
+                        });
+                    }
+
+                    console.log(`[SEARCH-DEBUG] Re-created ${totalCardsCreated} weapon cards from stored data`);
+
+                    // Now apply the search filter to the newly created cards
+                    const weaponCards = document.querySelectorAll('.weapon-card');
+                    console.log(`[SEARCH-DEBUG] Found ${weaponCards.length} weapon cards to filter`);
+
                     let cardsProcessed = 0;
-                    let cardsFiltered = 0;
+                    let cardsVisible = 0;
+                    let cardsHidden = 0;
 
-                    // Process each weapon card
+                    // Process each weapon card for filtering
                     weaponCards.forEach((card, index) => {
                         try {
                             if (!card) {
@@ -1408,33 +1507,11 @@
                             const matchesType = !selectedType || weaponType === selectedType;
 
                             if (matchesSearch && matchesClass && matchesType) {
-                                // Calculate priority score for sorting
-                                let priority = 0;
-
-                                // Exact weapon name match gets highest priority
-                                if (searchTerm && weaponName === searchTerm) {
-                                    priority += 100;
-                                }
-                                // Weapon name contains search term
-                                else if (searchTerm && weaponName.includes(searchTerm)) {
-                                    priority += 50;
-                                }
-
-                                // Class match gets priority
-                                if (selectedClass && weaponClass === selectedClass) {
-                                    priority += 20;
-                                }
-
-                                // Type match gets priority
-                                if (selectedType && weaponType === selectedType) {
-                                    priority += 10;
-                                }
-
-                                card._priority = priority;
-                                visibleCards.push(card);
-                                cardsFiltered++;
+                                card.style.display = 'block';
+                                cardsVisible++;
                             } else {
-                                hiddenCards.push(card);
+                                card.style.display = 'none';
+                                cardsHidden++;
                             }
 
                             cardsProcessed++;
@@ -1443,109 +1520,7 @@
                         }
                     });
 
-                    console.log(`[SEARCH-DEBUG] Processed ${cardsProcessed} cards, ${cardsFiltered} visible, ${hiddenCards.length} hidden`);
-
-                    // Sort visible cards by priority (highest first)
-                    visibleCards.sort((a, b) => (b._priority || 0) - (a._priority || 0));
-
-                    // Get all weapon grid containers with validation
-                    const allContainers = document.querySelectorAll('.weapon-grid');
-                    if (!allContainers || allContainers.length === 0) {
-                        throw new Error('No weapon grid containers found');
-                    }
-
-                    console.log(`[SEARCH-DEBUG] Found ${allContainers.length} weapon grid containers`);
-
-                    // Clear all containers with error handling
-                    let containersCleared = 0;
-                    allContainers.forEach((container, index) => {
-                        try {
-                            if (!container) {
-                                console.warn(`[SEARCH-DEBUG] Null container at index ${index}`);
-                                return;
-                            }
-                            container.innerHTML = '';
-                            containersCleared++;
-                        } catch (clearError) {
-                            console.error(`[SEARCH-DEBUG] Error clearing container ${index}:`, clearError);
-                        }
-                    });
-
-                    console.log(`[SEARCH-DEBUG] Cleared ${containersCleared} containers`);
-
-                    // Re-append cards to their appropriate containers
-                    let cardsReappended = 0;
-                    visibleCards.forEach((card, index) => {
-                        try {
-                            if (!card) {
-                                console.warn(`[SEARCH-DEBUG] Cannot re-append null card at index ${index}`);
-                                return;
-                            }
-
-                            // Check if this is a concept weapon
-                            const isConcept = card.hasAttribute('data-concept');
-                            let targetContainer = null;
-
-                            if (isConcept) {
-                                // Concept weapons go to the concept container
-                                targetContainer = document.getElementById('concept-weapons');
-                            } else {
-                                // Find the appropriate container based on weapon class
-                                const classElement = card.querySelector('.weapon-class');
-                                if (!classElement || !classElement.textContent) {
-                                    console.warn(`[SEARCH-DEBUG] Cannot determine container for card ${index}`);
-                                    return;
-                                }
-
-                                const weaponClass = classElement.textContent.toLowerCase().split(' ')[0];
-
-                                // Map class names to container IDs
-                                const classMappings = {
-                                    'flanker': 'flanker-weapons',
-                                    'trooper': 'trooper-weapons',
-                                    'arsonist': 'arsonist-weapons',
-                                    'brute': 'brute-weapons',
-                                    'mechanic': 'mechanic-weapons',
-                                    'doctor': 'doctor-weapons',
-                                    'marksman': 'marksman-weapons',
-                                    'annihilator': 'annihilator-weapons'
-                                };
-
-                                const containerId = classMappings[weaponClass];
-                                if (containerId) {
-                                    targetContainer = document.getElementById(containerId);
-                                }
-                            }
-
-                            if (targetContainer) {
-                                card.style.display = 'block';
-                                card.style.animation = 'fadeIn 0.5s ease';
-                                targetContainer.appendChild(card);
-                                cardsReappended++;
-                            } else {
-                                console.warn(`[SEARCH-DEBUG] No target container found for card ${index}`);
-                            }
-                        } catch (reappendError) {
-                            console.error(`[SEARCH-DEBUG] Error re-appending card ${index}:`, reappendError);
-                        }
-                    });
-
-                    console.log(`[SEARCH-DEBUG] Re-appended ${cardsReappended} cards`);
-
-                    // Hide cards that don't match filters
-                    let cardsHidden = 0;
-                    hiddenCards.forEach((card, index) => {
-                        try {
-                            if (card && card.style) {
-                                card.style.display = 'none';
-                                cardsHidden++;
-                            }
-                        } catch (hideError) {
-                            console.error(`[SEARCH-DEBUG] Error hiding card ${index}:`, hideError);
-                        }
-                    });
-
-                    console.log(`[SEARCH-DEBUG] Hidden ${cardsHidden} cards`);
+                    console.log(`[SEARCH-DEBUG] Filter results: ${cardsProcessed} processed, ${cardsVisible} visible, ${cardsHidden} hidden`);
 
                     // Re-initialize animations and event listeners for moved cards
                     console.log(`[SEARCH-DEBUG] Triggering animation re-initialization...`);
