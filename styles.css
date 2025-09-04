@@ -151,6 +151,69 @@ body {
     height: 24px;
 }
 
+.concept-header-section {
+    background: linear-gradient(135deg, rgba(58, 29, 74, 0.8), rgba(74, 45, 90, 0.6));
+    padding: 4rem 2rem;
+    text-align: center;
+    margin: 4rem 0;
+    border-top: 3px solid #5a3d7a;
+    border-bottom: 3px solid #5a3d7a;
+    position: relative;
+    overflow: hidden;
+}
+
+.concept-header-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background:
+        radial-gradient(circle at 30% 30%, rgba(90, 61, 122, 0.3) 0%, transparent 50%),
+        radial-gradient(circle at 70% 70%, rgba(58, 29, 74, 0.3) 0%, transparent 50%);
+    z-index: 1;
+}
+
+.concept-header-content {
+    position: relative;
+    z-index: 2;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.concept-header-image {
+    max-width: 100%;
+    height: auto;
+    max-height: 200px;
+    object-fit: contain;
+    filter: drop-shadow(0 0 30px rgba(154, 205, 255, 0.6));
+    margin-bottom: 2rem;
+    transition: transform 0.3s ease;
+}
+
+.concept-header-image:hover {
+    transform: scale(1.05);
+}
+
+.concept-header-text h2 {
+    color: #9acdff;
+    font-size: 3rem;
+    margin-bottom: 1rem;
+    text-shadow: 0 0 20px rgba(154, 205, 255, 0.5);
+    font-weight: bold;
+    letter-spacing: 2px;
+}
+
+.concept-header-text p {
+    color: #e8e0d8;
+    font-size: 1.3rem;
+    max-width: 600px;
+    margin: 0 auto;
+    line-height: 1.6;
+    opacity: 0.9;
+}
+
 @media (max-width: 768px) {
     .discord-section {
         padding: 2rem 1rem;
@@ -173,6 +236,24 @@ body {
     .discord-button svg {
         width: 20px;
         height: 20px;
+    }
+
+    .concept-header-section {
+        padding: 3rem 1rem;
+        margin: 3rem 0;
+    }
+
+    .concept-header-image {
+        max-height: 150px;
+        margin-bottom: 1.5rem;
+    }
+
+    .concept-header-text h2 {
+        font-size: 2.2rem;
+    }
+
+    .concept-header-text p {
+        font-size: 1.1rem;
     }
 }
 

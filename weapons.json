@@ -263,7 +263,7 @@
     {
       "name": "ROBAR",
       "class": "Brute",
-      "type": "Primary",
+      "type": "Secondary",
       "image": "images/Ro-Bar.png",
       "stats": {
         "positive": ["On consumption: For the next 14 seconds, 50% of all damage dealt is returned as health"],
