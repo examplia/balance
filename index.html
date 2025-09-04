@@ -175,10 +175,13 @@
         .section-title {
             font-family: 'Anton', sans-serif;
             font-size: 3rem;
-            color: #ff6600;
+            color: white;
             text-align: center;
             margin-bottom: 3rem;
-            text-shadow: 2px 2px 4px #000000;
+            text-shadow:
+                2px 2px 4px #000000,
+                0 0 20px rgba(128, 0, 128, 0.5),
+                0 0 40px rgba(128, 0, 128, 0.3);
         }
         
         .weapon-grid {
@@ -1422,6 +1425,19 @@
                 `;
                 hero.appendChild(particle);
             }
+    // Debug logging for section titles
+    document.addEventListener('DOMContentLoaded', function() {
+        const titles = document.querySelectorAll('.section-title');
+        titles.forEach((title, index) => {
+            const computedStyle = window.getComputedStyle(title);
+            console.log(`Section title ${index + 1} (${title.textContent.trim()}):`);
+            console.log('Color:', computedStyle.color);
+            console.log('Text Shadow:', computedStyle.textShadow);
+            console.log('Background:', computedStyle.background);
+            console.log('Webkit Text Fill Color:', computedStyle.webkitTextFillColor);
+            console.log('---');
+        });
+    });
         }
     </script>
 </body>

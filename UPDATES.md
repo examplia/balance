@@ -4,6 +4,20 @@ This document provides a comprehensive record of all updates and modifications m
 
 ## Latest Updates
 
+### Version 2.0.1 - Section Title Styling Update (2025-09-04)
+
+**Visual Design Updates:**
+- Updated section titles ("⚖️ Weapon Rebalances", "🎨 Workshop Items", "📋 Update Highlights") from orange text with orange glow to white text with purple glow
+- Modified `.section-title` CSS rules in both `styles.css` and inline styles in `index.html`
+- Updated `@keyframes titleGlow` animation to use purple glow effects
+- Maintained existing typography and layout while improving visual contrast
+
+**CSS Modifications:**
+- Changed `color: #ff6600` to `color: white` in `.section-title` rules
+- Updated `text-shadow` properties to use purple glow (`rgba(128, 0, 128, 0.5)`)
+- Removed gradient background and `-webkit-text-fill-color` from main `.section-title` rule
+- Updated animation keyframes to maintain purple glow effect during hover/animation states
+
 ### Version 2.0.0 - Major Site Overhaul (2025-09-04)
 
 **Site Restructuring:**
@@ -169,4 +183,4 @@ For questions regarding site updates or contribution opportunities:
 ---
 
 *Last updated: 2025-09-04*
-*Version: 2.0.0*
+*Version: 2.0.1*
