@@ -1115,47 +1115,142 @@
             }
         }
 
-        // Function to initialize animations and effects
-        function initializeAnimations() {
-            // Smooth scrolling for all internal links
-            const cards = document.querySelectorAll('.weapon-card');
-            const classDividers = document.querySelectorAll('.class-divider');
+        // Enhanced function to initialize animations and effects with error handling
+        function initializeAnimations(retryCount = 0) {
+            const maxRetries = 3;
+            console.log(`[SEARCH-DEBUG] Initializing animations (attempt ${retryCount + 1}/${maxRetries})`);
 
-            // Add subtle animation on scroll
-            const observer = new IntersectionObserver((entries) => {
-                entries.forEach((entry, index) => {
-                    if (entry.isIntersecting) {
-                        setTimeout(() => {
-                            entry.target.style.opacity = '1';
-                            entry.target.style.transform = 'translateY(0)';
-                        }, index * 100);
+            try {
+                // Check for required DOM elements
+                if (!document || !document.querySelectorAll) {
+                    throw new Error('DOM not ready for animation initialization');
+                }
+
+                // Smooth scrolling for all internal links
+                const cards = document.querySelectorAll('.weapon-card');
+                const classDividers = document.querySelectorAll('.class-divider');
+
+                console.log(`[SEARCH-DEBUG] Found ${cards.length} weapon cards and ${classDividers.length} class dividers`);
+
+                if (cards.length === 0) {
+                    console.warn('[SEARCH-DEBUG] No weapon cards found for animation initialization');
+                    if (retryCount < maxRetries) {
+                        console.log(`[SEARCH-DEBUG] Retrying animation initialization in 100ms...`);
+                        setTimeout(() => initializeAnimations(retryCount + 1), 100);
+                        return;
+                    } else {
+                        console.error('[SEARCH-DEBUG] Max retries reached for animation initialization');
+                        return;
+                    }
+                }
+
+                // Add subtle animation on scroll
+                const observer = new IntersectionObserver((entries) => {
+                    entries.forEach((entry, index) => {
+                        if (entry.isIntersecting) {
+                            setTimeout(() => {
+                                try {
+                                    entry.target.style.opacity = '1';
+                                    entry.target.style.transform = 'translateY(0)';
+                                } catch (styleError) {
+                                    console.error('[SEARCH-DEBUG] Error applying scroll animation styles:', styleError);
+                                }
+                            }, index * 100);
+                        }
+                    });
+                }, { threshold: 0.1 });
+
+                // Initialize card animations
+                let cardsInitialized = 0;
+                cards.forEach((card, index) => {
+                    try {
+                        if (!card) {
+                            console.warn(`[SEARCH-DEBUG] Null card at index ${index}`);
+                            return;
+                        }
+
+                        card.style.opacity = '0';
+                        card.style.transform = 'translateY(30px)';
+                        card.style.transition = 'opacity 0.8s cubic-bezier(0.4, 0, 0.2, 1), transform 0.8s cubic-bezier(0.4, 0, 0.2, 1)';
+                        observer.observe(card);
+                        cardsInitialized++;
+                    } catch (cardError) {
+                        console.error(`[SEARCH-DEBUG] Error initializing card ${index}:`, cardError);
                     }
                 });
-            }, { threshold: 0.1 });
 
-            cards.forEach(card => {
-                card.style.opacity = '0';
-                card.style.transform = 'translateY(30px)';
-                card.style.transition = 'opacity 0.8s cubic-bezier(0.4, 0, 0.2, 1), transform 0.8s cubic-bezier(0.4, 0, 0.2, 1)';
-                observer.observe(card);
-            });
+                // Initialize class divider animations
+                let dividersInitialized = 0;
+                classDividers.forEach((divider, index) => {
+                    try {
+                        if (!divider) {
+                            console.warn(`[SEARCH-DEBUG] Null divider at index ${index}`);
+                            return;
+                        }
 
-            classDividers.forEach(divider => {
-                divider.style.opacity = '0';
-                divider.style.transform = 'scale(0.9)';
-                divider.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
-                observer.observe(divider);
-            });
-
-            // Add weapon card click effects
-            cards.forEach(card => {
-                card.addEventListener('click', function() {
-                    this.style.transform = 'scale(0.98)';
-                    setTimeout(() => {
-                        this.style.transform = '';
-                    }, 150);
+                        divider.style.opacity = '0';
+                        divider.style.transform = 'scale(0.9)';
+                        divider.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+                        observer.observe(divider);
+                        dividersInitialized++;
+                    } catch (dividerError) {
+                        console.error(`[SEARCH-DEBUG] Error initializing divider ${index}:`, dividerError);
+                    }
                 });
-            });
+
+                console.log(`[SEARCH-DEBUG] Initialized ${cardsInitialized} cards and ${dividersInitialized} dividers`);
+
+                // Add weapon card click effects with verification
+                let clickListenersAdded = 0;
+                cards.forEach((card, index) => {
+                    try {
+                        if (!card) {
+                            console.warn(`[SEARCH-DEBUG] Cannot add click listener to null card at index ${index}`);
+                            return;
+                        }
+
+                        // Remove existing listeners to prevent duplicates
+                        const newCard = card.cloneNode(true);
+                        if (card.parentNode) {
+                            card.parentNode.replaceChild(newCard, card);
+                        }
+
+                        // Add click effect
+                        newCard.addEventListener('click', function() {
+                            try {
+                                this.style.transform = 'scale(0.98)';
+                                setTimeout(() => {
+                                    try {
+                                        this.style.transform = '';
+                                    } catch (resetError) {
+                                        console.error('[SEARCH-DEBUG] Error resetting click transform:', resetError);
+                                    }
+                                }, 150);
+                            } catch (clickError) {
+                                console.error('[SEARCH-DEBUG] Error in click handler:', clickError);
+                            }
+                        });
+
+                        clickListenersAdded++;
+                    } catch (listenerError) {
+                        console.error(`[SEARCH-DEBUG] Error adding click listener to card ${index}:`, listenerError);
+                    }
+                });
+
+                console.log(`[SEARCH-DEBUG] Added click listeners to ${clickListenersAdded} cards`);
+                console.log(`[SEARCH-DEBUG] Animation initialization completed successfully`);
+
+            } catch (error) {
+                console.error('[SEARCH-DEBUG] Error in initializeAnimations:', error);
+                console.error('[SEARCH-DEBUG] Stack trace:', error.stack);
+
+                if (retryCount < maxRetries) {
+                    console.log(`[SEARCH-DEBUG] Retrying animation initialization in 200ms...`);
+                    setTimeout(() => initializeAnimations(retryCount + 1), 200);
+                } else {
+                    console.error('[SEARCH-DEBUG] Max retries reached for animation initialization');
+                }
+            }
         }
 
         // Navigation functionality
@@ -1232,115 +1327,318 @@
             const classFilter = document.getElementById('classFilter');
             const typeFilter = document.getElementById('typeFilter');
 
-            function filterWeapons() {
-                const searchTerm = searchInput.value.toLowerCase();
-                const selectedClass = classFilter.value.toLowerCase();
-                const selectedType = typeFilter.value.toLowerCase();
+            function filterWeapons(retryCount = 0) {
+                const maxRetries = 3;
+                const startTime = performance.now();
 
-                const weaponCards = Array.from(document.querySelectorAll('.weapon-card'));
-                const visibleCards = [];
-                const hiddenCards = [];
+                console.log(`[SEARCH-DEBUG] ===== STARTING WEAPON FILTER (attempt ${retryCount + 1}/${maxRetries}) =====`);
+                console.log(`[SEARCH-DEBUG] Timestamp: ${new Date().toISOString()}`);
 
-                weaponCards.forEach(card => {
-                    const weaponName = card.querySelector('h3').textContent.toLowerCase();
-                    const weaponClassText = card.querySelector('.weapon-class').textContent.toLowerCase();
-                    const weaponClassParts = weaponClassText.split(' ');
-                    const weaponClass = weaponClassParts[0]; // Extract class name (first word)
-                    const weaponType = weaponClassParts[1] || ''; // Extract type (second word, if exists)
+                try {
+                    // Validate input elements
+                    if (!searchInput || !classFilter || !typeFilter) {
+                        throw new Error('Search input elements not found');
+                    }
 
-                    const matchesSearch = !searchTerm || weaponName.includes(searchTerm);
-                    const matchesClass = !selectedClass || weaponClass === selectedClass;
-                    const matchesType = !selectedType || weaponType === selectedType;
+                    const searchTerm = searchInput.value ? searchInput.value.toLowerCase().trim() : '';
+                    const selectedClass = classFilter.value ? classFilter.value.toLowerCase().trim() : '';
+                    const selectedType = typeFilter.value ? typeFilter.value.toLowerCase().trim() : '';
 
-                    if (matchesSearch && matchesClass && matchesType) {
-                        // Calculate priority score for sorting
-                        let priority = 0;
+                    console.log(`[SEARCH-DEBUG] Search parameters: term="${searchTerm}", class="${selectedClass}", type="${selectedType}"`);
 
-                        // Exact weapon name match gets highest priority
-                        if (searchTerm && weaponName === searchTerm) {
-                            priority += 100;
+                    // Validate search term
+                    if (searchTerm && searchTerm.length > 100) {
+                        console.warn('[SEARCH-DEBUG] Search term too long, truncating');
+                        searchTerm = searchTerm.substring(0, 100);
+                    }
+
+                    // Get weapon cards with validation
+                    const weaponCards = document.querySelectorAll('.weapon-card');
+                    if (!weaponCards || weaponCards.length === 0) {
+                        console.warn('[SEARCH-DEBUG] No weapon cards found in DOM');
+                        if (retryCount < maxRetries) {
+                            console.log(`[SEARCH-DEBUG] Retrying filter in 100ms...`);
+                            setTimeout(() => filterWeapons(retryCount + 1), 100);
+                            return;
+                        } else {
+                            console.error('[SEARCH-DEBUG] No weapon cards available after max retries');
+                            return;
                         }
-                        // Weapon name contains search term
-                        else if (searchTerm && weaponName.includes(searchTerm)) {
-                            priority += 50;
-                        }
+                    }
 
-                        // Class match gets priority
-                        if (selectedClass && weaponClass === selectedClass) {
-                            priority += 20;
-                        }
+                    console.log(`[SEARCH-DEBUG] Found ${weaponCards.length} weapon cards to process`);
 
-                        // Type match gets priority
-                        if (selectedType && weaponType === selectedType) {
-                            priority += 10;
-                        }
+                    const visibleCards = [];
+                    const hiddenCards = [];
+                    let cardsProcessed = 0;
+                    let cardsFiltered = 0;
 
-                        card._priority = priority;
-                        visibleCards.push(card);
+                    // Process each weapon card
+                    weaponCards.forEach((card, index) => {
+                        try {
+                            if (!card) {
+                                console.warn(`[SEARCH-DEBUG] Null card at index ${index}`);
+                                return;
+                            }
+
+                            // Extract weapon information with validation
+                            const nameElement = card.querySelector('h3');
+                            const classElement = card.querySelector('.weapon-class');
+
+                            if (!nameElement || !classElement) {
+                                console.warn(`[SEARCH-DEBUG] Missing required elements in card ${index}`);
+                                return;
+                            }
+
+                            const weaponName = nameElement.textContent ? nameElement.textContent.toLowerCase().trim() : '';
+                            const weaponClassText = classElement.textContent ? classElement.textContent.toLowerCase().trim() : '';
+
+                            if (!weaponName || !weaponClassText) {
+                                console.warn(`[SEARCH-DEBUG] Empty weapon data in card ${index}`);
+                                return;
+                            }
+
+                            const weaponClassParts = weaponClassText.split(' ');
+                            const weaponClass = weaponClassParts[0] || '';
+                            const weaponType = weaponClassParts[1] || '';
+
+                            // Perform filtering logic
+                            const matchesSearch = !searchTerm || weaponName.includes(searchTerm);
+                            const matchesClass = !selectedClass || weaponClass === selectedClass;
+                            const matchesType = !selectedType || weaponType === selectedType;
+
+                            if (matchesSearch && matchesClass && matchesType) {
+                                // Calculate priority score for sorting
+                                let priority = 0;
+
+                                // Exact weapon name match gets highest priority
+                                if (searchTerm && weaponName === searchTerm) {
+                                    priority += 100;
+                                }
+                                // Weapon name contains search term
+                                else if (searchTerm && weaponName.includes(searchTerm)) {
+                                    priority += 50;
+                                }
+
+                                // Class match gets priority
+                                if (selectedClass && weaponClass === selectedClass) {
+                                    priority += 20;
+                                }
+
+                                // Type match gets priority
+                                if (selectedType && weaponType === selectedType) {
+                                    priority += 10;
+                                }
+
+                                card._priority = priority;
+                                visibleCards.push(card);
+                                cardsFiltered++;
+                            } else {
+                                hiddenCards.push(card);
+                            }
+
+                            cardsProcessed++;
+                        } catch (cardError) {
+                            console.error(`[SEARCH-DEBUG] Error processing card ${index}:`, cardError);
+                        }
+                    });
+
+                    console.log(`[SEARCH-DEBUG] Processed ${cardsProcessed} cards, ${cardsFiltered} visible, ${hiddenCards.length} hidden`);
+
+                    // Sort visible cards by priority (highest first)
+                    visibleCards.sort((a, b) => (b._priority || 0) - (a._priority || 0));
+
+                    // Get all weapon grid containers with validation
+                    const allContainers = document.querySelectorAll('.weapon-grid');
+                    if (!allContainers || allContainers.length === 0) {
+                        throw new Error('No weapon grid containers found');
+                    }
+
+                    console.log(`[SEARCH-DEBUG] Found ${allContainers.length} weapon grid containers`);
+
+                    // Clear all containers with error handling
+                    let containersCleared = 0;
+                    allContainers.forEach((container, index) => {
+                        try {
+                            if (!container) {
+                                console.warn(`[SEARCH-DEBUG] Null container at index ${index}`);
+                                return;
+                            }
+                            container.innerHTML = '';
+                            containersCleared++;
+                        } catch (clearError) {
+                            console.error(`[SEARCH-DEBUG] Error clearing container ${index}:`, clearError);
+                        }
+                    });
+
+                    console.log(`[SEARCH-DEBUG] Cleared ${containersCleared} containers`);
+
+                    // Re-append cards to their appropriate containers
+                    let cardsReappended = 0;
+                    visibleCards.forEach((card, index) => {
+                        try {
+                            if (!card) {
+                                console.warn(`[SEARCH-DEBUG] Cannot re-append null card at index ${index}`);
+                                return;
+                            }
+
+                            // Check if this is a concept weapon
+                            const isConcept = card.hasAttribute('data-concept');
+                            let targetContainer = null;
+
+                            if (isConcept) {
+                                // Concept weapons go to the concept container
+                                targetContainer = document.getElementById('concept-weapons');
+                            } else {
+                                // Find the appropriate container based on weapon class
+                                const classElement = card.querySelector('.weapon-class');
+                                if (!classElement || !classElement.textContent) {
+                                    console.warn(`[SEARCH-DEBUG] Cannot determine container for card ${index}`);
+                                    return;
+                                }
+
+                                const weaponClass = classElement.textContent.toLowerCase().split(' ')[0];
+
+                                // Map class names to container IDs
+                                const classMappings = {
+                                    'flanker': 'flanker-weapons',
+                                    'trooper': 'trooper-weapons',
+                                    'arsonist': 'arsonist-weapons',
+                                    'brute': 'brute-weapons',
+                                    'mechanic': 'mechanic-weapons',
+                                    'doctor': 'doctor-weapons',
+                                    'marksman': 'marksman-weapons',
+                                    'annihilator': 'annihilator-weapons'
+                                };
+
+                                const containerId = classMappings[weaponClass];
+                                if (containerId) {
+                                    targetContainer = document.getElementById(containerId);
+                                }
+                            }
+
+                            if (targetContainer) {
+                                card.style.display = 'block';
+                                card.style.animation = 'fadeIn 0.5s ease';
+                                targetContainer.appendChild(card);
+                                cardsReappended++;
+                            } else {
+                                console.warn(`[SEARCH-DEBUG] No target container found for card ${index}`);
+                            }
+                        } catch (reappendError) {
+                            console.error(`[SEARCH-DEBUG] Error re-appending card ${index}:`, reappendError);
+                        }
+                    });
+
+                    console.log(`[SEARCH-DEBUG] Re-appended ${cardsReappended} cards`);
+
+                    // Hide cards that don't match filters
+                    let cardsHidden = 0;
+                    hiddenCards.forEach((card, index) => {
+                        try {
+                            if (card && card.style) {
+                                card.style.display = 'none';
+                                cardsHidden++;
+                            }
+                        } catch (hideError) {
+                            console.error(`[SEARCH-DEBUG] Error hiding card ${index}:`, hideError);
+                        }
+                    });
+
+                    console.log(`[SEARCH-DEBUG] Hidden ${cardsHidden} cards`);
+
+                    // Re-initialize animations and event listeners for moved cards
+                    console.log(`[SEARCH-DEBUG] Triggering animation re-initialization...`);
+                    setTimeout(() => {
+                        try {
+                            initializeAnimations();
+                            const endTime = performance.now();
+                            console.log(`[SEARCH-DEBUG] ===== FILTER COMPLETED SUCCESSFULLY in ${(endTime - startTime).toFixed(2)}ms =====`);
+                        } catch (initError) {
+                            console.error('[SEARCH-DEBUG] Error during animation initialization:', initError);
+                            console.error('[SEARCH-DEBUG] Stack trace:', initError.stack);
+                        }
+                    }, 0);
+
+                } catch (error) {
+                    console.error('[SEARCH-DEBUG] ===== FILTER ERROR =====');
+                    console.error('[SEARCH-DEBUG] Error in filterWeapons:', error);
+                    console.error('[SEARCH-DEBUG] Stack trace:', error.stack);
+                    console.error('[SEARCH-DEBUG] Search parameters at error:', {
+                        searchTerm: searchInput ? searchInput.value : 'N/A',
+                        selectedClass: classFilter ? classFilter.value : 'N/A',
+                        selectedType: typeFilter ? typeFilter.value : 'N/A'
+                    });
+
+                    if (retryCount < maxRetries) {
+                        console.log(`[SEARCH-DEBUG] Retrying filter in 300ms...`);
+                        setTimeout(() => filterWeapons(retryCount + 1), 300);
                     } else {
-                        hiddenCards.push(card);
+                        console.error('[SEARCH-DEBUG] Max retries reached for filterWeapons');
+                        console.error('[SEARCH-DEBUG] ===== FILTER FAILED PERMANENTLY =====');
                     }
-                });
-
-                // Sort visible cards by priority (highest first)
-                visibleCards.sort((a, b) => b._priority - a._priority);
-
-                // Get all weapon grid containers
-                const allContainers = document.querySelectorAll('.weapon-grid');
-
-                // Clear all containers
-                allContainers.forEach(container => {
-                    container.innerHTML = '';
-                });
-
-                // Re-append cards to their appropriate containers in priority order
-                visibleCards.forEach(card => {
-                    // Check if this is a concept weapon
-                    const isConcept = card.hasAttribute('data-concept');
-
-                    let targetContainer = null;
-
-                    if (isConcept) {
-                        // Concept weapons go to the concept container
-                        targetContainer = document.getElementById('concept-weapons');
-                    } else {
-                        // Find the appropriate container based on weapon class
-                        const weaponClass = card.querySelector('.weapon-class').textContent.toLowerCase().split(' ')[0];
-
-                        // Map class names to container IDs
-                        const classMappings = {
-                            'flanker': 'flanker-weapons',
-                            'trooper': 'trooper-weapons',
-                            'arsonist': 'arsonist-weapons',
-                            'brute': 'brute-weapons',
-                            'mechanic': 'mechanic-weapons',
-                            'doctor': 'doctor-weapons',
-                            'marksman': 'marksman-weapons',
-                            'annihilator': 'annihilator-weapons'
-                        };
-
-                        targetContainer = document.getElementById(classMappings[weaponClass]);
-                    }
-
-                    if (targetContainer) {
-                        card.style.display = 'block';
-                        card.style.animation = 'fadeIn 0.5s ease';
-                        targetContainer.appendChild(card);
-                    }
-                });
-
-                // Hide cards that don't match filters
-                hiddenCards.forEach(card => {
-                    card.style.display = 'none';
-                });
-
-                // Re-initialize animations and event listeners for moved cards
-                setTimeout(initializeAnimations, 0);
+                }
             }
 
-            searchInput.addEventListener('input', debounce(filterWeapons, 300));
-            classFilter.addEventListener('change', filterWeapons);
-            typeFilter.addEventListener('change', filterWeapons);
+            // Add event listeners with error handling
+            try {
+                if (searchInput) {
+                    searchInput.addEventListener('input', debounce(filterWeapons, 300));
+                    console.log('[SEARCH-DEBUG] Search input event listener added');
+                } else {
+                    console.error('[SEARCH-DEBUG] Search input element not found');
+                }
+
+                if (classFilter) {
+                    classFilter.addEventListener('change', filterWeapons);
+                    console.log('[SEARCH-DEBUG] Class filter event listener added');
+                } else {
+                    console.error('[SEARCH-DEBUG] Class filter element not found');
+                }
+
+                if (typeFilter) {
+                    typeFilter.addEventListener('change', filterWeapons);
+                    console.log('[SEARCH-DEBUG] Type filter event listener added');
+                } else {
+                    console.error('[SEARCH-DEBUG] Type filter element not found');
+                }
+
+                console.log('[SEARCH-DEBUG] All search event listeners initialized successfully');
+            } catch (listenerError) {
+                console.error('[SEARCH-DEBUG] Error setting up search event listeners:', listenerError);
+                console.error('[SEARCH-DEBUG] Stack trace:', listenerError.stack);
+            }
+
+            // Add a debug function to test search functionality
+            window.testSearchFunctionality = function() {
+                console.log('[SEARCH-DEBUG] ===== TESTING SEARCH FUNCTIONALITY =====');
+                console.log('[SEARCH-DEBUG] Search input value:', searchInput ? searchInput.value : 'N/A');
+                console.log('[SEARCH-DEBUG] Class filter value:', classFilter ? classFilter.value : 'N/A');
+                console.log('[SEARCH-DEBUG] Type filter value:', typeFilter ? typeFilter.value : 'N/A');
+
+                const cards = document.querySelectorAll('.weapon-card');
+                console.log('[SEARCH-DEBUG] Total weapon cards found:', cards.length);
+
+                // Test filter function
+                try {
+                    filterWeapons();
+                    console.log('[SEARCH-DEBUG] Filter function executed successfully');
+                } catch (testError) {
+                    console.error('[SEARCH-DEBUG] Error testing filter function:', testError);
+                    console.error('[SEARCH-DEBUG] Stack trace:', testError.stack);
+                }
+
+                console.log('[SEARCH-DEBUG] ===== SEARCH TEST COMPLETED =====');
+            };
+
+            // Add keyboard shortcut for debugging (Ctrl+Shift+D)
+            document.addEventListener('keydown', function(e) {
+                if (e.ctrlKey && e.shiftKey && e.key === 'D') {
+                    e.preventDefault();
+                    console.log('[SEARCH-DEBUG] Debug shortcut activated');
+                    window.testSearchFunctionality();
+                }
+            });
         });
 
         function toggleCompare(weaponId) {
