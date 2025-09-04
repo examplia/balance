@@ -1494,13 +1494,13 @@
                             }
 
                             const weaponClassParts = weaponClassText.split(' ');
-                            const weaponClass = weaponClassParts[0] || '';
-                            const weaponType = weaponClassParts[1] || '';
+                            const weaponClass = weaponClassParts[0] ? weaponClassParts[0].trim().toLowerCase() : '';
+                            const weaponType = weaponClassParts[1] ? weaponClassParts[1].trim().toLowerCase() : '';
 
-                            // Perform filtering logic
+                            // Perform filtering logic with more robust comparison
                             const matchesSearch = !searchTerm || weaponName.includes(searchTerm);
-                            const matchesClass = !selectedClass || weaponClass === selectedClass;
-                            const matchesType = !selectedType || weaponType === selectedType;
+                            const matchesClass = !selectedClass || weaponClass === selectedClass.trim().toLowerCase();
+                            const matchesType = !selectedType || weaponType === selectedType.trim().toLowerCase();
 
                             if (matchesSearch && matchesClass && matchesType) {
                                 card.style.display = 'block';

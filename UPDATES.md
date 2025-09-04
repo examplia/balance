@@ -4,6 +4,14 @@ This document provides a comprehensive record of all updates and modifications m
 
 ## Latest Updates
 
+### **NEW** Version 2.0.5 - Trooper Search Functionality Fix (2025-09-04)
+
+**JavaScript Bug Fixes:**
+- **TARGETED FIX**: Enhanced robustness of class and type comparisons in search filtering to resolve Trooper-specific search issues
+- Modified `filterWeapons()` function to ensure consistent string handling by trimming and lowercasing both sides of class/type comparisons
+- Fixed potential whitespace and case sensitivity issues that could prevent Trooper weapons from appearing in search results
+- Maintained all existing search, filter, and comparison functionality while improving reliability
+
 ### Version 2.0.4 - Critical Search Functionality Restoration (2025-09-04)
 
 **Critical Bug Fixes:**
@@ -241,4 +249,4 @@ For questions regarding site updates or contribution opportunities:
 ---
 
 *Last updated: 2025-09-04*
-*Version: 2.0.4*
+*Version: 2.0.5*
