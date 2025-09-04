@@ -35,7 +35,7 @@
         "positive": ["+15% faster firing speed", "+15% clip size", "+20% more healing from packs and secondaries", "+20% faster recharge time for secondary meters"],
         "negative": ["-20% damage penalty", "-15% max reserve ammo"]
       },
-      "changes": ["Added a '+20% more healing from healing sources' stat", "Added a '+20% faster recharge time for secondary meters' stat", "Removed the '+1 capture rate on wearer' stat Increased damage penalty from 15% to 20%", "Increased damage penalty from 15% to 20%"],
+      "changes": ["Added a '+20% more healing from healing sources' stat", "Added a '+20% faster recharge time for secondary meters' stat", "Removed the '+1 capture rate on wearer' stat", "Increased damage penalty from 15% to 20%"],
       "reasoning": "My goal on this small rework to this weapon is make the Flanker a 'Specialist', it's in the name. I always wondered what it would be like to play around with the name of this weapon by making Flanker an actual specialist, so I made it more supportive and passive with the healing. The increased damage penalty will make it slightly less stronger.",
       "isConcept": false
     },
@@ -302,7 +302,7 @@
     {
       "name": "Gunslinger",
       "class": "Mechanic",
-      "type": "Secondary",
+      "type": "Building",
       "image": "images/Gunslinger.png",
       "stats": {
         "positive": ["+7% faster movement speed on wearer", "+25 max health on wearer", "Replaces the Sentry with a Mini-Sentry"],
@@ -478,7 +478,7 @@
         "negative": []
       },
       "changes": [],
-      "reasoning": "A conceptual alternative for Arsonist that could provide different playstyles compared to the current flare gun options.",
+      "reasoning": "A conceptual flamethrower alternative for Arsonist that could provide different playstyles compared to the current flare gun options.",
       "isConcept": true
     },
     {
@@ -504,7 +504,7 @@
         "negative": []
       },
       "changes": [],
-      "reasoning": "A ... flamethrower ... concept for Brute that could provide area denial capabilities and synergize with Brute's tanky playstyle.",
+      "reasoning": "A flamethrower concept for Brute that could provide area denial capabilities and synergize with Brute's tanky playstyle.",
       "isConcept": true
     }
   ]
