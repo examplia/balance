@@ -1,0 +1,1083 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Typical Colors 2 - Weapon Rebalances</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Creepster&family=Russo+One:wght@400&family=Anton:wght@400&display=swap');
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            background: linear-gradient(135deg, #0a0615 0%, #120a20 50%, #0a0615 100%);
+            color: #e8e0d8;
+            font-family: 'Russo One', sans-serif;
+            overflow-x: hidden;
+        }
+        
+        .hero-section {
+            position: relative;
+            height: 100vh;
+            background:
+                radial-gradient(circle at 50% 30%, rgba(100, 70, 130, 0.5) 0%, transparent 50%),
+                linear-gradient(180deg, rgba(10, 6, 21, 0.9) 0%, rgba(20, 10, 35, 0.95) 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            text-align: center;
+            overflow: hidden;
+        }
+        
+        .hero-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background:
+                radial-gradient(circle at 20% 80%, rgba(130, 97, 165, 0.5) 0%, transparent 50%),
+                radial-gradient(circle at 80% 20%, rgba(107, 70, 163, 0.4) 0%, transparent 50%),
+                radial-gradient(circle at 40% 40%, rgba(155, 89, 182, 0.3) 0%, transparent 50%),
+                url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="smoke" patternUnits="userSpaceOnUse" width="100" height="100"><circle cx="20" cy="20" r="3" fill="%23ffffff" opacity="0.1"/><circle cx="80" cy="60" r="2" fill="%23ffffff" opacity="0.05"/><circle cx="40" cy="80" r="4" fill="%23ffffff" opacity="0.08"/><circle cx="60" cy="30" r="2" fill="%238261a5" opacity="0.03"/><circle cx="10" cy="70" r="3" fill="%236b46a3" opacity="0.04"/></pattern></defs><rect width="100" height="100" fill="url(%23smoke)"/></svg>');
+            opacity: 0.7;
+            animation: float 20s infinite linear, pulse 4s ease-in-out infinite alternate;
+        }
+
+        .hero-section::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background:
+                linear-gradient(45deg, transparent 30%, rgba(130, 97, 165, 0.15) 50%, transparent 70%),
+                linear-gradient(-45deg, transparent 30%, rgba(107, 70, 163, 0.08) 50%, transparent 70%);
+            animation: shimmer 3s ease-in-out infinite;
+        }
+        
+        @keyframes float {
+            0% { transform: translateY(0px); }
+            100% { transform: translateY(-100px); }
+        }
+
+        @keyframes pulse {
+            0% { opacity: 0.6; }
+            100% { opacity: 0.8; }
+        }
+
+        @keyframes shimmer {
+            0% { transform: translateX(-100%); }
+            100% { transform: translateX(100%); }
+        }
+
+        @keyframes particleFloat {
+            0% {
+                transform: translateY(0px) rotate(0deg);
+                opacity: 0;
+            }
+            10% { opacity: 1; }
+            90% { opacity: 1; }
+            100% {
+                transform: translateY(-100vh) rotate(360deg);
+                opacity: 0;
+            }
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        .main-title {
+            font-family: 'Anton', sans-serif;
+            font-size: clamp(3rem, 8vw, 8rem);
+            color: #8261a5;
+            text-shadow:
+                0 0 20px #8261a5,
+                0 0 40px #6b46a3,
+                3px 3px 0px #1a0d2d,
+                6px 6px 0px #0f0a1a;
+            margin-bottom: 1rem;
+            letter-spacing: 3px;
+            animation: glow 2s ease-in-out infinite alternate;
+        }
+        
+        @keyframes glow {
+            from { text-shadow: 0 0 20px #8261a5, 0 0 40px #6b46a3, 3px 3px 0px #1a0d2d, 6px 6px 0px #0f0a1a; }
+            to { text-shadow: 0 0 30px #9b59b6, 0 0 60px #8e44ad, 3px 3px 0px #1a0d2d, 6px 6px 0px #0f0a1a; }
+        }
+        
+        .subtitle {
+            font-family: 'Creepster', cursive;
+            font-size: clamp(1.5rem, 4vw, 3rem);
+            color: #5a3d7a;
+            text-shadow: 2px 2px 4px #000000;
+            margin-bottom: 3rem;
+            letter-spacing: 2px;
+        }
+        
+        .update-info {
+            background: rgba(0, 0, 0, 0.7);
+            padding: 2rem;
+            border-radius: 15px;
+            border: 2px solid #ff6600;
+            max-width: 800px;
+            margin: 0 auto;
+            box-shadow: 0 0 30px rgba(255, 102, 0, 0.3);
+        }
+        
+        .content-section {
+            padding: 4rem 2rem;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+        
+        .section-title {
+            font-family: 'Anton', sans-serif;
+            font-size: 3rem;
+            color: #ff6600;
+            text-align: center;
+            margin-bottom: 3rem;
+            text-shadow: 2px 2px 4px #000000;
+        }
+        
+        .weapon-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+            gap: 2rem;
+            margin-bottom: 4rem;
+        }
+        
+        .weapon-card {
+            background:
+                linear-gradient(145deg, rgba(130, 97, 165, 0.4), rgba(15, 10, 26, 0.95)),
+                radial-gradient(circle at 30% 20%, rgba(107, 70, 163, 0.15) 0%, transparent 50%),
+                radial-gradient(circle at 70% 80%, rgba(155, 89, 182, 0.08) 0%, transparent 50%);
+            border: 2px solid #8261a5;
+            border-radius: 15px;
+            padding: 2rem;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            position: relative;
+            overflow: hidden;
+            box-shadow:
+                0 8px 32px rgba(130, 97, 165, 0.3),
+                inset 0 1px 0 rgba(255, 255, 255, 0.1);
+        }
+
+        .weapon-card.selected {
+            border-color: #9b59b6;
+            box-shadow:
+                0 8px 32px rgba(155, 89, 182, 0.5),
+                inset 0 1px 0 rgba(255, 255, 255, 0.2);
+        }
+
+        .compare-button {
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+            background: rgba(130, 97, 165, 0.8);
+            color: white;
+            border: none;
+            border-radius: 50%;
+            width: 2rem;
+            height: 2rem;
+            cursor: pointer;
+            font-size: 0.8rem;
+            transition: all 0.3s ease;
+            opacity: 0.7;
+            box-shadow: 0 0 10px rgba(130, 97, 165, 0.5);
+        }
+
+        .compare-button:hover {
+            background: rgba(130, 97, 165, 1);
+            transform: scale(1.1);
+            opacity: 1;
+            box-shadow: 0 0 15px rgba(130, 97, 165, 0.7);
+        }
+
+        .compare-panel {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: rgba(15, 10, 26, 0.95);
+            padding: 1rem;
+            transform: translateY(100%);
+            transition: transform 0.3s ease;
+            z-index: 1000;
+            border-top: 2px solid #8261a5;
+            box-shadow: 0 0 30px rgba(130, 97, 165, 0.3);
+        }
+
+        .compare-panel.active {
+            transform: translateY(0);
+        }
+
+        .compare-weapons {
+            display: flex;
+            gap: 1rem;
+            overflow-x: auto;
+            padding: 0.5rem;
+        }
+        
+        .weapon-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.1), transparent);
+            transition: left 0.5s;
+        }
+        
+        .weapon-card:hover::before {
+            left: 100%;
+        }
+        
+        .weapon-card:hover {
+            transform: translateY(-8px) scale(1.02);
+            box-shadow:
+                0 20px 60px rgba(130, 97, 165, 0.5),
+                0 0 30px rgba(107, 70, 163, 0.4),
+                inset 0 1px 0 rgba(255, 255, 255, 0.2);
+            border-color: #9b59b6;
+            background:
+                linear-gradient(145deg, rgba(155, 89, 182, 0.5), rgba(15, 10, 26, 0.98)),
+                radial-gradient(circle at 30% 20%, rgba(130, 97, 165, 0.25) 0%, transparent 50%),
+                radial-gradient(circle at 70% 80%, rgba(107, 70, 163, 0.15) 0%, transparent 50%);
+        }
+        
+        .weapon-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 1.5rem;
+        }
+        
+        .weapon-icon {
+            width: 80px;
+            height: 80px;
+            background: radial-gradient(circle, #8261a5, #6b46a3);
+            border-radius: 50%;
+            margin-right: 1rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            color: white;
+            text-shadow: 1px 1px 2px #000;
+            will-change: transform;
+            overflow: hidden;
+            position: relative;
+            box-shadow: 0 0 20px rgba(130, 97, 165, 0.5);
+        }
+
+        .weapon-icon img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 50%;
+            transition: transform 0.3s ease;
+        }
+
+        .weapon-icon img:hover {
+            transform: scale(1.1);
+        }
+
+        .weapon-icon .fallback-icon {
+            font-size: 2rem;
+            color: white;
+            text-shadow: 1px 1px 2px #000;
+        }
+        
+        .weapon-info h3 {
+            color: #f8d100;
+            font-size: 1.5rem;
+            margin-bottom: 0.5rem;
+            text-shadow: 1px 1px 2px #000;
+        }
+        
+        .weapon-class {
+            color: #7a5a9b;
+            font-size: 1rem;
+            opacity: 0.9;
+        }
+        
+        .stats-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+        
+        .stat-positive {
+            color: #3bf800;
+            text-shadow: 0 0 5px #3bf800;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            position: relative;
+        }
+
+        .stat-positive:hover {
+            color: #5fff00;
+            text-shadow: 0 0 10px #3bf800, 0 0 20px #3bf800;
+            transform: scale(1.05);
+        }
+
+        .stat-negative {
+            color: #fe3e3e;
+            text-shadow: 0 0 5px #fe3e3e;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            position: relative;
+        }
+
+        .stat-negative:hover {
+            color: #ff6b6b;
+            text-shadow: 0 0 10px #fe3e3e, 0 0 20px #fe3e3e;
+            transform: scale(1.05);
+        }
+
+        .stat-change {
+            color: #f8d100;
+            font-weight: bold;
+            text-shadow: 0 0 5px #f8d100;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            position: relative;
+        }
+
+        .stat-change:hover {
+            color: #ffdd00;
+            text-shadow: 0 0 10px #f8d100, 0 0 20px #f8d100;
+            transform: scale(1.05);
+        }
+
+        .stat-tooltip {
+            position: absolute;
+            background: rgba(0, 0, 0, 0.9);
+            color: white;
+            padding: 0.5rem;
+            border-radius: 5px;
+            font-size: 0.8rem;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease;
+            z-index: 1000;
+            pointer-events: none;
+            white-space: nowrap;
+        }
+
+        .stat-positive:hover .stat-tooltip,
+        .stat-negative:hover .stat-tooltip,
+        .stat-change:hover .stat-tooltip {
+            opacity: 1;
+            visibility: visible;
+        }
+        
+        .changes-section {
+            background: rgba(130, 97, 165, 0.1);
+            border-left: 4px solid #8261a5;
+            padding: 1rem;
+            margin-top: 1rem;
+            border-radius: 0 10px 10px 0;
+        }
+        
+        .changes-title {
+            color: #f8d100;
+            font-size: 1.2rem;
+            margin-bottom: 0.5rem;
+            text-decoration: underline;
+        }
+        
+        .reason-section {
+            background: rgba(0, 0, 0, 0.3);
+            border-radius: 8px;
+            padding: 1rem;
+            margin-top: 1rem;
+            border-left: 3px solid #9acdff;
+        }
+        
+        .class-divider {
+            text-align: center;
+            margin: 4rem 0;
+            position: relative;
+        }
+        
+        .class-divider::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 0;
+            right: 0;
+            height: 2px;
+            background: linear-gradient(90deg, transparent, #8261a5, transparent);
+            box-shadow: 0 0 10px rgba(130, 97, 165, 0.5);
+        }
+        
+        .class-name {
+            background:
+                linear-gradient(135deg, #0f0a1a, #1a0d2d),
+                radial-gradient(circle at 30% 30%, rgba(130, 97, 165, 0.4) 0%, transparent 70%);
+            color: #8261a5;
+            padding: 1rem 2rem;
+            border-radius: 25px;
+            border: 2px solid #8261a5;
+            font-size: 2rem;
+            font-family: 'Anton', sans-serif;
+            display: inline-block;
+            text-shadow:
+                2px 2px 4px #000,
+                0 0 20px rgba(130, 97, 165, 0.6);
+            position: relative;
+            z-index: 1;
+            box-shadow: 0 0 30px rgba(130, 97, 165, 0.4);
+        }
+        
+        .scroll-indicator {
+            position: fixed;
+            bottom: 2rem;
+            right: 2rem;
+            background: rgba(130, 97, 165, 0.8);
+            color: white;
+            padding: 1rem;
+            border-radius: 50%;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            z-index: 1000;
+            box-shadow: 0 0 20px rgba(130, 97, 165, 0.5);
+        }
+
+        .scroll-indicator:hover {
+            background: rgba(130, 97, 165, 1);
+            transform: scale(1.1);
+            box-shadow: 0 0 30px rgba(130, 97, 165, 0.7);
+        }
+        
+        @media (max-width: 768px) {
+            .weapon-grid {
+                grid-template-columns: 1fr;
+                gap: 1.5rem;
+            }
+
+            .stats-grid {
+                grid-template-columns: 1fr;
+                gap: 0.5rem;
+            }
+
+            .hero-section {
+                padding: 2rem 1rem;
+                height: auto;
+                min-height: 80vh;
+            }
+
+            .main-title {
+                font-size: clamp(2rem, 10vw, 6rem);
+            }
+
+            .subtitle {
+                font-size: clamp(1rem, 6vw, 2rem);
+            }
+
+            .weapon-card {
+                padding: 1.5rem;
+                margin: 0 0.5rem;
+            }
+
+            .class-name {
+                font-size: 1.5rem;
+                padding: 0.8rem 1.5rem;
+            }
+
+            .section-title {
+                font-size: 2rem;
+            }
+
+            .scroll-indicator {
+                bottom: 1rem;
+                right: 1rem;
+                padding: 0.8rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .hero-section {
+                padding: 1rem 0.5rem;
+            }
+
+            .weapon-card {
+                padding: 1rem;
+                margin: 0 0.25rem;
+            }
+
+            .weapon-header {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .weapon-icon {
+                margin-bottom: 0.5rem;
+                margin-right: 0;
+            }
+
+            .update-info {
+                padding: 1.5rem;
+                margin: 1rem auto;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="hero-section">
+        <h1 class="main-title">TYPICAL COLORS 2</h1>
+        <h2 class="subtitle">WEAPON REBALANCES</h2>
+        <div class="update-info">
+            <p style="font-size: 1.2rem; margin-bottom: 1rem;">Community weapon rebalancing proposals to improve game balance and weapon viability across all classes.</p>
+            <p style="color: #9acdff;">Featuring reworked stats, new mechanics, and quality of life improvements</p>
+        </div>
+    </div>
+
+    <div class="content-section">
+        <div style="text-align: center; margin-bottom: 3rem;">
+            <div style="display: inline-flex; gap: 1rem; align-items: center; flex-wrap: wrap; justify-content: center;">
+                <input type="text" id="weaponSearch" placeholder="Search weapons..." style="padding: 0.5rem; border: 2px solid #8261a5; border-radius: 25px; background: rgba(15, 10, 26, 0.9); color: white; min-width: 200px; box-shadow: 0 0 10px rgba(130, 97, 165, 0.3);">
+                <select id="classFilter" style="padding: 0.5rem; border: 2px solid #8261a5; border-radius: 10px; background: rgba(15, 10, 26, 0.9); color: white; box-shadow: 0 0 10px rgba(130, 97, 165, 0.3);">
+                    <option value="">All Classes</option>
+                    <option value="flanker">Flanker</option>
+                    <option value="soldier">Soldier</option>
+                    <option value="arsonist">Arsonist</option>
+                    <option value="brute">Brute</option>
+                    <option value="mechanic">Mechanic</option>
+                    <option value="doctor">Doctor</option>
+                    <option value="marksman">Marksman</option>
+                    <option value="annihilator">Annihilator</option>
+                </select>
+                <select id="typeFilter" style="padding: 0.5rem; border: 2px solid #8261a5; border-radius: 10px; background: rgba(15, 10, 26, 0.9); color: white; box-shadow: 0 0 10px rgba(130, 97, 165, 0.3);">
+                    <option value="">All Types</option>
+                    <option value="primary">Primary</option>
+                    <option value="secondary">Secondary</option>
+                    <option value="melee">Melee</option>
+                    <option value="building">Building</option>
+                </select>
+            </div>
+        </div>
+
+        <!-- Weapon data will be loaded dynamically from weapons.json -->
+        <div id="weapons-container"></div>
+    </div>
+
+    <div class="scroll-indicator" onclick="window.scrollTo({top: 0, behavior: 'smooth'})">
+        ↑
+    </div>
+
+    <div class="compare-panel" id="comparePanel">
+        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1rem;">
+            <h3 style="color: #8261a5; margin: 0;">Weapon Comparison</h3>
+            <button onclick="clearComparison()" style="background: #fe3e3e; color: white; border: none; padding: 0.5rem; border-radius: 5px; cursor: pointer;">Clear</button>
+        </div>
+        <div class="compare-weapons" id="compareWeapons"></div>
+    </div>
+
+    <script>
+        // Performance optimization: Debounce function
+        function debounce(func, wait) {
+            let timeout;
+            return function executedFunction(...args) {
+                const later = () => {
+                    clearTimeout(timeout);
+                    func(...args);
+                };
+                clearTimeout(timeout);
+                timeout = setTimeout(later, wait);
+            };
+        }
+
+        // Function to create a weapon card
+        function createWeaponCard(weapon) {
+            // Create the weapon card element
+            const card = document.createElement('div');
+            card.className = 'weapon-card';
+            // Add data-weapon attribute for comparison functionality
+            card.setAttribute('data-weapon', weapon.name.toLowerCase().replace(/\s+/g, '-'));
+            if (weapon.isConcept) {
+                card.setAttribute('data-concept', 'true');
+            }
+
+            // Create the weapon header
+            const header = document.createElement('div');
+            header.className = 'weapon-header';
+
+            // Create the weapon icon
+            const icon = document.createElement('div');
+            icon.className = 'weapon-icon';
+            
+            // Add image if available
+            if (weapon.image) {
+                const img = document.createElement('img');
+                img.src = weapon.image;
+                img.alt = weapon.name;
+                img.loading = 'lazy';
+                img.onerror = function() {
+                    this.style.display = 'none';
+                    this.nextElementSibling.style.display = 'block';
+                };
+                icon.appendChild(img);
+                
+                // Add fallback icon
+                const fallbackIcon = document.createElement('div');
+                fallbackIcon.className = 'fallback-icon';
+                fallbackIcon.style.display = 'none';
+                fallbackIcon.textContent = '🔫'; // Default fallback icon
+                icon.appendChild(fallbackIcon);
+            } else {
+                // Use a default icon if no image is available
+                icon.textContent = '🔫';
+            }
+            
+            // Create the weapon info
+            const info = document.createElement('div');
+            info.className = 'weapon-info';
+            
+            // Create the weapon name
+            const name = document.createElement('h3');
+            name.textContent = weapon.name;
+            
+            // Create the weapon class
+            const weaponClass = document.createElement('div');
+            weaponClass.className = 'weapon-class';
+            weaponClass.textContent = `${weapon.class} ${weapon.type}`;
+            
+            // Add name and class to info
+            info.appendChild(name);
+            info.appendChild(weaponClass);
+            
+            // Add icon and info to header
+            header.appendChild(icon);
+            header.appendChild(info);
+            
+            // Add header to card
+            card.appendChild(header);
+            
+            // Create stats grid
+            const statsGrid = document.createElement('div');
+            statsGrid.className = 'stats-grid';
+            
+            // Create positive stats column
+            const positiveCol = document.createElement('div');
+            weapon.stats.positive.forEach(stat => {
+                const statElement = document.createElement('div');
+                statElement.className = 'stat-positive';
+                statElement.textContent = stat;
+                positiveCol.appendChild(statElement);
+            });
+            
+            // Create negative stats column
+            const negativeCol = document.createElement('div');
+            weapon.stats.negative.forEach(stat => {
+                const statElement = document.createElement('div');
+                statElement.className = 'stat-negative';
+                statElement.textContent = stat;
+                negativeCol.appendChild(statElement);
+            });
+            
+            // Add columns to stats grid
+            statsGrid.appendChild(positiveCol);
+            statsGrid.appendChild(negativeCol);
+            
+            // Add stats grid to card
+            card.appendChild(statsGrid);
+            
+            // Create changes section if there are changes
+            if (weapon.changes && weapon.changes.length > 0) {
+                const changesSection = document.createElement('div');
+                changesSection.className = 'changes-section';
+                
+                const changesTitle = document.createElement('div');
+                changesTitle.className = 'changes-title';
+                changesTitle.textContent = 'Changes';
+                changesSection.appendChild(changesTitle);
+                
+                weapon.changes.forEach(change => {
+                    const changeElement = document.createElement('div');
+                    // Determine if change is positive or negative based on the text
+                    if (change.includes('+') && !change.includes('Removed') && !change.includes('-')) {
+                        changeElement.className = 'stat-positive';
+                    } else if (change.includes('-') || change.includes('Removed') || change.includes('Nerfed')) {
+                        changeElement.className = 'stat-negative';
+                    } else {
+                        changeElement.className = 'stat-change';
+                    }
+                    changeElement.textContent = change;
+                    changesSection.appendChild(changeElement);
+                });
+                
+                card.appendChild(changesSection);
+            }
+            
+            // Create reasoning section
+            const reasonSection = document.createElement('div');
+            reasonSection.className = 'reason-section';
+            
+            const reasonTitle = document.createElement('strong');
+            reasonTitle.textContent = weapon.isConcept ? 'Concept:' : 'Reasoning:';
+            reasonSection.appendChild(reasonTitle);
+            
+            const reasonText = document.createElement('span');
+            reasonText.textContent = ' ' + weapon.reasoning;
+            reasonSection.appendChild(reasonText);
+            
+            card.appendChild(reasonSection);
+            
+            return card;
+        }
+
+        // Function to load weapons from JSON
+        async function loadWeapons() {
+            try {
+                const response = await fetch('weapons.json');
+                const data = await response.json();
+                const weaponsContainer = document.getElementById('weapons-container');
+                
+                // Group weapons by class
+                const weaponsByClass = {};
+                data.weapons.forEach(weapon => {
+                    if (!weaponsByClass[weapon.class]) {
+                        weaponsByClass[weapon.class] = [];
+                    }
+                    weaponsByClass[weapon.class].push(weapon);
+                });
+                
+                // Create weapon cards for each class
+                for (const [className, weapons] of Object.entries(weaponsByClass)) {
+                    // Create class divider
+                    const classDivider = document.createElement('div');
+                    classDivider.className = 'class-divider';
+                    
+                    const classNameDiv = document.createElement('div');
+                    classNameDiv.className = 'class-name';
+                    classNameDiv.textContent = className.toUpperCase();
+                    classDivider.appendChild(classNameDiv);
+                    
+                    weaponsContainer.appendChild(classDivider);
+                    
+                    // Create weapon grid
+                    const weaponGrid = document.createElement('div');
+                    weaponGrid.className = 'weapon-grid';
+                    
+                    // Create weapon cards
+                    weapons.forEach(weapon => {
+                        const card = createWeaponCard(weapon);
+                        weaponGrid.appendChild(card);
+                    });
+                    
+                    weaponsContainer.appendChild(weaponGrid);
+                }
+                
+                // Add special sections
+                // CHANGELOG section
+                const changelogDivider = document.createElement('div');
+                changelogDivider.className = 'class-divider';
+                
+                const changelogName = document.createElement('div');
+                changelogName.className = 'class-name';
+                changelogName.textContent = 'CHANGELOG';
+                changelogDivider.appendChild(changelogName);
+                
+                weaponsContainer.appendChild(changelogDivider);
+                
+                const changelogGrid = document.createElement('div');
+                changelogGrid.className = 'weapon-grid';
+                
+                const changelogCard = document.createElement('div');
+                changelogCard.className = 'weapon-card';
+                changelogCard.style.gridColumn = '1 / -1';
+                
+                changelogCard.innerHTML = `
+                    <div style="text-align: center; margin-bottom: 2rem;">
+                        <h2 style="color: #8261a5; margin-bottom: 1rem;">Update Highlights</h2>
+                        <p style="color: #f0eadc; font-size: 1.1rem; line-height: 1.6;">
+                            This comprehensive weapon rebalance update introduces significant changes to improve game balance,
+                            weapon viability, and overall gameplay experience across all classes.
+                        </p>
+                    </div>
+    
+                    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem;">
+                        <div style="background: rgba(130, 97, 165, 0.15); padding: 1.5rem; border-radius: 10px; border-left: 4px solid #8261a5;">
+                            <h3 style="color: #8261a5; margin-bottom: 1rem;">🔄 Major Rebalances</h3>
+                            <ul style="color: #f0eadc; list-style: none; padding: 0;">
+                                <li style="margin-bottom: 0.5rem;">• Flanker weapons: Improved mobility and sustain</li>
+                                <li style="margin-bottom: 0.5rem;">• Trooper weapons: Enhanced projectile performance</li>
+                                <li style="margin-bottom: 0.5rem;">• Arsonist weapons: Better afterburn mechanics</li>
+                                <li style="margin-bottom: 0.5rem;">• Brute weapons: Balanced damage and mobility</li>
+                            </ul>
+                        </div>
+    
+                        <div style="background: rgba(107, 70, 163, 0.15); padding: 1.5rem; border-radius: 10px; border-left: 4px solid #6b46a3;">
+                            <h3 style="color: #6b46a3; margin-bottom: 1rem;">⚡ Quality of Life</h3>
+                            <ul style="color: #f0eadc; list-style: none; padding: 0;">
+                                <li style="margin-bottom: 0.5rem;">• Faster reload times on key weapons</li>
+                                <li style="margin-bottom: 0.5rem;">• Improved weapon switching speeds</li>
+                                <li style="margin-bottom: 0.5rem;">• Better visual feedback and effects</li>
+                                <li style="margin-bottom: 0.5rem;">• Enhanced weapon descriptions</li>
+                            </ul>
+                        </div>
+    
+                        <div style="background: rgba(155, 89, 182, 0.15); padding: 1.5rem; border-radius: 10px; border-left: 4px solid #9b59b6;">
+                            <h3 style="color: #9b59b6; margin-bottom: 1rem;">🎯 Balance Adjustments</h3>
+                            <ul style="color: #f0eadc; list-style: none; padding: 0;">
+                                <li style="margin-bottom: 0.5rem;">• Reduced overpowered mechanics</li>
+                                <li style="margin-bottom: 0.5rem;">• Buffed underperforming weapons</li>
+                                <li style="margin-bottom: 0.5rem;">• Improved counterplay opportunities</li>
+                                <li style="margin-bottom: 0.5rem;">• Enhanced team composition variety</li>
+                            </ul>
+                        </div>
+                    </div>
+    
+                    <div style="margin-top: 2rem; padding: 1.5rem; background: rgba(15, 10, 26, 0.4); border-radius: 10px;">
+                        <h3 style="color: #8261a5; margin-bottom: 1rem;">📋 Key Changes Summary</h3>
+                        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 1rem;">
+                            <div>
+                                <h4 style="color: #3bf800; margin-bottom: 0.5rem;">Buffs</h4>
+                                <p style="color: #f0eadc; font-size: 0.9rem;">Increased damage, faster firing speeds, better mobility, improved healing</p>
+                            </div>
+                            <div>
+                                <h4 style="color: #fe3e3e; margin-bottom: 0.5rem;">Nerfs</h4>
+                                <p style="color: #f0eadc; font-size: 0.9rem;">Reduced clip sizes, slower reloads, decreased damage, limited mobility</p>
+                            </div>
+                            <div>
+                                <h4 style="color: #f8d100; margin-bottom: 0.5rem;">Tweaks</h4>
+                                <p style="color: #f0eadc; font-size: 0.9rem;">Quality of life improvements, visual enhancements, mechanic refinements</p>
+                            </div>
+                        </div>
+                    </div>
+                `;
+                
+                changelogGrid.appendChild(changelogCard);
+                weaponsContainer.appendChild(changelogGrid);
+                
+                // NEW WEAPON CONCEPTS section
+                const conceptsDivider = document.createElement('div');
+                conceptsDivider.className = 'class-divider';
+                
+                const conceptsName = document.createElement('div');
+                conceptsName.className = 'class-name';
+                conceptsName.textContent = 'NEW WEAPON CONCEPTS';
+                conceptsDivider.appendChild(conceptsName);
+                
+                weaponsContainer.appendChild(conceptsDivider);
+                
+                const conceptsGrid = document.createElement('div');
+                conceptsGrid.className = 'weapon-grid';
+                
+                // Filter concept weapons
+                const conceptWeapons = data.weapons.filter(weapon => weapon.isConcept);
+                conceptWeapons.forEach(weapon => {
+                    const card = createWeaponCard(weapon);
+                    conceptsGrid.appendChild(card);
+                });
+                
+                weaponsContainer.appendChild(conceptsGrid);
+                
+                // Re-initialize animations and effects for new content
+                // Use setTimeout to ensure DOM is updated before initializing animations
+                setTimeout(initializeAnimations, 0);
+            } catch (error) {
+                console.error('Error loading weapons:', error);
+            }
+        }
+
+        // Function to initialize animations and effects
+        function initializeAnimations() {
+            // Smooth scrolling for all internal links
+            const cards = document.querySelectorAll('.weapon-card');
+            const classDividers = document.querySelectorAll('.class-divider');
+
+            // Add subtle animation on scroll
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach((entry, index) => {
+                    if (entry.isIntersecting) {
+                        setTimeout(() => {
+                            entry.target.style.opacity = '1';
+                            entry.target.style.transform = 'translateY(0)';
+                        }, index * 100);
+                    }
+                });
+            }, { threshold: 0.1 });
+
+            cards.forEach(card => {
+                card.style.opacity = '0';
+                card.style.transform = 'translateY(30px)';
+                card.style.transition = 'opacity 0.8s cubic-bezier(0.4, 0, 0.2, 1), transform 0.8s cubic-bezier(0.4, 0, 0.2, 1)';
+                observer.observe(card);
+            });
+
+            classDividers.forEach(divider => {
+                divider.style.opacity = '0';
+                divider.style.transform = 'scale(0.9)';
+                divider.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+                observer.observe(divider);
+            });
+
+            // Add weapon card click effects
+            cards.forEach(card => {
+                card.addEventListener('click', function() {
+                    this.style.transform = 'scale(0.98)';
+                    setTimeout(() => {
+                        this.style.transform = '';
+                    }, 150);
+                });
+            });
+        }
+
+        // Add some interactive effects
+        document.addEventListener('DOMContentLoaded', function() {
+            // Load weapons from JSON
+            loadWeapons();
+
+            // Add particle effect to hero section
+            createParticles();
+
+            // Add scroll-based parallax effect
+            window.addEventListener('scroll', function() {
+                const scrolled = window.pageYOffset;
+                const hero = document.querySelector('.hero-section');
+                if (hero) {
+                    hero.style.backgroundPosition = `50% ${scrolled * 0.5}px`;
+                }
+            });
+
+            // Initialize comparison system
+            window.selectedWeapons = [];
+
+            // Initialize search and filter
+            const searchInput = document.getElementById('weaponSearch');
+            const classFilter = document.getElementById('classFilter');
+            const typeFilter = document.getElementById('typeFilter');
+
+            function filterWeapons() {
+                const searchTerm = searchInput.value.toLowerCase();
+                const selectedClass = classFilter.value.toLowerCase();
+                const selectedType = typeFilter.value.toLowerCase();
+
+                const weaponCards = document.querySelectorAll('.weapon-card');
+
+                weaponCards.forEach(card => {
+                    const weaponName = card.querySelector('h3').textContent.toLowerCase();
+                    const weaponClass = card.querySelector('.weapon-class').textContent.toLowerCase();
+                    const weaponType = weaponClass.split(' ')[1]; // Extract type from "Class Type"
+
+                    const matchesSearch = weaponName.includes(searchTerm);
+                    const matchesClass = !selectedClass || weaponClass.includes(selectedClass);
+                    const matchesType = !selectedType || weaponType === selectedType;
+
+                    if (matchesSearch && matchesClass && matchesType) {
+                        card.style.display = 'block';
+                        card.style.animation = 'fadeIn 0.5s ease';
+                    } else {
+                        card.style.display = 'none';
+                    }
+                });
+            }
+
+            searchInput.addEventListener('input', debounce(filterWeapons, 300));
+            classFilter.addEventListener('change', filterWeapons);
+            typeFilter.addEventListener('change', filterWeapons);
+        });
+
+        function toggleCompare(weaponId) {
+            const card = document.querySelector(`[data-weapon="${weaponId}"]`);
+            const index = window.selectedWeapons.indexOf(weaponId);
+
+            if (index > -1) {
+                // Remove from comparison
+                window.selectedWeapons.splice(index, 1);
+                card.classList.remove('selected');
+            } else {
+                // Add to comparison (max 3)
+                if (window.selectedWeapons.length < 3) {
+                    window.selectedWeapons.push(weaponId);
+                    card.classList.add('selected');
+                } else {
+                    alert('You can compare up to 3 weapons at a time.');
+                    return;
+                }
+            }
+
+            updateComparePanel();
+        }
+
+        function updateComparePanel() {
+            const panel = document.getElementById('comparePanel');
+            const container = document.getElementById('compareWeapons');
+
+            if (window.selectedWeapons.length > 0) {
+                panel.classList.add('active');
+                container.innerHTML = '';
+
+                window.selectedWeapons.forEach(weaponId => {
+                    const weaponCard = document.querySelector(`[data-weapon="${weaponId}"]`);
+                    const weaponName = weaponCard.querySelector('h3').textContent;
+                    const weaponClass = weaponCard.querySelector('.weapon-class').textContent;
+
+                    const compareItem = document.createElement('div');
+                    compareItem.style.cssText = `
+                        background: rgba(130, 97, 165, 0.3);
+                        box-shadow: 0 0 15px rgba(130, 97, 165, 0.2);
+                        border: 1px solid #8261a5;
+                        border-radius: 10px;
+                        padding: 1rem;
+                        min-width: 200px;
+                        text-align: center;
+                    `;
+                    compareItem.innerHTML = `
+                        <h4 style="color: #8261a5; margin: 0 0 0.5rem 0;">${weaponName}</h4>
+                        <div style="color: #9acdff; font-size: 0.9rem;">${weaponClass}</div>
+                        <button onclick="toggleCompare('${weaponId}')" style="background: #fe3e3e; color: white; border: none; padding: 0.3rem 0.6rem; border-radius: 3px; cursor: pointer; margin-top: 0.5rem; font-size: 0.8rem;">Remove</button>
+                    `;
+                    container.appendChild(compareItem);
+                });
+            } else {
+                panel.classList.remove('active');
+            }
+        }
+
+        function clearComparison() {
+            window.selectedWeapons.forEach(weaponId => {
+                const card = document.querySelector(`[data-weapon="${weaponId}"]`);
+                if (card) card.classList.remove('selected');
+            });
+            window.selectedWeapons = [];
+            updateComparePanel();
+        }
+
+        function createParticles() {
+            const hero = document.querySelector('.hero-section');
+            for (let i = 0; i < 20; i++) {
+                const particle = document.createElement('div');
+                particle.className = 'particle';
+                particle.style.cssText = `
+                    position: absolute;
+                    width: ${Math.random() * 4 + 2}px;
+                    height: ${Math.random() * 4 + 2}px;
+                    background: radial-gradient(circle, rgba(130, 97, 165, ${Math.random() * 0.5 + 0.2}), transparent);
+                    border-radius: 50%;
+                    left: ${Math.random() * 100}%;
+                    top: ${Math.random() * 100}%;
+                    animation: particleFloat ${Math.random() * 10 + 10}s infinite linear;
+                    pointer-events: none;
+                    box-shadow: 0 0 10px rgba(130, 97, 165, 0.3);
+                `;
+                hero.appendChild(particle);
+            }
+        }
+    </script>
+</body>
+</html>
