@@ -92,19 +92,6 @@
       "isConcept": false
     },
     {
-      "name": "Witches Brew",
-      "class": "Flanker",
-      "type": "Secondary",
-      "image": "images/WitchesBrew.png",
-      "stats": {
-        "positive": ["While under the effects, +25% movement speed and damage done and damage taken will be mini-crits"],
-        "negative": []
-      },
-      "changes": ["Mark for Death won't be active unless you damage or attack an enemy while the effect was active", "Mark for Death lasts 8s if you want to be a big ol' meanie and damage/attack people"],
-      "reasoning": "The goal for this change is to make it less easy for the enemy to obliterate you the moment that mark for death is on. (Update, they made it so that the 'Mark for Death' icon isn't visible through walls. This change is kind of pointless now lol.)",
-      "isConcept": false
-    },
-    {
       "name": "Atomizer",
       "class": "Flanker",
       "type": "Melee",

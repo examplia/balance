@@ -4,6 +4,22 @@ This document provides a comprehensive record of all updates and modifications m
 
 ## Latest Updates
 
+### Version 2.1.3 - Witches Brew Weapon Removal (2025-09-04)
+
+**Weapon Database Cleanup:**
+- **Removed "Witches Brew" Weapon Entry**: Completely removed the Witches Brew weapon from the weapons database (weapons.json)
+- **Root Cause**: The weapon's effectiveness has diminished significantly since the Mark for Death mechanic was updated to no longer be visible from walls, making it less impactful in gameplay and necessitating its removal from the database
+- **Impact**: Witches Brew weapon will no longer appear in weapon listings, search results, or comparisons
+- **Database Integrity**: Maintained JSON structure and formatting after removal
+- **No Breaking Changes**: Removal does not affect existing functionality like syntax highlighting, copy buttons, or markdown rendering
+- **Clean Removal**: Ensured no orphaned references or broken links remain in the system
+
+**Technical Details:**
+- **File Modified**: weapons.json
+- **Entry Removed**: Complete weapon object for "Witches Brew" (Flanker secondary weapon)
+- **JSON Validation**: Confirmed proper JSON syntax after removal
+- **No Side Effects**: Weapon removal does not impact wiki rendering, search functionality, or other weapon entries
+
 ### Version 2.1.2 - Wiki Markdown Presentation Enhancement (2025-09-04)
 
 **Comprehensive Wiki Visual Enhancement:**
@@ -360,4 +376,4 @@ For questions regarding site updates or contribution opportunities:
 ---
 
 *Last updated: 2025-09-04*
-*Version: 2.1.2*
+*Version: 2.1.3*
