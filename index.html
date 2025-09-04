@@ -901,13 +901,39 @@
                 weapon.changes.forEach(change => {
                     const changeElement = document.createElement('div');
                     // Determine if change is positive or negative based on the text
-                    if (change.includes('+') && !change.includes('Removed') && !change.includes('-')) {
-                        changeElement.className = 'stat-positive';
-                    } else if (change.includes('-') || change.includes('Removed') || change.includes('Nerfed')) {
+                    const lowerChange = change.toLowerCase();
+
+                    // Negative indicators
+                    const negativeIndicators = [
+                        'removed', 'nerfed', 'decreased', 'reduced', 'lowered', 'worse',
+                        'penalty', 'damage penalty', 'slower', 'weaker', 'less'
+                    ];
+
+                    // Positive indicators
+                    const positiveIndicators = [
+                        'added', 'buffed', 'increased', 'faster', 'stronger', 'better',
+                        'bonus', 'more', 'improved', 'enhanced'
+                    ];
+
+                    // Check for negative indicators first
+                    const hasNegative = negativeIndicators.some(indicator => lowerChange.includes(indicator));
+                    const hasPositive = positiveIndicators.some(indicator => lowerChange.includes(indicator));
+
+                    // Special cases for misleading positive words
+                    const isMisleadingPositive = (
+                        (lowerChange.includes('increased') || lowerChange.includes('more')) &&
+                        (lowerChange.includes('penalty') || lowerChange.includes('damage penalty') ||
+                         lowerChange.includes('cooldown') || lowerChange.includes('slower'))
+                    );
+
+                    if (hasNegative || isMisleadingPositive) {
                         changeElement.className = 'stat-negative';
+                    } else if (hasPositive || change.includes('+')) {
+                        changeElement.className = 'stat-positive';
                     } else {
-                        changeElement.className = 'stat-positive'; // Make neutral changes blue like positive stats
+                        changeElement.className = 'stat-positive'; // Default to positive for neutral changes
                     }
+
                     changeElement.textContent = change;
                     changesSection.appendChild(changeElement);
                 });
