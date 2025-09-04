@@ -455,6 +455,11 @@ body {
     height: 40px;
     margin-left: 10px;
     vertical-align: middle;
+    filter: brightness(1.2) contrast(1.1);
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 6px;
+    padding: 2px;
+    box-shadow: 0 0 8px rgba(154, 205, 255, 0.3);
 }
 
 .scroll-indicator {
