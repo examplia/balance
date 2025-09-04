@@ -4,6 +4,14 @@ This document provides a comprehensive record of all updates and modifications m
 
 ## Latest Updates
 
+### Version 2.0.2 - Search Functionality Bug Fix (2025-09-04)
+
+**JavaScript Bug Fixes:**
+- Fixed critical search functionality bug where weapon cards lost click effects after first search
+- Added `initializeAnimations()` call after weapon filtering to restore event listeners
+- Resolved issue preventing multiple consecutive searches without page refresh
+- Maintained all existing search, filter, and comparison functionality
+
 ### Version 2.0.1 - Section Title Styling Update (2025-09-04)
 
 **Visual Design Updates:**
@@ -17,6 +25,11 @@ This document provides a comprehensive record of all updates and modifications m
 - Updated `text-shadow` properties to use purple glow (`rgba(128, 0, 128, 0.5)`)
 - Removed gradient background and `-webkit-text-fill-color` from main `.section-title` rule
 - Updated animation keyframes to maintain purple glow effect during hover/animation states
+
+**JavaScript Bug Fixes:**
+- Fixed search functionality breaking after first use by re-initializing event listeners
+- Added `initializeAnimations()` call after weapon filtering to restore click effects and animations
+- Resolved issue where weapon cards lost interactivity after DOM manipulation during search/filtering
 
 ### Version 2.0.0 - Major Site Overhaul (2025-09-04)
 
@@ -183,4 +196,4 @@ For questions regarding site updates or contribution opportunities:
 ---
 
 *Last updated: 2025-09-04*
-*Version: 2.0.1*
+*Version: 2.0.2*

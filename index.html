@@ -1333,6 +1333,9 @@
                 hiddenCards.forEach(card => {
                     card.style.display = 'none';
                 });
+
+                // Re-initialize animations and event listeners for moved cards
+                setTimeout(initializeAnimations, 0);
             }
 
             searchInput.addEventListener('input', debounce(filterWeapons, 300));
