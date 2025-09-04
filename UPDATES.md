@@ -4,6 +4,11 @@ This document provides a comprehensive record of all updates and modifications m
 
 ## Latest Updates
 
+### Version 2.1.1-a
+
+  **docs: remove outdated content from changelog**
+
+
 ### Version 2.1.1 - Navigation Bug Fix for Wiki Button (2025-09-04)
 
 **Critical Bug Fix:**
@@ -14,7 +19,7 @@ This document provides a comprehensive record of all updates and modifications m
 - **Impact**: Wiki button now navigates to wiki directory without console errors, maintaining proper browser link handling
 - **Code Changes**: Updated click event handler in navigation initialization with diagnostic logging and link type detection
 
-### **NEW** Version 2.1.0 - Wiki System Implementation & File Structure Overhaul (2025-09-04)
+### Version 2.1.0 - Wiki System Implementation & File Structure Overhaul (2025-09-04)
 
 **Wiki System Creation:**
 - **Complete Wiki Infrastructure**: Created comprehensive GitHub Wiki system with web-accessible markdown rendering
@@ -41,7 +46,6 @@ wiki/
 ├── FAQ.md               # Frequently asked questions
 └── Changelog.md        # Update history
 
-- **Markdown Content Creation**: Generated comprehensive wiki pages with proper formatting and cross-linking
 - **Internal Link Updates**: Updated all internal wiki links to reflect new directory structure
 - **GitHub Wiki Compatibility**: Created `_Sidebar.md` and `_Footer.md` for GitHub Wiki integration
 
@@ -65,13 +69,6 @@ wiki/
 - **Error Handling**: Added comprehensive error recovery for failed page loads
 - **Performance Optimization**: Client-side rendering for fast page transitions
 - **Mobile Responsiveness**: Wiki interface works across all device sizes
-
-**Benefits Achieved:**
-- **Proper Markdown Rendering**: Solved plaintext display issue with web-based renderer
-- **Organized Documentation**: Structured wiki content for easy navigation and maintenance
-- **Community Accessibility**: Made wiki content accessible without GitHub account
-- **SEO Friendly**: Proper HTML structure for search engine indexing
-- **Scalable System**: Easy to add new wiki pages and content
 
 ### Version 2.0.5 - Trooper Search Functionality Fix (2025-09-04)
 
