@@ -4,6 +4,16 @@ This document provides a comprehensive record of all updates and modifications m
 
 ## Latest Updates
 
+### Version 2.1.1 - Navigation Bug Fix for Wiki Button (2025-09-04)
+
+**Critical Bug Fix:**
+- **Wiki Button Error Resolution**: Fixed JavaScript error "Failed to execute 'querySelector' on 'Document': 'wiki/' is not a valid selector" that occurred when clicking the Wiki navigation button
+- **Root Cause**: Navigation code was incorrectly treating all links as internal anchors, attempting to use "wiki/" as a CSS selector in querySelector
+- **Solution**: Modified `initializeNavigation()` function to check if href starts with "#" before applying smooth scrolling behavior
+- **Implementation**: Added conditional logic to only prevent default and perform smooth scrolling for anchor links, allowing external links (like wiki/) to function normally
+- **Impact**: Wiki button now navigates to wiki directory without console errors, maintaining proper browser link handling
+- **Code Changes**: Updated click event handler in navigation initialization with diagnostic logging and link type detection
+
 ### **NEW** Version 2.1.0 - Wiki System Implementation & File Structure Overhaul (2025-09-04)
 
 **Wiki System Creation:**
@@ -308,4 +318,4 @@ For questions regarding site updates or contribution opportunities:
 ---
 
 *Last updated: 2025-09-04*
-*Version: 2.1.0*
+*Version: 2.1.1*

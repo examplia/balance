@@ -1276,8 +1276,16 @@
             // Smooth scrolling for navigation links
             navLinks.forEach(link => {
                 link.addEventListener('click', function(e) {
-                    e.preventDefault();
                     const targetId = this.getAttribute('href');
+                    console.log('[NAV-DEBUG] Clicked link with targetId:', targetId);
+
+                    // Only prevent default and do smooth scroll for anchor links
+                    if (!targetId.startsWith('#')) {
+                        console.log('[NAV-DEBUG] External link detected, letting browser handle it');
+                        return; // Don't prevent default for non-anchor links
+                    }
+
+                    e.preventDefault();
                     const targetSection = document.querySelector(targetId);
 
                     if (targetSection) {
