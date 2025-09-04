@@ -4,7 +4,66 @@ This document provides a comprehensive record of all updates and modifications m
 
 ## Latest Updates
 
-### **NEW** Version 2.0.5 - Trooper Search Functionality Fix (2025-09-04)
+### **NEW** Version 2.1.0 - Wiki System Implementation & File Structure Overhaul (2025-09-04)
+
+**Wiki System Creation:**
+- **Complete Wiki Infrastructure**: Created comprehensive GitHub Wiki system with web-accessible markdown rendering
+- **File Structure Reorganization**: Restructured entire project with dedicated `wiki/` directory and subdirectories
+- **Web-Based Wiki Renderer**: Built `wiki/index.html` with JavaScript-powered markdown-to-HTML conversion
+- **Navigation System**: Implemented client-side page switching with URL parameter handling
+- **Responsive Wiki Design**: Created mobile-friendly wiki interface matching main site styling
+
+**File Structure Changes:**
+- **New Directory Structure**:
+
+wiki/
+├── index.html              # Wiki renderer (NEW)
+├── Home.md                 # Wiki homepage
+├── _Sidebar.md             # Navigation sidebar
+├── _Footer.md              # Wiki footer
+├── classes/
+│   └── Classes.md          # Class information
+├── weapons/
+│   └── Weapons.md          # Complete weapon database
+└── guides/
+├── About.md            # Project information
+├── Contributing.md     # Contribution guidelines
+├── FAQ.md               # Frequently asked questions
+└── Changelog.md        # Update history
+
+- **Markdown Content Creation**: Generated comprehensive wiki pages with proper formatting and cross-linking
+- **Internal Link Updates**: Updated all internal wiki links to reflect new directory structure
+- **GitHub Wiki Compatibility**: Created `_Sidebar.md` and `_Footer.md` for GitHub Wiki integration
+
+**Main Site Integration:**
+- **Navigation Updates**: Added "Wiki" link to main navigation menu
+- **Featured Content**: Added wiki feature card in homepage featured content section
+- **Seamless Integration**: Connected main site to wiki system with proper linking
+
+**Wiki Content Development:**
+- **Home Page**: Created welcoming wiki homepage with navigation and featured content
+- **About Page**: Comprehensive project information with class overview and philosophy
+- **Classes Page**: Detailed class guides with characteristics, weapons, and comparisons
+- **Weapons Page**: Complete weapon database organized by class and type
+- **Contributing Page**: Guidelines for adding weapon concepts and community participation
+- **FAQ Page**: Answers to common questions about the project and weapons
+- **Changelog Page**: Update history and version tracking
+
+**Technical Implementation:**
+- **Markdown Parser**: Built custom JavaScript markdown-to-HTML converter
+- **Page Navigation**: Implemented URL-based page switching system
+- **Error Handling**: Added comprehensive error recovery for failed page loads
+- **Performance Optimization**: Client-side rendering for fast page transitions
+- **Mobile Responsiveness**: Wiki interface works across all device sizes
+
+**Benefits Achieved:**
+- **Proper Markdown Rendering**: Solved plaintext display issue with web-based renderer
+- **Organized Documentation**: Structured wiki content for easy navigation and maintenance
+- **Community Accessibility**: Made wiki content accessible without GitHub account
+- **SEO Friendly**: Proper HTML structure for search engine indexing
+- **Scalable System**: Easy to add new wiki pages and content
+
+### Version 2.0.5 - Trooper Search Functionality Fix (2025-09-04)
 
 **JavaScript Bug Fixes:**
 - **TARGETED FIX**: Enhanced robustness of class and type comparisons in search filtering to resolve Trooper-specific search issues
@@ -249,4 +308,4 @@ For questions regarding site updates or contribution opportunities:
 ---
 
 *Last updated: 2025-09-04*
-*Version: 2.0.5*
+*Version: 2.1.0*

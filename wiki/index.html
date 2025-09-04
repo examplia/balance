@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Typical Colors 2 Wiki</title>
+    <link rel="stylesheet" href="../styles.css">
+    <style>
+        .wiki-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+
+        .wiki-header {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .wiki-nav {
+            background: rgba(74, 45, 90, 0.1);
+            border-radius: 10px;
+            padding: 1.5rem;
+            margin-bottom: 2rem;
+            border: 1px solid #4a2d5a;
+        }
+
+        .nav-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1rem;
+        }
+
+        .nav-item {
+            background: rgba(74, 45, 90, 0.8);
+            padding: 1rem;
+            border-radius: 8px;
+            text-align: center;
+            transition: all 0.3s ease;
+            border: 1px solid #4a2d5a;
+        }
+
+        .nav-item:hover {
+            background: rgba(74, 45, 90, 0.9);
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(74, 45, 90, 0.3);
+        }
+
+        .nav-item a {
+            color: #e8e0d8;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        .wiki-content {
+            background: rgba(10, 6, 21, 0.95);
+            border-radius: 15px;
+            padding: 2rem;
+            border: 1px solid #4a2d5a;
+        }
+
+        .markdown-content {
+            line-height: 1.6;
+        }
+
+        .markdown-content h1,
+        .markdown-content h2,
+        .markdown-content h3 {
+            color: #f8d100;
+            margin-top: 2rem;
+            margin-bottom: 1rem;
+        }
+
+        .markdown-content h1 { border-bottom: 2px solid #4a2d5a; padding-bottom: 0.5rem; }
+        .markdown-content h2 { border-bottom: 1px solid #4a2d5a; padding-bottom: 0.3rem; }
+
+        .markdown-content p { margin-bottom: 1rem; }
+        .markdown-content ul, .markdown-content ol { margin-bottom: 1rem; padding-left: 2rem; }
+        .markdown-content li { margin-bottom: 0.5rem; }
+
+        .markdown-content code {
+            background: rgba(74, 45, 90, 0.3);
+            padding: 0.2rem 0.4rem;
+            border-radius: 3px;
+            font-family: 'Courier New', monospace;
+        }
+
+        .markdown-content pre {
+            background: rgba(74, 45, 90, 0.2);
+            padding: 1rem;
+            border-radius: 8px;
+            overflow-x: auto;
+            border: 1px solid #4a2d5a;
+        }
+
+        .markdown-content blockquote {
+            border-left: 4px solid #4a2d5a;
+            padding-left: 1rem;
+            margin: 1rem 0;
+            color: #9acdff;
+        }
+
+        .markdown-content table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 1rem 0;
+        }
+
+        .markdown-content th,
+        .markdown-content td {
+            border: 1px solid #4a2d5a;
+            padding: 0.5rem;
+            text-align: left;
+        }
+
+        .markdown-content th {
+            background: rgba(74, 45, 90, 0.3);
+            color: #f8d100;
+        }
+
+        .back-link {
+            display: inline-block;
+            margin-bottom: 2rem;
+            color: #9acdff;
+            text-decoration: none;
+        }
+
+        .back-link:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation Menu -->
+    <nav class="main-navigation">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <img src="../images/TypicalColors2Rebalances-Icon-Header.png" alt="TC2 Logo" style="height: 40px;">
+            </div>
+            <div class="nav-links">
+                <a href="../index.html" class="nav-link">Home</a>
+                <a href="#wiki-nav" class="nav-link">Wiki</a>
+                <a href="https://discord.gg/9TDY9P2cmG" target="_blank" class="nav-link">Discord</a>
+            </div>
+        </div>
+    </nav>
+
+    <div class="wiki-container">
+        <div class="wiki-header">
+            <h1>Typical Colors 2 Wiki</h1>
+            <p>Community weapon rebalancing proposals and concepts</p>
+        </div>
+
+        <div class="wiki-nav" id="wiki-nav">
+            <h2>Navigation</h2>
+            <div class="nav-grid">
+                <div class="nav-item">
+                    <a href="?page=home">🏠 Home</a>
+                </div>
+                <div class="nav-item">
+                    <a href="?page=about">ℹ️ About</a>
+                </div>
+                <div class="nav-item">
+                    <a href="?page=classes">👥 Classes</a>
+                </div>
+                <div class="nav-item">
+                    <a href="?page=weapons">⚔️ Weapons</a>
+                </div>
+                <div class="nav-item">
+                    <a href="?page=contributing">🤝 Contributing</a>
+                </div>
+                <div class="nav-item">
+                    <a href="?page=faq">❓ FAQ</a>
+                </div>
+                <div class="nav-item">
+                    <a href="?page=changelog">📋 Changelog</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="wiki-content">
+            <div id="content" class="markdown-content">
+                <!-- Content will be loaded here -->
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Simple markdown renderer and page loader
+        const contentDiv = document.getElementById('content');
+
+        // Get page from URL parameter
+        const urlParams = new URLSearchParams(window.location.search);
+        const page = urlParams.get('page') || 'home';
+
+        // Load markdown content
+        async function loadPage(pageName) {
+            try {
+                let filePath;
+                switch(pageName) {
+                    case 'home':
+                        filePath = 'Home.md';
+                        break;
+                    case 'about':
+                        filePath = 'guides/About.md';
+                        break;
+                    case 'classes':
+                        filePath = 'classes/Classes.md';
+                        break;
+                    case 'weapons':
+                        filePath = 'weapons/Weapons.md';
+                        break;
+                    case 'contributing':
+                        filePath = 'guides/Contributing.md';
+                        break;
+                    case 'faq':
+                        filePath = 'guides/FAQ.md';
+                        break;
+                    case 'changelog':
+                        filePath = 'guides/Changelog.md';
+                        break;
+                    default:
+                        filePath = 'Home.md';
+                }
+
+                const response = await fetch(filePath);
+                const markdown = await response.text();
+
+                // Simple markdown to HTML conversion
+                const html = simpleMarkdownToHtml(markdown);
+                contentDiv.innerHTML = html;
+
+                // Update page title
+                document.title = `TC2 Wiki - ${pageName.charAt(0).toUpperCase() + pageName.slice(1)}`;
+
+            } catch (error) {
+                contentDiv.innerHTML = `
+                    <h2>Error Loading Page</h2>
+                    <p>Sorry, there was an error loading the page content.</p>
+                    <p>Error: ${error.message}</p>
+                    <p><a href="?page=home">Return to Home</a></p>
+                `;
+            }
+        }
+
+        // Simple markdown to HTML converter
+        function simpleMarkdownToHtml(markdown) {
+            let html = markdown;
+
+            // Headers
+            html = html.replace(/^### (.*$)/gim, '<h3>$1</h3>');
+            html = html.replace(/^## (.*$)/gim, '<h2>$1</h2>');
+            html = html.replace(/^# (.*$)/gim, '<h1>$1</h1>');
+
+            // Bold
+            html = html.replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>');
+
+            // Italic
+            html = html.replace(/\*(.*?)\*/g, '<em>$1</em>');
+
+            // Links
+            html = html.replace(/\[([^\]]+)\]\(([^)]+)\)/g, '<a href="$2">$1</a>');
+
+            // Images
+            html = html.replace(/!\[([^\]]*)\]\(([^)]+)\)/g, '<img src="$2" alt="$1">');
+
+            // Code blocks
+            html = html.replace(/```([\s\S]*?)```/g, '<pre><code>$1</code></pre>');
+
+            // Inline code
+            html = html.replace(/`([^`]+)`/g, '<code>$1</code>');
+
+            // Lists
+            html = html.replace(/^\* (.*$)/gim, '<li>$1</li>');
+            html = html.replace(/^\d+\. (.*$)/gim, '<li>$1</li>');
+
+            // Wrap consecutive list items
+            html = html.replace(/(<li>.*<\/li>\n?)+/g, '<ul>$&</ul>');
+
+            // Line breaks
+            html = html.replace(/\n\n/g, '</p><p>');
+            html = html.replace(/\n/g, '<br>');
+
+            // Wrap in paragraphs
+            if (!html.includes('<p>')) {
+                html = '<p>' + html + '</p>';
+            }
+
+            return html;
+        }
+
+        // Load the requested page
+        loadPage(page);
+
+        // Handle navigation clicks
+        document.addEventListener('click', function(e) {
+            if (e.target.matches('.nav-item a')) {
+                e.preventDefault();
+                const href = e.target.getAttribute('href');
+                const url = new URL(href, window.location);
+                const pageParam = url.searchParams.get('page');
+                if (pageParam) {
+                    loadPage(pageParam);
+                    // Update URL without page reload
+                    window.history.pushState({}, '', href);
+                }
+            }
+        });
+    </script>
+</body>
+</html>
