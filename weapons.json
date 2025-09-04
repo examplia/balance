@@ -438,8 +438,8 @@
         "positive": ["This weapon is always accurate", "10% less falloff"],
         "negative": ["-90% pellets per shot", "-20% slower firing speed"]
       },
-      "changes": [""],
-      "reasoning": ["An idea conceptualized by a friend, making a new Flanker primary weapon a slug shotgun. The name of the weapon is also a reference to Baseball, since Slugger's a term for the sport. It fits Flanker's personality name-wise."],
+      "changes": [],
+      "reasoning": "An idea conceptualized by a friend, making a new Flanker primary weapon a slug shotgun. The name of the weapon is also a reference to Baseball, since Slugger's a term for the sport. It fits Flanker's personality name-wise.",
       "isConcept": true
     },
     {
@@ -452,7 +452,7 @@
         "negative": ["-50% healing from healing sources on wearer"]
       },
       "changes": [],
-      "reasoning": "",
+      "reasoning": "A health drink concept for Flanker that provides substantial healing but reduces healing from other sources. Could be useful for solo play or when medics are unavailable.",
       "isConcept": true
     },
     {
@@ -464,8 +464,8 @@
         "positive": ["+42% clip size", "20% more accurate"],
         "negative": ["-20% damage penalty", "-20% slower firing speed"]
       },
-      "changes": [""],
-      "reasoning": ["This has been one of the weapons that I'm really intrigued and interested in seeing. A Trooper pistol that's a sidegrade to your usual hitscan shotgun. It might be an underused/inoffensive concept and probably would have the same popularity as 50-AE where people do use it, it's just that some prefer MAC-10 more. Who knows."],
+      "changes": [],
+      "reasoning": "This has been one of the weapons that I'm really intrigued and interested in seeing. A Trooper pistol that's a sidegrade to your usual hitscan shotgun. It might be an underused/inoffensive concept and probably would have the same popularity as 50-AE where people do use it, it's just that some prefer MAC-10 more. Who knows.",
       "isConcept": true
     },
     {
@@ -478,7 +478,7 @@
         "negative": []
       },
       "changes": [],
-      "reasoning": "",
+      "reasoning": "A conceptual flamethrower alternative for Arsonist that could provide different playstyles compared to the current flare gun options.",
       "isConcept": true
     },
     {
@@ -491,7 +491,7 @@
         "negative": []
       },
       "changes": [],
-      "reasoning": "",
+      "reasoning": "A gas-based weapon concept for Arsonist that could create area denial effects or provide alternative crowd control options.",
       "isConcept": true
     },
     {
@@ -504,7 +504,7 @@
         "negative": []
       },
       "changes": [],
-      "reasoning": "",
+      "reasoning": "A flamethrower concept for Brute that could provide area denial capabilities and synergize with Brute's tanky playstyle.",
       "isConcept": true
     }
   ]
