@@ -1,6 +1,4 @@
-# Typical Colors 2 - Weapon Rebalances
-
-![Typical Colors 2 Header](images/TypicalColors2Rebalances-Icon-Header.png)
+![Typical Colors 2 Header](../images/TypicalColors2Rebalances-Icon-Header.png)
 
 ## Welcome to the Typical Colors 2 Wiki
 

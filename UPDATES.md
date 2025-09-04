@@ -4,6 +4,20 @@ This document provides a comprehensive record of all updates and modifications m
 
 ## Latest Updates
 
+### Version 2.1.4 - Wiki Image Display and Header Fixes (2025-09-04)
+
+**Wiki Content Display Fixes:**
+- **Fixed Image Path References**: Corrected image paths in wiki markdown files from relative `images/` to proper `../images/` paths to reference images in parent directory
+- **Removed Duplicate Text Headers**: Eliminated redundant text header "Typical Colors 2 - Weapon Rebalances" from Home.md, keeping only the visual header image
+- **Improved Image Loading**: Ensured all wiki images load properly by fixing path resolution for content in wiki/ subdirectory
+- **Clean Header Presentation**: Streamlined wiki homepage to show only the visual header image without duplicate text
+
+**Technical Implementation:**
+- **Path Resolution Fix**: Updated markdown image references to use correct relative paths from wiki subdirectory to root images directory
+- **Content Cleanup**: Removed redundant text headers that duplicated visual header information
+- **No Breaking Changes**: All existing wiki functionality (syntax highlighting, copy buttons, navigation) remains intact
+- **Visual Consistency**: Maintained consistent header presentation across wiki pages
+
 ### Version 2.1.3 - Witches Brew Weapon Removal (2025-09-04)
 
 **Weapon Database Cleanup:**
@@ -376,4 +390,4 @@ For questions regarding site updates or contribution opportunities:
 ---
 
 *Last updated: 2025-09-04*
-*Version: 2.1.3*
+*Version: 2.1.4*
