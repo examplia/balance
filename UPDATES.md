@@ -4,6 +4,32 @@ This document provides a comprehensive record of all updates and modifications m
 
 ## Latest Updates
 
+### Version 2.1.7 - Specialist Weapon Rename and Stat Overhaul (2025-09-07)
+
+**Weapon Database Update:**
+- **Renamed "Specialist (V.1.)" to "Specialist"**: Simplified the weapon name by removing the version designation to establish it as the primary implementation
+- **Complete Stats Overhaul**: Updated the Specialist weapon stats to focus on debuff synergy and precision combat mechanics
+- **New Positive Stats**:
+  - **Deals minicrits to debuffed enemies**: Enables mini-crit damage against enemies affected by debuffs, rewarding debuff application
+  - **This weapon deploys 20% faster**: Improved deployment speed for quicker weapon switching
+  - **20% more accurate**: Enhanced accuracy for better long-range performance
+- **New Negative Stats**:
+  - **-33% clip size**: Reduced magazine capacity as a trade-off for the new capabilities
+  - **-10% less pellets**: Decreased pellet count affecting spread and damage potential
+  - **25% more knockback vulnerability**: Increased susceptibility to knockback effects from explosions and other sources
+- **Impact**: The Specialist now functions as a precision debuff-focused weapon rather than a support-oriented one, encouraging coordinated team play and quick deployment tactics
+- **Database Integrity**: Maintained proper JSON structure and formatting after the comprehensive update
+- **No Breaking Changes**: The stat overhaul maintains compatibility with existing search, filter, and comparison functionality
+- **Clean Implementation**: Ensured all stat descriptions follow the established format and documentation standards
+
+**Technical Details:**
+- **File Modified**: weapons.json
+- **Weapon Updated**: Complete rewrite of the Specialist weapon object (Flanker primary weapon)
+- **Changes Section Updated**: Documented the rename, stat removals, and new stat additions in the changes array
+- **Reasoning Updated**: Provided detailed explanation of the new weapon philosophy focusing on debuff synergy
+- **JSON Validation**: Confirmed proper JSON syntax and array formatting after the comprehensive update
+- **No Side Effects**: Weapon update does not impact wiki rendering, search functionality, or other weapon entries
+
 ### Version 2.1.6 - Specialist Variant Weapon Removal (2025-09-07)
 
 **Weapon Database Cleanup:**
@@ -421,4 +447,4 @@ For questions regarding site updates or contribution opportunities:
 ---
 
 *Last updated: 2025-09-07*
-*Version: 2.1.6*
+*Version: 2.1.7*
