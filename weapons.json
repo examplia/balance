@@ -365,19 +365,6 @@
       "isConcept": false
     },
     {
-      "name": "Suppressed Solution",
-      "class": "Marksman",
-      "type": "Secondary",
-      "image": "images/SuppressedSolution.png",
-      "stats": {
-        "positive": ["Dealing damage fills charge meter", "Secondary fire when charged grants mini-crits", "+20% damage bonus"],
-        "negative": ["20% slower firing speed", "-33% clip size"]
-      },
-      "changes": ["Reduced the slower firing speed from -45% to -20%", "Increased the damage bonus from +15% to +20%"],
-      "reasoning": "",
-      "isConcept": false
-    },
-    {
       "name": "Razorback",
       "class": "Marksman",
       "type": "Secondary",

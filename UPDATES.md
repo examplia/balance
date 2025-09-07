@@ -4,6 +4,22 @@ This document provides a comprehensive record of all updates and modifications m
 
 ## Latest Updates
 
+### Version 2.1.5 - Suppressed Solution Weapon Removal (2025-09-07)
+
+**Weapon Database Cleanup:**
+- **Removed "Suppressed Solution" Weapon Entry**: Completely removed the Suppressed Solution weapon from the weapons database (weapons.json)
+- **Root Cause**: The weapon's mechanics and balance have been deemed unsuitable for current gameplay dynamics, necessitating its removal from the database
+- **Impact**: Suppressed Solution weapon will no longer appear in weapon listings, search results, or comparisons
+- **Database Integrity**: Maintained JSON structure and formatting after removal
+- **No Breaking Changes**: Removal does not affect existing functionality like syntax highlighting, copy buttons, or markdown rendering
+- **Clean Removal**: Ensured no orphaned references or broken links remain in the system
+
+**Technical Details:**
+- **File Modified**: weapons.json
+- **Entry Removed**: Complete weapon object for "Suppressed Solution" (Marksman secondary weapon)
+- **JSON Validation**: Confirmed proper JSON syntax after removal
+- **No Side Effects**: Weapon removal does not impact wiki rendering, search functionality, or other weapon entries
+
 ### Version 2.1.4 - Wiki Image Display and Header Fixes (2025-09-04)
 
 **Wiki Content Display Fixes:**
@@ -83,7 +99,6 @@ This document provides a comprehensive record of all updates and modifications m
 - **Mobile-First Design**: Responsive design ensures optimal experience across all devices
 - **Developer Experience**: Syntax highlighting and copy functionality improve code sharing and learning
 
-
 ### Version 2.1.1 - Navigation Bug Fix for Wiki Button (2025-09-04)
 
 **Critical Bug Fix:**
@@ -116,10 +131,10 @@ wiki/
 ├── weapons/
 │   └── Weapons.md          # Complete weapon database
 └── guides/
-├── About.md            # Project information
-├── Contributing.md     # Contribution guidelines
-├── FAQ.md               # Frequently asked questions
-└── Changelog.md        # Update history
+    ├── About.md            # Project information
+    ├── Contributing.md     # Contribution guidelines
+    ├── FAQ.md               # Frequently asked questions
+    └── Changelog.md        # Update history
 
 - **Internal Link Updates**: Updated all internal wiki links to reflect new directory structure
 - **GitHub Wiki Compatibility**: Created `_Sidebar.md` and `_Footer.md` for GitHub Wiki integration
@@ -389,5 +404,5 @@ For questions regarding site updates or contribution opportunities:
 
 ---
 
-*Last updated: 2025-09-04*
-*Version: 2.1.4*
+*Last updated: 2025-09-07*
+*Version: 2.1.5*
