@@ -65,7 +65,7 @@
         "positive": ["Players heal 45% of the damage done to an enemy covered with milk", "Can be used to extinguish fires", "Extinguishing teammates reduces cooldown by -50%"],
         "negative": ["This weapon deploys 15% slower"]
       },
-      "changes": ["Increased damage healing from 35% to 50%", "Increased effect duration from 6s to 10s", "Removed 'Debuff duration is based on splash distance' stat", "Effect duration is dependent on distance. The effect is shortened on close range, but longer on far range", "Increased cooldown from 20s to 30s", "Increased extinguish cooldown from 10s to 15s"],
+      "changes": ["Increased damage healing from 35% to 50%", "Increased effect duration from 6s to 10s", "Increased cooldown from 20s to 30s", "Increased extinguish cooldown from 10s to 15s"],
       "reasoning": "Mad milk is now stronger! But it has a longer cooldown bwomp",
       "isConcept": false,
       "description": "[Hidden] Recharge time is 30s, 15s when extinguishing a teammate. [Hidden] Effect duration lasts 5s-10s."
@@ -489,20 +489,6 @@
       "reasoning": "A flamethrower concept for Brute that could provide area denial capabilities and synergize with Brute's tanky playstyle.",
       "isConcept": true,
       "description": ""
-    },
-    {
-      "name": "Witches Brew",
-      "class": "Flanker",
-      "type": "Secondary",
-      "image": "images/WitchesBrew.png",
-      "stats": {
-        "positive": ["While under the effects, +25% movement speed and damage done and damage taken will be mini-crits."],
-        "negative": ["Mark for Death won't be active unless the user damages or attacks during the effect", "Mark for Death lasts 8s"]
-      },
-      "changes": [],
-      "reasoning": "",
-      "isConcept": false,
-      "description": "While under the effects, +25% movement speed. Damage done and taken will be mini-crits. Mark for Death requires damage/attack activation and lasts 8s."
     }
   ]
 }
