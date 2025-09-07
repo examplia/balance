@@ -530,4 +530,4 @@ For questions regarding site updates or contribution opportunities:
 ---
 
 *Last updated: 2025-09-07*
-*Version: 2.1.9*
+*Version: 2.2.0*
