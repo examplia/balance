@@ -1069,9 +1069,13 @@
             card.appendChild(reasonSection);
             
             // Create description section if available
+            console.log('[DEBUG] Processing description for weapon:', weapon.name, 'Description exists:', !!weapon.description, 'Content:', weapon.description ? weapon.description.substring(0, 50) + '...' : 'empty');
+            
             if (weapon.description && weapon.description.trim() !== '') {
+                console.log('[DEBUG] Creating description section for', weapon.name);
                 const descriptionSection = document.createElement('div');
                 descriptionSection.className = 'description-section';
+                descriptionSection.style.border = '2px solid red'; // Temporary visual debug border
                 
                 const descriptionTitle = document.createElement('strong');
                 descriptionTitle.textContent = 'Usage: ';
@@ -1082,6 +1086,9 @@
                 descriptionSection.appendChild(descriptionText);
                 
                 card.appendChild(descriptionSection);
+                console.log('[DEBUG] Appended description section to card for', weapon.name);
+            } else {
+                console.log('[DEBUG] Skipping description section for', weapon.name, '- condition failed');
             }
             
             return card;
