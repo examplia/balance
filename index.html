@@ -36,6 +36,7 @@
 
     <link rel="stylesheet" href="styles.css">
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="jumpscare-config.js"></script>
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Creepster&family=Russo+One:wght@400&family=Anton:wght@400&display=swap');
         
@@ -904,6 +905,12 @@
     <script>
         // Jumpscare functionality
         function initializeJumpscare() {
+            // Check if jumpscare is enabled in config
+            if (typeof JUMPSCARE_ENABLED === 'undefined' || !JUMPSCARE_ENABLED) {
+                console.log('Jumpscare disabled in configuration');
+                return;
+            }
+            
             // Check if this is the user's first visit
             if (!sessionStorage.getItem('hasVisited')) {
                 // Mark as visited
@@ -1123,30 +1130,21 @@
             }
             reasonSection.appendChild(reasonText);
             
-            card.appendChild(reasonSection);
-            
-            // Create description section if available
-            console.log('[DEBUG] Processing description for weapon:', weapon.name, 'Description exists:', !!weapon.description, 'Content:', weapon.description ? weapon.description.substring(0, 50) + '...' : 'empty');
-            
+            // Add description/usage text directly to the reasoning section if available
             if (weapon.description && weapon.description.trim() !== '') {
-                console.log('[DEBUG] Creating description section for', weapon.name);
-                const descriptionSection = document.createElement('div');
-                descriptionSection.className = 'description-section';
-                descriptionSection.style.border = '2px solid red'; // Temporary visual debug border
-                
-                const descriptionTitle = document.createElement('strong');
-                descriptionTitle.textContent = 'Usage: ';
-                descriptionSection.appendChild(descriptionTitle);
-                
-                const descriptionText = document.createElement('span');
+                const descriptionText = document.createElement('div');
+                descriptionText.style.cssText = `
+                    color: #a0a0a0;
+                    font-style: italic;
+                    font-size: 0.9rem;
+                    margin-top: 0.5rem;
+                    line-height: 1.4;
+                `;
                 descriptionText.textContent = weapon.description;
-                descriptionSection.appendChild(descriptionText);
-                
-                card.appendChild(descriptionSection);
-                console.log('[DEBUG] Appended description section to card for', weapon.name);
-            } else {
-                console.log('[DEBUG] Skipping description section for', weapon.name, '- condition failed');
+                reasonSection.appendChild(descriptionText);
             }
+            
+            card.appendChild(reasonSection);
             
             return card;
         }

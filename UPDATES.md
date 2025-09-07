@@ -17,14 +17,17 @@ This document provides a comprehensive record of all updates and modifications m
 - **Audio Effect**: Scary sound effect (`images/mixkit-terror-transition-2484.wav`) plays during jumpscare
 - **User Experience**: Uses sessionStorage to track visits, ensuring jumpscare only occurs once per browser session
 - **Dismissible**: Users can click anywhere during jumpscare to dismiss it early and stop audio
+- **Configuration Toggle**: Added `jumpscare-config.js` file for easy enable/disable control
 - **Impact**: Adds entertaining surprise element for new visitors while respecting user experience
 
 **Technical Implementation:**
 - **File Modified**: `weapons.json` - Updated Mad Milk stats and description
 - **File Modified**: `index.html` - Added jumpscare overlay HTML and JavaScript functionality
+- **File Created**: `jumpscare-config.js` - Configuration file for toggling jumpscare on/off
 - **Session Tracking**: Implemented sessionStorage-based first visit detection
 - **Audio Integration**: Added HTML5 Audio API integration with error handling
 - **Responsive Design**: Jumpscare overlay adapts to all screen sizes with proper image scaling
+- **Easy Configuration**: Simply change `JUMPSCARE_ENABLED` to `true` or `false` in config file
 - **No Breaking Changes**: All existing functionality remains intact
 
 ### Version 2.1.9 - Visible Version Indicator Implementation (2025-09-07)
