@@ -4,6 +4,30 @@ This document provides a comprehensive record of all updates and modifications m
 
 ## Latest Updates
 
+### Version 2.1.9 - Visible Version Indicator Implementation (2025-09-07)
+
+**User Interface Enhancement:**
+- **Added Version Display**: Implemented visible version indicator in the hero section footer showing current site version and last update date
+- **Location**: Added version information immediately after the disclaimer in the update-info div within the hero section
+- **Content**: Displays "Version 2.1.9 - Updated: 2025-09-07" with subtle grey styling matching site theme
+- **Visual Styling**: Created `.version-info` CSS class with 0.8rem italic font, subtle background, border, and centered text alignment
+- **Responsive Design**: Mobile adjustments reduce font to 0.75rem and add padding for better small-screen readability
+- **Impact**: Users can now easily identify the current site version and update status without checking changelog
+
+**Technical Implementation:**
+- **File Modified**: `index.html` - Added version info div after disclaimer paragraph (line 659) with inline styling for immediate visibility
+- **File Modified**: `styles.css` - Added `.version-info` styling rules with grey theme, subtle background (rgba(160, 160, 160, 0.05)), border, and responsive breakpoints
+- **Styling Consistency**: Version indicator uses same grey color palette (#a0a0a0) as description sections for visual harmony
+- **No Breaking Changes**: Version display is purely cosmetic and does not affect existing functionality
+- **Maintainability**: Version number can be easily updated in single location (HTML line) when releasing new versions
+- **Mobile Optimization**: Responsive font sizing ensures readability on all devices
+
+**Benefits:**
+- **Update Tracking**: Users can immediately see current version and last update date
+- **Transparency**: Clear indication of site freshness and maintenance status
+- **Professional Appearance**: Consistent styling maintains site aesthetic quality
+- **Easy Maintenance**: Single location for version updates during future releases
+
 ### Version 2.1.8 - Grey Text Weapon Descriptions Implementation (2025-09-07)
 
 **Weapon Display Enhancement:**
@@ -483,4 +507,4 @@ For questions regarding site updates or contribution opportunities:
 ---
 
 *Last updated: 2025-09-07*
-*Version: 2.1.7*
+*Version: 2.1.9*
