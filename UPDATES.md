@@ -23,7 +23,7 @@ This document provides a comprehensive record of all updates and modifications m
 **New Workshop Content:**
 - **First Workshop Item**: Added "The Cleaving Nature" by Bushment to the Workshop Items section
 - **Halloween Reskin**: Featured as a spooky Halloween reskin of the Improvised Innovator
-- **Visual Design**: Professional workshop item cards with hover effects and detailed information
+- **Visual Design**: Professional workshop item cards with hover effects, detailed information, and enlarged display icons (120px desktop, 110px tablet, 100px mobile)
 - **Author Attribution**: Proper credit to creator Bushment
 - **Category System**: Organized with Halloween theme and weapon type tags
 - **Impact**: Transforms empty workshop section into active showcase of community content
@@ -38,7 +38,7 @@ This document provides a comprehensive record of all updates and modifications m
 - **Easy Configuration**: Simply change `JUMPSCARE_ENABLED` to `true` or `false` in config file
 - **File Modified**: `index.html` - Added workshop item HTML structure and comprehensive CSS styling
 - **Workshop Content**: Added "The Cleaving Nature" workshop item with image, description, and metadata
-- **Responsive Design**: Workshop items adapt to all screen sizes with mobile-optimized layouts
+- **Responsive Design**: Workshop items adapt to all screen sizes with mobile-optimized layouts and progressive icon sizing (120px → 110px → 100px)
 - **No Breaking Changes**: All existing functionality remains intact
 
 ### Version 2.1.9 - Visible Version Indicator Implementation (2025-09-07)
