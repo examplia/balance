@@ -881,7 +881,64 @@
         <div class="compare-weapons" id="compareWeapons"></div>
     </div>
 
+    <!-- Jumpscare overlay -->
+    <div id="jumpscareOverlay" style="
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100vw;
+        height: 100vh;
+        background: black;
+        z-index: 9999;
+        display: none;
+        justify-content: center;
+        align-items: center;
+    ">
+        <img id="jumpscareImage" src="images/jumpscare.gif" alt="Jumpscare" style="
+            max-width: 100%;
+            max-height: 100%;
+            object-fit: contain;
+        ">
+    </div>
+
     <script>
+        // Jumpscare functionality
+        function initializeJumpscare() {
+            // Check if this is the user's first visit
+            if (!sessionStorage.getItem('hasVisited')) {
+                // Mark as visited
+                sessionStorage.setItem('hasVisited', 'true');
+                
+                // Set up jumpscare after 5 seconds
+                setTimeout(() => {
+                    const overlay = document.getElementById('jumpscareOverlay');
+                    const audio = new Audio('images/mixkit-terror-transition-2484.wav');
+                    
+                    // Show the jumpscare
+                    overlay.style.display = 'flex';
+                    
+                    // Play the scary sound
+                    audio.play().catch(e => {
+                        console.log('Audio play failed:', e);
+                    });
+                    
+                    // Hide the jumpscare after 3 seconds
+                    setTimeout(() => {
+                        overlay.style.display = 'none';
+                    }, 3000);
+                    
+                    // Allow clicking to dismiss early
+                    overlay.addEventListener('click', () => {
+                        overlay.style.display = 'none';
+                        audio.pause();
+                        audio.currentTime = 0;
+                    });
+                }, 5000);
+            }
+        }
+
+        // Initialize jumpscare when page loads
+        document.addEventListener('DOMContentLoaded', initializeJumpscare);
         // Performance optimization: Debounce function
         function debounce(func, wait) {
             let timeout;
@@ -1107,6 +1164,16 @@
                 // Store the original data globally for search functionality
                 allWeaponsData = data;
                 console.log(`[SEARCH-DEBUG] Loaded ${data.weapons.length} weapons from JSON`);
+                
+                // Debug: Check if descriptions are present in loaded data
+                console.log('[DEBUG-LOAD] Sample weapon data with descriptions:');
+                data.weapons.slice(0, 3).forEach((weapon, index) => {
+                    console.log(`Weapon ${index + 1}: "${weapon.name}" - Description: "${weapon.description || 'MISSING'}"`);
+                });
+                
+                if (data.weapons.length > 0 && !data.weapons[0].description) {
+                    console.error('[DEBUG-LOAD] WARNING: First weapon missing description field - JSON may not have loaded correctly');
+                }
 
                 // Group weapons by class
                 const weaponsByClass = {};

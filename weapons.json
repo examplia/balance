@@ -62,13 +62,13 @@
       "type": "Secondary",
       "image": "images/MadMilk.png",
       "stats": {
-        "positive": ["Players heal 50% of the damage done to an enemy covered with milk", "Can be used to extinguish fires", "Extinguishing teammates reduces cooldown by -50%"],
+        "positive": ["Players heal 45% of the damage done to an enemy covered with milk", "Can be used to extinguish fires", "Extinguishing teammates reduces cooldown by -50%"],
         "negative": ["This weapon deploys 15% slower"]
       },
       "changes": ["Increased damage healing from 35% to 50%", "Increased effect duration from 6s to 10s", "Removed 'Debuff duration is based on splash distance' stat", "Effect duration is dependent on distance. The effect is shortened on close range, but longer on far range", "Increased cooldown from 20s to 30s", "Increased extinguish cooldown from 10s to 15s"],
       "reasoning": "Mad milk is now stronger! But it has a longer cooldown bwomp",
       "isConcept": false,
-      "description": "Effect duration is based on splash distance. [Hidden] Recharge time is 30s, 15s when extinguishing a teammate. [Hidden] Effect duration lasts 5s-10s."
+      "description": "[Hidden] Recharge time is 30s, 15s when extinguishing a teammate. [Hidden] Effect duration lasts 5s-10s."
     },
     {
       "name": "Atomizer",

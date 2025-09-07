@@ -4,6 +4,29 @@ This document provides a comprehensive record of all updates and modifications m
 
 ## Latest Updates
 
+### Version 2.2.0 - Mad Milk Balance Update & Jumpscare Feature (2025-09-07)
+
+**Weapon Balance Changes:**
+- **Mad Milk Healing Adjustment**: Reduced healing percentage from 50% to 45% of damage dealt to enemies covered with milk
+- **Description Cleanup**: Removed "Effect duration is based on splash distance" text from Mad Milk description for clarity
+- **Impact**: Slightly reduces the healing effectiveness of Mad Milk while maintaining its utility as a support tool
+
+**New Website Feature:**
+- **First Visit Jumpscare**: Added surprise jumpscare feature that triggers 5 seconds after first-time visitors arrive on the site
+- **Visual Effect**: Full-screen jumpscare GIF (`images/jumpscare.gif`) displays for 3 seconds
+- **Audio Effect**: Scary sound effect (`images/mixkit-terror-transition-2484.wav`) plays during jumpscare
+- **User Experience**: Uses sessionStorage to track visits, ensuring jumpscare only occurs once per browser session
+- **Dismissible**: Users can click anywhere during jumpscare to dismiss it early and stop audio
+- **Impact**: Adds entertaining surprise element for new visitors while respecting user experience
+
+**Technical Implementation:**
+- **File Modified**: `weapons.json` - Updated Mad Milk stats and description
+- **File Modified**: `index.html` - Added jumpscare overlay HTML and JavaScript functionality
+- **Session Tracking**: Implemented sessionStorage-based first visit detection
+- **Audio Integration**: Added HTML5 Audio API integration with error handling
+- **Responsive Design**: Jumpscare overlay adapts to all screen sizes with proper image scaling
+- **No Breaking Changes**: All existing functionality remains intact
+
 ### Version 2.1.9 - Visible Version Indicator Implementation (2025-09-07)
 
 **User Interface Enhancement:**
