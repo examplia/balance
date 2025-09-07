@@ -1,0 +1,54 @@
+The Colbat: This weapon reloads its entire clip at once
+The Soda Popper: When Hype is full, Alt-fire to activate hype mode for multiple jumps and full air control
+This weapon reloads its entire clip at once
+Concealed Carry: [Hidden] Overheal drain rate is equal to Conniver’s Kunai’s overheal drain
+Mad Milk: Effect duration is based on splash distance
+[Hidden] Recharge time is 30s, 15s when extinguishing a teammate
+[Hidden] Effect duration lasts 5s-10s
+
+Witches Brew: While under the effects, +25% movement speed and damage done and damage taken will be mini-crits.
+Mark for Death won’t be active unless the user damages or attacks during the effect
+Mark for Death lasts 8s
+
+Wooden Sword: Mark for Death lasts 8 seconds
+
+Flare Gun: This weapon will reload when not active
+[Hidden] Afterburn duration is 3-8 seconds depending on distance
+
+Detonator: Alt-Fire: Detonate flare
+This weapon will reload when not active
+[Hidden] Afterburn duration is 2-6 seconds depending on distance
+
+Maxine: Effect duration resets after every kill
+
+ROBAR: On consumption: For the next 14 seconds,
+50% of all damage dealt is returned as health.
+Alt: Share some Candy with a friend (Small Health Kit)
+
+Gutbuster: Gives increased speed with every gut busted. (up to 3)
+
+Gunslinger: Replaces the Sentry with a Mini-Sentry
+
+Dairy Douser: Can be used to extinguish fires
+
+Mini Sentry: (Compared to Level 1 Sentry)
+
+
+
+Rejuvenator: SuperCharge increases healing by 300% and grants immunity to movement-impairing effects Mirror blast jumps and shield charges of patients.
+[Hidden] Uber penalty removed when SuperCharge is active
+
+
+Amputator: Taunt: Applies a healing effect to all nearby teammates and yourself
+
+Huntsman: Shoot arrows instead of bullets
+[Hidden] This weapon will reload when not active
+
+Razorback: [Hidden] Damage cap the shield can take until it breaks is 125
+
+The Slugger: Fires one bullet per shot that does 70 base damage 
+This weapon reloads its entire clip at once
+
+
+Mount-17: (Compared to pistol)
+

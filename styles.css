@@ -1448,3 +1448,26 @@ To customize the banner appearance:
         margin-right: 0;
     }
 }
+.description-section {
+    background: rgba(160, 160, 160, 0.1);
+    border-left: 4px solid #a0a0a0;
+    padding: 1rem;
+    margin-top: 1rem;
+    border-radius: 0 8px 8px 0;
+    color: #a0a0a0;
+    font-size: 0.9rem;
+    line-height: 1.4;
+    font-style: italic;
+}
+
+.description-section strong {
+    color: #c0c0c0;
+    font-weight: normal;
+}
+
+@media (max-width: 768px) {
+    .description-section {
+        font-size: 0.85rem;
+        padding: 0.75rem;
+    }
+}

@@ -11,7 +11,8 @@
       },
       "changes": ["Reduced the on-kill refill from 50% to 33%"],
       "reasoning": "Reducing the on-kill refill from 50% to 33% would make it so that it won't refill almost instantly within 2 kills. The Flanker would need to work his way up even more with 3 kills to refill it fully. Of course, this needs some playtesting to see if it's a reasonable nerf or not.",
-      "isConcept": false
+      "isConcept": false,
+      "description": "This weapon reloads its entire clip at once."
     },
     {
       "name": "The Soda Popper",
@@ -24,7 +25,8 @@
       },
       "changes": ["Added a 25% faster reload speed", "Removed the no double jump penalty", "Removed 50% faster reload speed when hype is active"],
       "reasoning": "In my opinion, TF2's Soda Popper isn't that overpowered, so the reason why TC2 removed it's reload speed bonus and gave it a no double jump downside is questionable at best. Like the Colbat, this needs some playtesting to see if I accidentally made this weapon stronger. Other than that, I buffed the Soda Popper.",
-      "isConcept": false
+      "isConcept": false,
+      "description": "When Hype is full, Alt-fire to activate hype mode for multiple jumps and full air control."
     },
     {
       "name": "Specialist",
@@ -37,7 +39,8 @@
       },
       "changes": ["Renamed from 'Specialist (V.1.)' to 'Specialist'", "Updated stats to new configuration focusing on debuff synergy and accuracy", "Removed previous support-oriented stats", "Added debuff minicrit capability", "Added faster deploy speed and accuracy bonuses", "Added clip size reduction, pellet reduction, and knockback vulnerability penalties"],
       "reasoning": "Updated the Specialist to focus on debuff synergy and precision rather than support capabilities, making it a more specialized combat weapon that rewards debuff application and quick deployment.",
-      "isConcept": false
+      "isConcept": false,
+      "description": ""
     },
     {
       "name": "Concealed Carry",
@@ -50,7 +53,8 @@
       },
       "changes": ["The overheal gain from a kill drains slower, similar to Conniver's Kunai", "Removed the 'Overheal does not decay' stat"],
       "reasoning": "The goal for this change is to make the Concealed Carry's overheal less powerful. A non-drainable and permanent overheal unless you take damage is a little too much.",
-      "isConcept": false
+      "isConcept": false,
+      "description": "[Hidden] Overheal drain rate is equal to Conniver's Kunai's overheal drain."
     },
     {
       "name": "Mad Milk",
@@ -63,7 +67,8 @@
       },
       "changes": ["Increased damage healing from 35% to 50%", "Increased effect duration from 6s to 10s", "Removed 'Debuff duration is based on splash distance' stat", "Effect duration is dependent on distance. The effect is shortened on close range, but longer on far range", "Increased cooldown from 20s to 30s", "Increased extinguish cooldown from 10s to 15s"],
       "reasoning": "Mad milk is now stronger! But it has a longer cooldown bwomp",
-      "isConcept": false
+      "isConcept": false,
+      "description": "Effect duration is based on splash distance. [Hidden] Recharge time is 30s, 15s when extinguishing a teammate. [Hidden] Effect duration lasts 5s-10s."
     },
     {
       "name": "Atomizer",
@@ -76,7 +81,8 @@
       },
       "changes": ["Removed the '-10 health on triple jump' stat, even though they stated that they 'REMOVED' the stat in 2022."],
       "reasoning": "'No -10 health on triple jump stat' It still happens when you use the weapon Fix your weapon Dorcus 😠",
-      "isConcept": false
+      "isConcept": false,
+      "description": ""
     },
     {
       "name": "Wooden Sword",
@@ -89,7 +95,8 @@
       },
       "changes": ["Reduced Mark for Death duration from 15 to 8"],
       "reasoning": "That duration did not need to last that long",
-      "isConcept": false
+      "isConcept": false,
+      "description": "Mark for Death lasts 8 seconds."
     },
     {
       "name": "Grill Scout",
@@ -102,7 +109,8 @@
       },
       "changes": ["Listed the '+50 health gained from removing debuffs on teammates' stat in the weapon info", "Decreased the slower firing speed from 60% to 50%"],
       "reasoning": "Look who's a good little support Flanker? You are, YOU are!",
-      "isConcept": false
+      "isConcept": false,
+      "description": ""
     },
     {
       "name": "Aerial Bomber",
@@ -115,7 +123,8 @@
       },
       "changes": ["Decreased the explosion radius penalty from 30% to 10%", "Added a 15% blast damage reduction when blast jumping", "Increased clip size bonus on kill from +2 to +4", "Added a -15% damage penalty", "Decreased the faster firing and projectile speed from 60% to 50%"],
       "reasoning": "",
-      "isConcept": false
+      "isConcept": false,
+      "description": ""
     },
     {
       "name": "Friendly Fire Foiler",
@@ -128,7 +137,8 @@
       },
       "changes": ["[Still WIP]"],
       "reasoning": "",
-      "isConcept": false
+      "isConcept": false,
+      "description": ""
     },
     {
       "name": "Flare Gun",
@@ -141,7 +151,8 @@
       },
       "changes": ["Reduced afterburn duration so it's based on distance", "Nerfed the maximum afterburn duration from 10 to 8 seconds"],
       "reasoning": "",
-      "isConcept": false
+      "isConcept": false,
+      "description": "This weapon will reload when not active. [Hidden] Afterburn duration is 3-8 seconds depending on distance."
     },
     {
       "name": "Detonator",
@@ -154,7 +165,8 @@
       },
       "changes": ["Buffed the maximum afterburn duration from 2 to 6 seconds", "Listed the '+50% damage to self' stat in the weapon stats", "Reduced afterburn duration so it's based on distance"],
       "reasoning": "",
-      "isConcept": false
+      "isConcept": false,
+      "description": "Alt-Fire: Detonate flare. This weapon will reload when not active. [Hidden] Afterburn duration is 2-6 seconds depending on distance."
     },
     {
       "name": "Hotwire",
@@ -167,7 +179,8 @@
       },
       "changes": ["Increased the push force reduction from 40% to 50%", "Sappers now take 2 hits to get destroyed", "Removed the 'Attacks pierce damage resistance effects and bonuses' stat"],
       "reasoning": "Requires two hits to destroy a Sapper, no more one-tap. I know the pain and how it feels, Agent mains.",
-      "isConcept": false
+      "isConcept": false,
+      "description": ""
     },
     {
       "name": "Iron Force",
@@ -180,7 +193,8 @@
       },
       "changes": ["[Still WIP]"],
       "reasoning": "",
-      "isConcept": false
+      "isConcept": false,
+      "description": ""
     },
     {
       "name": "M249",
@@ -193,7 +207,8 @@
       },
       "changes": ["Decreased the damage bonus from 67% to 60%", "Added a -X% more falloff", "Added a -50% slower deploy speed", "Added a -30% slower holster speed"],
       "reasoning": "I DONT LIKE THIS WEAPON AT ALL",
-      "isConcept": false
+      "isConcept": false,
+      "description": ""
     },
     {
       "name": "Maxine",
@@ -206,7 +221,8 @@
       },
       "changes": ["Added a 'On kill: Gain a 3 second speed boost' stat", "Removed '-25% clip size' stat", "Removed '5 ammo consumed per second while deployed' stat", "Removed '-50% strafing speed when spun up' stat", "Removed 'Unable to crouch when spun up' stat", "Reduced revved up move speed from 40% to 20%", "Added a '-25% damage penalty' downside"],
       "reasoning": "",
-      "isConcept": false
+      "isConcept": false,
+      "description": "Effect duration resets after every kill."
     },
     {
       "name": "Sub Shotgun",
@@ -219,7 +235,8 @@
       },
       "changes": ["Decreased the healing from healers penalty from 90% to 50%", "Added a '-60% healing from health packs' stat"],
       "reasoning": "",
-      "isConcept": false
+      "isConcept": false,
+      "description": ""
     },
     {
       "name": "ROBAR",
@@ -232,7 +249,8 @@
       },
       "changes": ["Increased the damage dealt return as health from 33% to 50%", "Increase the duration from 10s to 14s", "Removed the '20 HPs per second' stat"],
       "reasoning": "",
-      "isConcept": false
+      "isConcept": false,
+      "description": "On consumption: For the next 14 seconds, 50% of all damage dealt is returned as health. Alt: Share some Candy with a friend (Small Health Kit)."
     },
     {
       "name": "Gutbuster",
@@ -245,7 +263,8 @@
       },
       "changes": ["Decreased the max health penalty from -25 to -15", "Made every on kill effect happen if the enemy is targeted by your sentry"],
       "reasoning": "SLIGHT rework Keyword - SLIGHT",
-      "isConcept": false
+      "isConcept": false,
+      "description": "Gives increased speed with every gut busted (up to 3)."
     },
     {
       "name": "Noisy Cricket",
@@ -258,7 +277,8 @@
       },
       "changes": ["Increased the metal-gain on hit from 70% to 100%"],
       "reasoning": "It's not really that much of a difference, the fall off basically balances it out on the 100% damage dealt being converted/returned as metal.",
-      "isConcept": false
+      "isConcept": false,
+      "description": ""
     },
     {
       "name": "Gunslinger",
@@ -271,7 +291,8 @@
       },
       "changes": ["Increased the max health bonus from +10 to +25"],
       "reasoning": "PLEASE BRING BACK OUR 150 HP KING DORCUS",
-      "isConcept": false
+      "isConcept": false,
+      "description": "Replaces the Sentry with a Mini-Sentry."
     },
     {
       "name": "Mini Sentry",
@@ -284,7 +305,8 @@
       },
       "changes": ["Increased the firing speed from 20% to 50%", "Increased the turret/turning speed from 20% to 50%"],
       "reasoning": "I mean.. faster?",
-      "isConcept": false
+      "isConcept": false,
+      "description": "Compared to Level 1 Sentry."
     },
     {
       "name": "Dairy Douser",
@@ -297,7 +319,8 @@
       },
       "changes": ["Showing the 'Can be used to extinguish fires' stat in the weapon info", "Added 'Extinguishing teammates restores 50 health' stat"],
       "reasoning": "REVERSE Syringe Crossbow. What if it heals you instead of healing others? You selfish bastard.",
-      "isConcept": false
+      "isConcept": false,
+      "description": "Can be used to extinguish fires."
     },
     {
       "name": "Rejuvenator",
@@ -310,7 +333,8 @@
       },
       "changes": ["Removed the uber penalty when activating SuperCharge and swapping patients"],
       "reasoning": "This encourages Doctors to swap patients when Rejuvenator's SuperCharge is active. The Rejuvenator's uber is meant to heal teammates and help them sustain long enough in the fight.",
-      "isConcept": false
+      "isConcept": false,
+      "description": "SuperCharge increases healing by 300% and grants immunity to movement-impairing effects. Mirrors blast jumps and shield charges of patients. [Hidden] Uber penalty removed when SuperCharge is active."
     },
     {
       "name": "Amputator",
@@ -323,7 +347,8 @@
       },
       "changes": ["+4 health regeneration is now passive instead of whenever the Amputator's active"],
       "reasoning": "I don't get why it's when it's active instead of a wearer/passive health regeneration bonus.",
-      "isConcept": false
+      "isConcept": false,
+      "description": "Taunt: Applies a healing effect to all nearby teammates and yourself."
     },
     {
       "name": "Huntsman",
@@ -336,7 +361,8 @@
       },
       "changes": ["Doubled the time that the arrow loses its accuracy, from 2s to 4s", "Added a 'This weapon will reload when not active' stat"],
       "reasoning": "Decided to slightly buff the Huntsman to give it some quality of life changes.",
-      "isConcept": false
+      "isConcept": false,
+      "description": "Shoot arrows instead of bullets. [Hidden] This weapon will reload when not active."
     },
     {
       "name": "Razorback",
@@ -349,7 +375,8 @@
       },
       "changes": ["Added a new function to the backpack, shield resistance that absorbs 30% of damage taken from enemy attacks", "Increased move speed bonus from 7% to 10%", "Removed its ability to block a single backstab"],
       "reasoning": "HOW DO WE MAKE THIS WEAPON GOOD WITHOUT MAKING IT A 'FUCK YOU SPY' WEAPON 😠",
-      "isConcept": false
+      "isConcept": false,
+      "description": "[Hidden] Damage cap the shield can take until it breaks is 125."
     },
     {
       "name": "Turtle Rock",
@@ -362,7 +389,8 @@
       },
       "changes": ["Added '+50% reduced time from all debuffs' stat", "Removed '+25% fire resistance' stat", "Removed 'Immune to the effects of afterburn' stat"],
       "reasoning": "",
-      "isConcept": false
+      "isConcept": false,
+      "description": ""
     },
     {
       "name": "Mischievous Machete",
@@ -375,7 +403,8 @@
       },
       "changes": ["Removed the 'This weapon deploys 50% slower' stat", "Replaced it with a '-20% slower firing speed' stat"],
       "reasoning": "The goal of this change is to actually make this weapon Marksman's last resort. This melee's whole purpose is to deploy it when you have no other options, so why would you add a slower deploy speed?",
-      "isConcept": false
+      "isConcept": false,
+      "description": ""
     },
     {
       "name": "The Slugger",
@@ -388,7 +417,8 @@
       },
       "changes": ["Slug shotgun concept", "Single bullet per shot", "Baseball-themed naming"],
       "reasoning": "An idea conceptualized by a friend, making a new Flanker primary weapon a slug shotgun. The name of the weapon is also a reference to Baseball, since Slugger's a term for the sport. It fits Flanker's personality name-wise.",
-      "isConcept": true
+      "isConcept": true,
+      "description": "Fires one bullet per shot that does 70 base damage. This weapon reloads its entire clip at once."
     },
     {
       "name": "Bloxaide",
@@ -401,7 +431,8 @@
       },
       "changes": ["Health drink concept", "Substantial healing boost", "Trade-off with other healing sources"],
       "reasoning": "A health drink concept for Flanker that provides substantial healing but reduces healing from other sources. Could be useful for solo play or when medics are unavailable.",
-      "isConcept": true
+      "isConcept": true,
+      "description": ""
     },
     {
       "name": "Mount-17",
@@ -414,7 +445,8 @@
       },
       "changes": ["Pistol concept for Trooper", "Increased clip size", "Accuracy improvements"],
       "reasoning": "This has been one of the weapons that I'm really intrigued and interested in seeing. A Trooper pistol that's a sidegrade to your usual hitscan shotgun. It might be an underused/inoffensive concept and probably would have the same popularity as 50-AE where people do use it, it's just that some prefer MAC-10 more. Who knows.",
-      "isConcept": true
+      "isConcept": true,
+      "description": "Compared to pistol."
     },
     {
       "name": "Scorch Shot",
@@ -427,7 +459,8 @@
       },
       "changes": ["Conceptual flamethrower design", "Alternative to current flare gun options", "Focus on area control"],
       "reasoning": "A conceptual alternative for Arsonist that could provide different playstyles compared to the current flare gun options.",
-      "isConcept": true
+      "isConcept": true,
+      "description": ""
     },
     {
       "name": "Gas Passer",
@@ -440,7 +473,8 @@
       },
       "changes": ["Gas-based area denial weapon", "Crowd control focus", "Alternative Arsonist playstyle"],
       "reasoning": "A gas-based weapon concept for Arsonist that could create area denial effects or provide alternative crowd control options.",
-      "isConcept": true
+      "isConcept": true,
+      "description": ""
     },
     {
       "name": "Huo Long Heater",
@@ -453,7 +487,22 @@
       },
       "changes": ["Flamethrower concept for Brute", "Area denial focus", "Tanky playstyle synergy"],
       "reasoning": "A flamethrower concept for Brute that could provide area denial capabilities and synergize with Brute's tanky playstyle.",
-      "isConcept": true
+      "isConcept": true,
+      "description": ""
+    },
+    {
+      "name": "Witches Brew",
+      "class": "Flanker",
+      "type": "Secondary",
+      "image": "images/WitchesBrew.png",
+      "stats": {
+        "positive": ["While under the effects, +25% movement speed and damage done and damage taken will be mini-crits."],
+        "negative": ["Mark for Death won't be active unless the user damages or attacks during the effect", "Mark for Death lasts 8s"]
+      },
+      "changes": [],
+      "reasoning": "",
+      "isConcept": false,
+      "description": "While under the effects, +25% movement speed. Damage done and taken will be mini-crits. Mark for Death requires damage/attack activation and lasts 8s."
     }
   ]
 }

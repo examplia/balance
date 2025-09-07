@@ -4,6 +4,42 @@ This document provides a comprehensive record of all updates and modifications m
 
 ## Latest Updates
 
+### Version 2.1.8 - Grey Text Weapon Descriptions Implementation (2025-09-07)
+
+**Weapon Display Enhancement:**
+- **Added Grey Text Descriptions**: Implemented comprehensive weapon usage descriptions at the bottom of each weapon card, sourced from parsed `grey-text.txt` content
+- **New Description Field**: Added `"description"` property to all weapon objects in `weapons.json` with parsed and summarized usage information for relevant weapons
+- **Dynamic Rendering**: Modified `createWeaponCard()` JavaScript function to render description sections only when non-empty descriptions are available
+- **Visual Styling**: Created `.description-section` CSS class with grey color scheme (#a0a0a0), italic smaller font (0.9rem), and subtle background styling matching existing card design
+- **Responsive Design**: Added mobile-specific styling adjustments for description sections (0.85rem font size on screens < 768px)
+- **Content Mapping**: Parsed unstructured `grey-text.txt` content to create structured descriptions, summarizing longer entries (e.g., Witches Brew, ROBAR) and handling [Hidden] mechanics notes
+- **Graceful Degradation**: Weapons without descriptions (e.g., Specialist, Grill Scout) display without the description section to maintain clean layout
+- **Impact**: Enhanced weapon documentation provides clear usage instructions and mechanics explanations, improving user understanding and accessibility of weapon functionality
+
+**Technical Implementation:**
+- **File Modified**: `weapons.json` - Added "description" field to all weapon objects with parsed content from grey-text.txt
+- **File Modified**: `index.html` - Updated `createWeaponCard()` function (lines 1065-1075) to create and append description sections after reasoning
+- **File Modified**: `styles.css` - Added `.description-section` styling rules with grey theme, responsive breakpoints, and visual consistency
+- **Content Processing**: Created mapping of 15+ weapons with descriptions; unmatched weapons receive empty string to avoid rendering
+- **JSON Validation**: Maintained proper JSON structure and formatting after adding description fields to all 42+ weapon entries
+- **JavaScript Enhancement**: Added conditional rendering logic to check `weapon.description && weapon.description.trim() !== ''` before creating DOM elements
+- **CSS Design**: Implemented consistent styling with existing sections (border-left, padding, background opacity) using grey color palette
+- **No Breaking Changes**: All existing search, filter, comparison, and animation functionality remains intact
+- **Performance**: Minimal DOM impact with conditional rendering; descriptions only created when content exists
+
+**Usage Examples:**
+- **The Colbat**: "This weapon reloads its entire clip at once."
+- **The Soda Popper**: "When Hype is full, Alt-fire to activate hype mode for multiple jumps and full air control."
+- **Mad Milk**: "Effect duration is based on splash distance. [Hidden] Recharge time is 30s, 15s when extinguishing a teammate."
+- **Rejuvenator**: "SuperCharge increases healing by 300% and grants immunity to movement-impairing effects. Mirrors blast jumps and shield charges of patients."
+
+**Benefits:**
+- **Improved Documentation**: Clear usage instructions enhance weapon understanding
+- **Visual Hierarchy**: Grey text styling distinguishes usage info from stats and changes
+- **Mobile Optimized**: Responsive design ensures readability across all devices
+- **Content Rich**: 15+ weapons now have detailed usage descriptions
+- **Maintainable**: Easy to update descriptions via JSON without code changes
+
 ### Version 2.1.7 - Specialist Weapon Rename and Stat Overhaul (2025-09-07)
 
 **Weapon Database Update:**

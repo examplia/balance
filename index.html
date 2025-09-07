@@ -1063,6 +1063,22 @@
             
             card.appendChild(reasonSection);
             
+            // Create description section if available
+            if (weapon.description && weapon.description.trim() !== '') {
+                const descriptionSection = document.createElement('div');
+                descriptionSection.className = 'description-section';
+                
+                const descriptionTitle = document.createElement('strong');
+                descriptionTitle.textContent = 'Usage: ';
+                descriptionSection.appendChild(descriptionTitle);
+                
+                const descriptionText = document.createElement('span');
+                descriptionText.textContent = weapon.description;
+                descriptionSection.appendChild(descriptionText);
+                
+                card.appendChild(descriptionSection);
+            }
+            
             return card;
         }
 
