@@ -563,6 +563,171 @@
                 margin: 1rem auto;
             }
         }
+
+        /* Workshop Items Styling */
+        .workshop-item {
+            background:
+                linear-gradient(145deg, rgba(74, 45, 90, 0.6), rgba(10, 6, 21, 0.98)),
+                radial-gradient(circle at 30% 20%, rgba(58, 29, 74, 0.25) 0%, transparent 50%),
+                radial-gradient(circle at 70% 80%, rgba(74, 45, 90, 0.15) 0%, transparent 50%);
+            border: 2px solid #4a2d5a;
+            border-radius: 15px;
+            padding: 2rem;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            position: relative;
+            overflow: hidden;
+            box-shadow:
+                0 8px 32px rgba(74, 45, 90, 0.5),
+                inset 0 1px 0 rgba(255, 255, 255, 0.03);
+        }
+
+        .workshop-item::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.1), transparent);
+            transition: left 0.5s;
+        }
+
+        .workshop-item:hover::before {
+            left: 100%;
+        }
+
+        .workshop-item:hover {
+            transform: translateY(-8px) scale(1.02);
+            box-shadow:
+                0 20px 60px rgba(74, 45, 90, 0.7),
+                0 0 30px rgba(58, 29, 74, 0.6),
+                inset 0 1px 0 rgba(255, 255, 255, 0.05);
+            border-color: #4a2d5a;
+            background:
+                linear-gradient(145deg, rgba(74, 45, 90, 0.7), rgba(10, 6, 21, 0.99)),
+                radial-gradient(circle at 30% 20%, rgba(74, 45, 90, 0.4) 0%, transparent 50%),
+                radial-gradient(circle at 70% 80%, rgba(58, 29, 74, 0.3) 0%, transparent 50%);
+        }
+
+        .workshop-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 1.5rem;
+        }
+
+        .workshop-icon {
+            width: 80px;
+            height: 80px;
+            background: radial-gradient(circle, #4a2d5a, #3a1d4a);
+            border-radius: 50%;
+            margin-right: 1rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+            position: relative;
+            box-shadow: 0 0 20px rgba(74, 45, 90, 0.7);
+        }
+
+        .workshop-icon img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 50%;
+            transition: transform 0.3s ease;
+        }
+
+        .workshop-icon img:hover {
+            transform: scale(1.1);
+        }
+
+        .workshop-info h3 {
+            color: #f8d100;
+            font-size: 1.5rem;
+            margin-bottom: 0.5rem;
+            text-shadow: 1px 1px 2px #000;
+        }
+
+        .workshop-type {
+            color: #9acdff;
+            font-size: 1rem;
+            margin-bottom: 0.25rem;
+        }
+
+        .workshop-author {
+            color: #4a2d5a;
+            font-size: 0.9rem;
+            opacity: 0.9;
+        }
+
+        .workshop-description {
+            background: rgba(0, 0, 0, 0.3);
+            border-radius: 8px;
+            padding: 1rem;
+            margin-bottom: 1rem;
+            border-left: 3px solid #9acdff;
+        }
+
+        .workshop-description p {
+            margin: 0;
+            line-height: 1.4;
+        }
+
+        .workshop-details {
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+
+        .workshop-category,
+        .workshop-weapon {
+            background: rgba(74, 45, 90, 0.3);
+            color: #9acdff;
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            border: 1px solid rgba(154, 205, 255, 0.3);
+        }
+
+        .workshop-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+            gap: 2rem;
+            margin-bottom: 4rem;
+        }
+
+        @media (max-width: 768px) {
+            .workshop-grid {
+                grid-template-columns: 1fr;
+                gap: 1.5rem;
+            }
+
+            .workshop-item {
+                padding: 1.5rem;
+                margin: 0 0.5rem;
+            }
+
+            .workshop-header {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .workshop-icon {
+                margin-bottom: 0.5rem;
+                margin-right: 0;
+            }
+
+            .workshop-details {
+                justify-content: center;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .workshop-item {
+                padding: 1rem;
+                margin: 0 0.25rem;
+            }
+        }
     </style>
 </head>
 <body>
@@ -744,10 +909,25 @@
             <p class="section-description">Discover the latest cosmetics, reskins, and taunts from our community workshop</p>
 
             <div class="workshop-grid">
-                <!-- Workshop items will be loaded here -->
-                <div class="workshop-placeholder">
-                    <h3>Coming Soon</h3>
-                    <p>Workshop items and cosmetics are being prepared for display</p>
+                <!-- Workshop Items -->
+                <div class="workshop-item">
+                    <div class="workshop-header">
+                        <div class="workshop-icon">
+                            <img src="WorkshopItems/TheCleaving-By-Bushment.png" alt="The Cleaving Nature" loading="lazy">
+                        </div>
+                        <div class="workshop-info">
+                            <h3>The Cleaving Nature</h3>
+                            <div class="workshop-type">Halloween Reskin</div>
+                            <div class="workshop-author">By Bushment</div>
+                        </div>
+                    </div>
+                    <div class="workshop-description">
+                        <p>A spooky Halloween reskin of the Improvised Innovator. Perfect for adding some seasonal flair to your loadout.</p>
+                    </div>
+                    <div class="workshop-details">
+                        <span class="workshop-category">🎃 Halloween</span>
+                        <span class="workshop-weapon">Improvised Innovator</span>
+                    </div>
                 </div>
             </div>
         </div>
@@ -911,37 +1091,31 @@
                 return;
             }
             
-            // Check if this is the user's first visit
-            if (!sessionStorage.getItem('hasVisited')) {
-                // Mark as visited
-                sessionStorage.setItem('hasVisited', 'true');
+            // Set up jumpscare after 5 seconds (triggers on every visit)
+            setTimeout(() => {
+                const overlay = document.getElementById('jumpscareOverlay');
+                const audio = new Audio('images/mixkit-terror-transition-2484.wav');
                 
-                // Set up jumpscare after 5 seconds
+                // Show the jumpscare
+                overlay.style.display = 'flex';
+                
+                // Play the scary sound
+                audio.play().catch(e => {
+                    console.log('Audio play failed:', e);
+                });
+                
+                // Hide the jumpscare after 3 seconds
                 setTimeout(() => {
-                    const overlay = document.getElementById('jumpscareOverlay');
-                    const audio = new Audio('images/mixkit-terror-transition-2484.wav');
-                    
-                    // Show the jumpscare
-                    overlay.style.display = 'flex';
-                    
-                    // Play the scary sound
-                    audio.play().catch(e => {
-                        console.log('Audio play failed:', e);
-                    });
-                    
-                    // Hide the jumpscare after 3 seconds
-                    setTimeout(() => {
-                        overlay.style.display = 'none';
-                    }, 3000);
-                    
-                    // Allow clicking to dismiss early
-                    overlay.addEventListener('click', () => {
-                        overlay.style.display = 'none';
-                        audio.pause();
-                        audio.currentTime = 0;
-                    });
-                }, 5000);
-            }
+                    overlay.style.display = 'none';
+                }, 3000);
+                
+                // Allow clicking to dismiss early
+                overlay.addEventListener('click', () => {
+                    overlay.style.display = 'none';
+                    audio.pause();
+                    audio.currentTime = 0;
+                });
+            }, 5000);
         }
 
         // Initialize jumpscare when page loads
