@@ -40,32 +40,6 @@
       "isConcept": false
     },
     {
-      "name": "Specialist (V.2.)",
-      "class": "Flanker",
-      "type": "Primary",
-      "image": "images/Specialist.png",
-      "stats": {
-        "positive": ["Clip size increased on kill", "+25% faster reload speed"],
-        "negative": ["-33% clip size", "-20% damage penalty"]
-      },
-      "changes": ["Added a 'Clip size increased on kill' stat", "Added a '+25% faster reloaded speed' stat", "Removed '+1 capture rate on wearer' stat", "Removed '+15% clip size bonus' stat", "Added '-33% clip size' stat", "Increased damage penalty from 15% to 20%"],
-      "reasoning": "Another idea I used to have for Specialist, Flanker's bulletstormer. This is mostly experimental.",
-      "isConcept": false
-    },
-    {
-      "name": "Specialist (V.3.)",
-      "class": "Flanker",
-      "type": "Primary",
-      "image": "images/Specialist.png",
-      "stats": {
-        "positive": ["50% of your clip reloaded and secondary meters cooldown reduced on kill", "20% more accurate"],
-        "negative": ["-33% clip size", "-20% damage penalty", "-20% slower reload speed"]
-      },
-      "changes": [],
-      "reasoning": "",
-      "isConcept": false
-    },
-    {
       "name": "Concealed Carry",
       "class": "Flanker",
       "type": "Secondary",

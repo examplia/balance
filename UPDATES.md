@@ -4,6 +4,22 @@ This document provides a comprehensive record of all updates and modifications m
 
 ## Latest Updates
 
+### Version 2.1.6 - Specialist Variant Weapon Removal (2025-09-07)
+
+**Weapon Database Cleanup:**
+- **Removed "Specialist (V.2.)" and "Specialist (V.3.)" Weapon Entries**: Completely removed the experimental variant entries for the Specialist weapon from the weapons database (weapons.json)
+- **Root Cause**: These variant concepts were deemed experimental and no longer necessary for the current weapon balance documentation, simplifying the database to focus on the primary Specialist (V.1.) implementation
+- **Impact**: Specialist V.2 and V.3 will no longer appear in weapon listings, search results, or comparisons; only the main Specialist (V.1.) remains
+- **Database Integrity**: Maintained JSON structure and formatting after removal
+- **No Breaking Changes**: Removal does not affect existing functionality like syntax highlighting, copy buttons, or markdown rendering
+- **Clean Removal**: Ensured no orphaned references or broken links remain in the system
+
+**Technical Details:**
+- **File Modified**: weapons.json
+- **Entries Removed**: Complete weapon objects for "Specialist (V.2.)" and "Specialist (V.3.)" (Flanker primary weapon variants)
+- **JSON Validation**: Confirmed proper JSON syntax after removal
+- **No Side Effects**: Weapon removal does not impact wiki rendering, search functionality, or other weapon entries
+
 ### Version 2.1.5 - Suppressed Solution Weapon Removal (2025-09-07)
 
 **Weapon Database Cleanup:**
@@ -405,4 +421,4 @@ For questions regarding site updates or contribution opportunities:
 ---
 
 *Last updated: 2025-09-07*
-*Version: 2.1.5*
+*Version: 2.1.6*
